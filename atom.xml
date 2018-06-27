@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jinco the Snorkel</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://sj602.github.io/"/>
+  <updated>2018-06-27T12:33:13.807Z</updated>
+  <id>https://sj602.github.io/</id>
+  
+  <author>
+    <name>Jin Seon</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>start-blog</title>
+    <link href="https://sj602.github.io/2018/06/27/start-blog/"/>
+    <id>https://sj602.github.io/2018/06/27/start-blog/</id>
+    <published>2018-06-27T12:33:13.000Z</published>
+    <updated>2018-06-27T12:33:13.807Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
