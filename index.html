@@ -67,7 +67,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="2">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Jinco the Snorkel</a>
@@ -92,7 +92,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="2">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -228,7 +228,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="2"
                  class="
                         hasCoverMetaIn
                         ">
@@ -240,6 +240,64 @@
   });
 </script> 
                 <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2018/06/30/static-and-not-static/">
+                            [Javascript] Class에서의 Static이란?
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-06-30T22:55:50+09:00">
+	
+		    Jun 30, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p>
+<p>예를 들어,</p>
+<pre><code>class Foo {
+    bar() {...}
+
+    static baz() {...}
+}
+</code></pre><p>라는 코드가 있을때 bar()는 </p>
+<pre><code>const f = new Foo()
+f.bar() 
+</code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만</p>
+<p>baz()는</p>
+<pre><code>Foo.baz()
+</code></pre><p>위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.<br>Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. </p>
+<p>용어의 반대 관계는 아래와 같다.</p>
+<p><strong> static method != instance method </strong></p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/2018/06/30/static-and-not-static/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
     
     
     <article class="postShorten postShorten--thumbnailimg-bottom">

@@ -3,12 +3,17 @@
 
     <sitemap>
         <loc>https://sj602.github.io/post-sitemap.xml</loc>
-        <lastmod>2018-06-28T11:46:59.406Z</lastmod>
+        <lastmod>2018-06-30T14:22:45.383Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>https://sj602.github.io/page-sitemap.xml</loc>
         <lastmod>2018-06-27T12:57:53.718Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://sj602.github.io/tag-sitemap.xml</loc>
+        <lastmod>2018-06-30T14:22:45.383Z</lastmod>
     </sitemap>
 
 </sitemapindex>
