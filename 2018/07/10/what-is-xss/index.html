@@ -6,24 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jinco the Snorkel">
-    <title>Archives: 2018 - Jinco the Snorkel</title>
+    <title>XSS(Cross Site Scription)란 무엇인가? - Jinco the Snorkel</title>
     <meta name="author" content="Jin Seon">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{}</script>
-    <meta name="description" content="A Voyage to Freedom">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.\nXSS(Cross Site Scripting)이란?1234SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로, 악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다. 공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며, 보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키\n웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.\n공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.\n공격의 방법\n스크립트 태그 안에 심기\n1&lt;script&gt;alert(document.cookie)&lt;/script&gt;\n\n서버 응답 결과에 심기\n1htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz\n\n링크에 심기\n\n\n피해 종류1231. 쿠키 정보/세션 ID 획득2. 시스템 관리자 권한 획득3. 악성코드 다운로드\n예방 방법11. 태그 문자 무효화\n기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.\n12. 라이브러리 이용\n일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.다음과 같은 라이브러리들이 있다.\n\nAntiXSS(MS에서 개발)\nOWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)\nNAVER Lucy XSS filter\n\n13. 쿠키 보안 옵션 이용\n쿠키 생성시‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.완전히 방어 가능한 건 아니라고 한다.\n\n출처: 나무위키, 한국인터넷진흥원\n","dateCreated":"2018-07-10T21:32:40+09:00","dateModified":"2018-07-11T00:03:20+09:00","datePublished":"2018-07-10T21:32:40+09:00","description":"","headline":"XSS(Cross Site Scription)란 무엇인가?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/10/what-is-xss/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/07/10/what-is-xss/","keywords":"보안, XSS"}</script>
+    <meta name="description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란?1234SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로, 악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다. 공격에 성공하면">
+<meta name="keywords" content="보안, XSS">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Jinco the Snorkel">
-<meta property="og:url" content="https://sj602.github.io/archives/2018/index.html">
+<meta property="og:title" content="XSS(Cross Site Scription)란 무엇인가?">
+<meta property="og:url" content="https://sj602.github.io/2018/07/10/what-is-xss/index.html">
 <meta property="og:site_name" content="Jinco the Snorkel">
-<meta property="og:description" content="A Voyage to Freedom">
+<meta property="og:description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란?1234SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로, 악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다. 공격에 성공하면">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://sj602.github.io/2018/07/10/what-is-xss/image/html%20tag%20encoding.png">
+<meta property="og:updated_time" content="2018-07-10T15:03:20.125Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jinco the Snorkel">
-<meta name="twitter:description" content="A Voyage to Freedom">
+<meta name="twitter:title" content="XSS(Cross Site Scription)란 무엇인가?">
+<meta name="twitter:description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란?1234SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로, 악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다. 공격에 성공하면">
+<meta name="twitter:image" content="https://sj602.github.io/2018/07/10/what-is-xss/image/html%20tag%20encoding.png">
     
     
         
@@ -67,7 +71,7 @@
         
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="5">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Jinco the Snorkel</a>
@@ -82,7 +86,7 @@
         
         </a>
     
-<link rel="canonical" href="https://sj602.github.io/archives/2018/"/>
+<link rel="canonical" href="https://sj602.github.io/2018/07/10/what-is-xss/"/>
 </header>
 
             <!-- Define author's picture -->
@@ -92,7 +96,7 @@
         
     
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="5">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -228,7 +232,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="5"
                  class="
                         hasCoverMetaIn
                         ">
@@ -240,21 +244,18 @@
   });
 </script> 
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post">
+
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2018/07/10/what-is-xss/">
-                            XSS(Cross Site Scription)란 무엇인가?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            XSS(Cross Site Scription)란 무엇인가?
+        </h1>
+    
+    
+        <div class="post-meta">
     <time datetime="2018-07-10T21:32:40+09:00">
 	
 		    Jul 10, 2018
@@ -263,10 +264,13 @@
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content">
-                    <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
 <h1 id="XSS-Cross-Site-Scripting-이란"><a href="#XSS-Cross-Site-Scripting-이란" class="headerlink" title="XSS(Cross Site Scripting)이란?"></a>XSS(Cross Site Scripting)이란?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로, </span><br><span class="line">악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다. </span><br><span class="line">공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며, </span><br><span class="line">보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</span><br></pre></td></tr></table></figure>
 <p>웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.<br>예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.</p>
 <p>공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.</p>
@@ -295,151 +299,87 @@
 <hr>
 <p>출처: <a href="https://namu.wiki/w/XSS" target="_blank" rel="noopener">나무위키</a>, <a href="http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf" target="_blank" rel="noopener">한국인터넷진흥원</a></p>
 
-                    
-                        
+            
 
-                    
-                    
-                        <p>
-                            <a href="/2018/07/10/what-is-xss/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2018/06/30/static-and-not-static/">
-                            [Javascript] Class에서의 Static이란?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-06-30T22:55:50+09:00">
-	
-		    Jun 30, 2018
-    	
-    </time>
-    
-</div>
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/보안-XSS/">보안, XSS</a>
 
             </div>
-            
-                <div class="postShorten-content">
-                    <p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p>
-<p>예를 들어,</p>
-<pre><code>class Foo {
-    bar() {...}
-
-    static baz() {...}
-}
-</code></pre><p>라는 코드가 있을때 bar()는 </p>
-<pre><code>const f = new Foo()
-f.bar() 
-</code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만</p>
-<p>baz()는</p>
-<pre><code>Foo.baz()
-</code></pre><p>위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.<br>Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. </p>
-<p>용어의 반대 관계는 아래와 같다.</p>
-<p><strong> static method != instance method </strong></p>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/2018/06/30/static-and-not-static/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2018/06/27/start-blog/">
-                            블로그를 시작하다
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-06-27T21:33:13+09:00">
-	
-		    Jun 27, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <p>개발자로서의 첫 걸음에 앞서 블로그를 시작한다.</p>
-<p>이 블로그는 주로 내가 학습한 개발과 관련된 내용들이 주를 이룰 것이지만</p>
-<p>비단 개발 분야만이 아니라 좀 더 멋진 미래를 위해 하루하루 발전해나가는 내 모습을 기록할 것이다.</p>
-<p>평소 뭔가 기록을 남겨서 머릿속에 있는 생각이든, 공부한 내용이든 정리할 필요성을 느끼고 있었고</p>
-<p>특히나 <a href="https://hyunseob.github.io/2017/02/26/blog-for-developers/" target="_blank" rel="noopener">개발자로서 블로그 운영의 중요성</a>을 보면서</p>
-<p>당장 시작해야겠다는 생각이 들었다. 군생활도 얼마 안남은 김에 어제밤에 Hexo로 정적 사이트 생성기로 만들어봤다. </p>
-<p>이거 하나 만드는 데에도 굉장히 시간이 많이 걸렸는데 만드면서도 그 뭔가 모를 재미를 느꼈었다. </p>
-<p>아마 이 감정(Craftmanship라나 뭐라더나) 때문에 수 많은 개발자들이 개발을 시작했고 또 즐기는 이유일 것이다.</p>
-<p>블로그 제목(Jinco the Snorkel)은 요즘 하고 있는 것 중 동기들과 하고있는 스노클이라는 조직에서 내가 많은 영향을 받았고</p>
-<p>인생의 전환기에서 “항상 스노클의 정체성을 기억하자” 라는 의미를 담았다.</p>
-<p>나를 본격적으로 개발자의 길로 이끌었던 <a href="https://brunch.co.kr/@imagineer#articles" target="_blank" rel="noopener">마르코</a>님을 보면서</p>
-<p>자기만의 브랜드가 중요한 시대라고 느꼈다. 아마 15년 말부터 마르코님의 브런치 글을 읽기 시작했는데</p>
-<p>초기부터 글을 읽어온 독자로서 3년 동안 마르코님은 엄청나게 성장하신 것 같다.</p>
-<p>아마 그 이유는 여러가지가 있었겠지만 개발이든 사업구상이든 독서든 브런치 글 발행이든 </p>
-<p><u><em>무엇인가를 꾸준하게 하는 것</em></u>에 있을 것이다.</p>
-<p>이제 마르코라는 이름은 &lt;비전공 문과 출신 개발자&gt;라는 분야에서 어느 정도 브랜드화 되지 않았나싶다.</p>
-<p>마르코님은 날 모르시겠지만 개인적으로도 나의 롤모델이라고 생각하고 있다.</p>
-<p>이 블로그를 통해 비록 지금은 내세울 것 하나 없는 사람이지만 마르코님처럼 나만의 브랜드를 쌓아나갈 것이다.</p>
-<p>또, 개인적으로 논리력이 많이 부족하다고 생각하는데 글을 쓰면서 논리력과 타인에게 나를 표현할 수 있는 자기표현력도 많이 향상되었으면 좋겠다.</p>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/2018/06/27/start-blog/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/30/static-and-not-static/" data-tooltip="[Javascript] Class에서의 Static이란?" aria-label="NEXT: [Javascript] Class에서의 Static이란?">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/" title="Share on Facebook">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment-o"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
 
 
 
@@ -457,6 +397,81 @@ f.bar()
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/30/static-and-not-static/" data-tooltip="[Javascript] Class에서의 Static이란?" aria-label="NEXT: [Javascript] Class에서의 Static이란?">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/" title="Share on Facebook">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment-o"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
             
         </div>
         
@@ -506,6 +521,25 @@ f.bar()
 <script src="/assets/js/thumbs.js"></script>
 <script src="/assets/js/tranquilpeak.js"></script>
 <!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'https://sj602.github.io/2018/07/10/what-is-xss/';
+                 
+                    this.page.identifier = '2018/07/10/what-is-xss/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'sj602-github-io';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
 
 
 

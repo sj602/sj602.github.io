@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://sj602.github.io/2018/07/10/what-is-xss/</loc>
+        <lastmod>2018-07-10T15:03:20.125Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://sj602.github.io/2018/06/30/static-and-not-static/</loc>
         <lastmod>2018-06-30T14:22:45.383Z</lastmod>
         <changefreq>weekly</changefreq>
