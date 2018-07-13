@@ -273,12 +273,14 @@
 <p>위와 같이 SQL문을 짜서 데이터베이스에 존재하는 user_table 테이블에서 입력한 id와 입력한 password와 동일한 값을 찾아 반환해주는 코드이다.</p>
 <p>일반적인 유저라면</p>
 <blockquote>
-<p>id = 홍길동<br>password = 1234<br>이런식으로 입력을 하겠지만</p>
+<p>id = 홍길동<br>password = 1234</p>
 </blockquote>
+<p>이런식으로 입력을 하겠지만</p>
 <p>SQl injection을 할 유저는</p>
 <blockquote>
-<p>id = 홍길동<br>password = 1234’; DROP table user_table–<br>이런식으로 입력을 하게 된다.</p>
+<p>id = 홍길동<br>password = 1234’; DROP table user_table–</p>
 </blockquote>
+<p>이런식으로 입력을 하게 된다.</p>
 <p>그렇게 되면 전체 SQL 구문은 이렇게 되어버린다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT user FROM user_table </span><br><span class="line">WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;; DROP TABLE user_table--&apos;;</span><br></pre></td></tr></table></figure>
 <p>SQL에서 ;(세미콜론)은 한 구문의 끝을 나타내므로 위 구문은</p>
@@ -286,7 +288,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE user_table--&apos;</span><br></pre></td></tr></table></figure>
 <p>이렇게 2개의 구문으로 나눠져 실행되게 된다.</p>
 <p>–(하이픈 2개) 다음으로 오는 문장은 주석 처리가 되므로,<br>결국 DROP 명령어에 의해 해당 table은 DB에서 지워지게 된다.</p>
-<p>이 외에도 로그인을 무조건 성공하게 하는<br><strong>‘ OR ‘1’ = ‘1</strong> (1은 1과 같으니 WHERE절은 무조건 참이 되어 아이디 또는 비밀번호가 무엇이든 로그인 성공)<br>같은 값도 있다.</p>
+<p>이 외에도 로그인을 무조건 성공하게 하는<br><strong>‘ OR ‘1’ = ‘1</strong> (1은 1과 같으니 WHERE절은 무조건 참이 되어 아이디 또는 비밀번호가 무엇이든 로그인 성공)<br>등 수많은 케이스가 있다.</p>
+<hr>
 <h1 id="방어-방법"><a href="#방어-방법" class="headerlink" title="방어 방법"></a>방어 방법</h1><h4 id="1-입력값-검증"><a href="#1-입력값-검증" class="headerlink" title="1. 입력값 검증"></a>1. 입력값 검증</h4><p>다음과 같은 특수문자 혹은 SQL 명렁문이 입력값에 포함되있는지 검증한 후 차단한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*, –, ‘, “, ?, #, (, ), ;, @, =, *, +, union, select, drop, update, from, </span><br><span class="line">where, join, substr, user_tables, user_table_columns, </span><br><span class="line">information_schema, sysobject, table_schema, declare, dual,…</span><br></pre></td></tr></table></figure></p>
 <p>유저가 클라이언트단에서 자바스크립트를 끌 수 있으니<br>클라이언트 단에서도 차단 및 서버 단에서도 차단하여 이중장치를 마련하자.<br>대부분의 경우, 입력값 검증만 해도 막을 수 있다.</p>
 <h4 id="2-SQL-오류-발생시-오류-메세지-클라이언트-표시-금지"><a href="#2-SQL-오류-발생시-오류-메세지-클라이언트-표시-금지" class="headerlink" title="2. SQL 오류 발생시 오류 메세지 클라이언트 표시 금지"></a>2. SQL 오류 발생시 오류 메세지 클라이언트 표시 금지</h4><p>SQL 오류 메세지를 통하여 유저가 해당 DB의 구조를 알 수 있다.</p>
