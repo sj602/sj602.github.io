@@ -6,26 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jinco the Snorkel">
-    <title>[Javascript] Class에서의 Static이란? - Jinco the Snorkel</title>
+    <title>CSRF(Cross Site Request Forgery)란 무엇인가? - Jinco the Snorkel</title>
     <meta name="author" content="Jin Seon">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.\n예를 들어,\nclass Foo {\n    bar() {...}\n\n    static baz() {...}\n}\n라는 코드가 있을때 bar()는 \nconst f = new Foo()\nf.bar() \n위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만\nbaz()는\nFoo.baz()\n위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. \n용어의 반대 관계는 아래와 같다.\n static method != instance method \n","dateCreated":"2018-06-30T22:55:50+09:00","dateModified":"2018-06-30T23:22:45+09:00","datePublished":"2018-06-30T22:55:50+09:00","description":"","headline":"[Javascript] Class에서의 Static이란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/06/30/static-and-not-static/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/06/30/static-and-not-static/","keywords":"javascript, static"}</script>
-    <meta name="description" content="클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다. 예를 들어, class Foo {     bar() {...}      static baz() {...} } 라는 코드가 있을때 bar()는  const f = new Foo() f.bar()  위 예시처럼 f라는 Foo의 인스턴스">
-<meta name="keywords" content="javascript, static">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"CSRF란 무엇인가?12CSRF(Cross Stie Request Forgery) : 사이트간 요청 위조웹 애플리케이션 취약점 중 하나로 사용자가 자신의 의지와 무관하게 공격자가 의도한 행동을 하여 특정 웹페이지를 보안에 취약하게 한다거나 수정, 삭제 등의 작업을 하게 만드는 공격방법을 의미한다 - 나무위키\n정의만 보면 앞서 알아봤던 XSS와 SQL injection과 비슷하다.XSS가 사용자가 특정 사이트를 신뢰한다는 점을 공격하는거라면, CSRF는 특정 사이트가 사용자의 브라우저를 신뢰한다는 점을 공격하는 것이 다르다.\n간단하게 정리하자면, 악성코드가XSS: 클라이언트에서 발생 / CSRF: 서버에서 발생이라고 할 수 있다.\n2008년도에 있었던 옥션 해킹 사고도 CSRF로 공격을 했다고 한다. (해커가 옥션 운영자에게 CSRF 코드가 포함된 이메일을 보내서 관리자 권한을 얻어냈다)\n공격 과정123...&lt;img src=&quot;http://auction.com/changeUserAcoount?id=admin&amp;password=admin&quot; width=&quot;0&quot; height=&quot;0&quot;&gt;...\n위 옥션 사건을 예로 들어보자.\n\n옥션 관리자 중 한명이 관리 권한을 가지고 회사내에서 작업을 하던 중 메일을 조회한다. (로그인이 이미 되어있다고 가정하면 관리자로서의 유효한 쿠키를 갖고있음)\n해커는 위와 같이 태그가 들어간 코드가 담긴 이메일을 보낸다. 관리자는 이미지 크기가 0이므로 전혀 알지 못한다.\n피해자가 이메일을 열어볼 때, 이미지 파일을 받아오기 위해 URL이 열린다.\n해커가 원하는 대로 관리자의 계정이 id와 pw 모두 admin인 계정으로 변경된다.\n\n방어 방법1. Referrer 검증request header에 있는 요청을 한 페이지의 정보가 담긴 referrer 속성을 검증하여 차단.일반적으로 이 방법만으로도 대부분 방어가 가능할 수 있다.옥션이 아닌 개인 이메일에서 요청이 들어오는 것처럼,같은 도메인 상에서 요청이 들어오지 않는다면 차단하도록 하는 것이다.\n2. CSRF Token 사용랜덤한 수를 사용자의 세션에 저장하여 사용자의 모든 요청(Request)에 대하여 서버단에서 검증하는 방법.\n12345// 로그인시, 또는 작업화면 요청시 CSRF 토큰을 생성하여 세션에 저장한다. session.setAttribute(&quot;CSRF_TOKEN&quot;,UUID.randomUUID().toString()); // 요청 페이지에 CSRF 토큰을 셋팅하여 전송한다 &lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;$&#123;CSRF_TOKEN&#125;&quot; /&gt;\n3. CAPTCHA 사용요즘은 거의 모든 웹사이트에서 캡차를 이용하는 것 같은데 캡차이미지상의 숫자/문자가 아니라면 해당 요청을 거부하는 것이다.\n이 외에도 form 태그를 입력할 시 GET방식을 지양하고 POST방식을 쓰도록 하는 것은 기본이라고 할 수 있다.\n\n출처 : 나무위키, 위키피디아,http://blog.ilkyu.kr/entry/CSRF-Crosssite-Request-Forgery-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%84-%EC%9A%94%EC%B2%AD-%EC%9C%84%EC%A1%B0,http://itstory.tk/entry/CSRF-공격이란-그리고-CSRF-방어-방법\n","dateCreated":"2018-07-14T17:34:18+09:00","dateModified":"2018-07-14T18:22:46+09:00","datePublished":"2018-07-14T17:34:18+09:00","description":"","headline":"CSRF(Cross Site Request Forgery)란 무엇인가?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/14/what-is-CSRF/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/07/14/what-is-CSRF/","keywords":"보안, CSRF"}</script>
+    <meta name="description" content="CSRF란 무엇인가?12CSRF(Cross Stie Request Forgery) : 사이트간 요청 위조웹 애플리케이션 취약점 중 하나로 사용자가 자신의 의지와 무관하게 공격자가 의도한 행동을 하여 특정 웹페이지를 보안에 취약하게 한다거나 수정, 삭제 등의 작업을 하게 만드는 공격방법을 의미한다 - 나무위키 정의만 보면 앞서 알아봤던 XSS와 SQL inj">
+<meta name="keywords" content="보안, CSRF">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="[Javascript] Class에서의 Static이란?">
-<meta property="og:url" content="https://sj602.github.io/2018/06/30/static-and-not-static/index.html">
+<meta property="og:title" content="CSRF(Cross Site Request Forgery)란 무엇인가?">
+<meta property="og:url" content="https://sj602.github.io/2018/07/14/what-is-CSRF/index.html">
 <meta property="og:site_name" content="Jinco the Snorkel">
-<meta property="og:description" content="클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다. 예를 들어, class Foo {     bar() {...}      static baz() {...} } 라는 코드가 있을때 bar()는  const f = new Foo() f.bar()  위 예시처럼 f라는 Foo의 인스턴스">
+<meta property="og:description" content="CSRF란 무엇인가?12CSRF(Cross Stie Request Forgery) : 사이트간 요청 위조웹 애플리케이션 취약점 중 하나로 사용자가 자신의 의지와 무관하게 공격자가 의도한 행동을 하여 특정 웹페이지를 보안에 취약하게 한다거나 수정, 삭제 등의 작업을 하게 만드는 공격방법을 의미한다 - 나무위키 정의만 보면 앞서 알아봤던 XSS와 SQL inj">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-30T14:22:45.383Z">
+<meta property="og:updated_time" content="2018-07-14T09:22:46.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Javascript] Class에서의 Static이란?">
-<meta name="twitter:description" content="클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다. 예를 들어, class Foo {     bar() {...}      static baz() {...} } 라는 코드가 있을때 bar()는  const f = new Foo() f.bar()  위 예시처럼 f라는 Foo의 인스턴스">
+<meta name="twitter:title" content="CSRF(Cross Site Request Forgery)란 무엇인가?">
+<meta name="twitter:description" content="CSRF란 무엇인가?12CSRF(Cross Stie Request Forgery) : 사이트간 요청 위조웹 애플리케이션 취약점 중 하나로 사용자가 자신의 의지와 무관하게 공격자가 의도한 행동을 하여 특정 웹페이지를 보안에 취약하게 한다거나 수정, 삭제 등의 작업을 하게 만드는 공격방법을 의미한다 - 나무위키 정의만 보면 앞서 알아봤던 XSS와 SQL inj">
     
     
         
@@ -84,7 +84,7 @@
         
         </a>
     
-<link rel="canonical" href="https://sj602.github.io/2018/06/30/static-and-not-static/"/>
+<link rel="canonical" href="https://sj602.github.io/2018/07/14/what-is-csrf/"/>
 </header>
 
             <!-- Define author's picture -->
@@ -249,14 +249,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            [Javascript] Class에서의 Static이란?
+            CSRF(Cross Site Request Forgery)란 무엇인가?
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-06-30T22:55:50+09:00">
+    <time datetime="2018-07-14T17:34:18+09:00">
 	
-		    Jun 30, 2018
+		    Jul 14, 2018
     	
     </time>
     
@@ -268,22 +268,25 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p>
-<p>예를 들어,</p>
-<pre><code>class Foo {
-    bar() {...}
-
-    static baz() {...}
-}
-</code></pre><p>라는 코드가 있을때 bar()는 </p>
-<pre><code>const f = new Foo()
-f.bar() 
-</code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만</p>
-<p>baz()는</p>
-<pre><code>Foo.baz()
-</code></pre><p>위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.<br>Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. </p>
-<p>용어의 반대 관계는 아래와 같다.</p>
-<p><strong> static method != instance method </strong></p>
+            <h1 id="CSRF란-무엇인가"><a href="#CSRF란-무엇인가" class="headerlink" title="CSRF란 무엇인가?"></a>CSRF란 무엇인가?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CSRF(Cross Stie Request Forgery) : 사이트간 요청 위조</span><br><span class="line">웹 애플리케이션 취약점 중 하나로 사용자가 자신의 의지와 무관하게 공격자가 의도한 행동을 하여 특정 웹페이지를 보안에 취약하게 한다거나 수정, 삭제 등의 작업을 하게 만드는 공격방법을 의미한다 - 나무위키</span><br></pre></td></tr></table></figure>
+<p>정의만 보면 앞서 알아봤던 <code>XSS</code>와 <code>SQL injection</code>과 비슷하다.<br><code>XSS</code>가 사용자가 특정 사이트를 신뢰한다는 점을 공격하는거라면, <code>CSRF</code>는 특정 사이트가 사용자의 브라우저를 신뢰한다는 점을 공격하는 것이 다르다.</p>
+<p>간단하게 정리하자면, 악성코드가<br>XSS: 클라이언트에서 발생 / CSRF: 서버에서 발생<br>이라고 할 수 있다.</p>
+<p>2008년도에 있었던 옥션 해킹 사고도 CSRF로 공격을 했다고 한다. (해커가 옥션 운영자에게 CSRF 코드가 포함된 이메일을 보내서 관리자 권한을 얻어냈다)</p>
+<h1 id="공격-과정"><a href="#공격-과정" class="headerlink" title="공격 과정"></a>공격 과정</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;img src=&quot;http://auction.com/changeUserAcoount?id=admin&amp;password=admin&quot; width=&quot;0&quot; height=&quot;0&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>위 옥션 사건을 예로 들어보자.</p>
+<ol start="0">
+<li>옥션 관리자 중 한명이 관리 권한을 가지고 회사내에서 작업을 하던 중 메일을 조회한다. (로그인이 이미 되어있다고 가정하면 관리자로서의 유효한 쿠키를 갖고있음)</li>
+<li>해커는 위와 같이 태그가 들어간 코드가 담긴 이메일을 보낸다. 관리자는 이미지 크기가 0이므로 전혀 알지 못한다.</li>
+<li>피해자가 이메일을 열어볼 때, 이미지 파일을 받아오기 위해 URL이 열린다.</li>
+<li>해커가 원하는 대로 관리자의 계정이 id와 pw 모두 admin인 계정으로 변경된다.</li>
+</ol>
+<h1 id="방어-방법"><a href="#방어-방법" class="headerlink" title="방어 방법"></a>방어 방법</h1><h4 id="1-Referrer-검증"><a href="#1-Referrer-검증" class="headerlink" title="1. Referrer 검증"></a>1. Referrer 검증</h4><p>request header에 있는 요청을 한 페이지의 정보가 담긴 referrer 속성을 검증하여 차단.<br>일반적으로 이 방법만으로도 대부분 방어가 가능할 수 있다.<br>옥션이 아닌 개인 이메일에서 요청이 들어오는 것처럼,<br>같은 도메인 상에서 요청이 들어오지 않는다면 차단하도록 하는 것이다.</p>
+<h4 id="2-CSRF-Token-사용"><a href="#2-CSRF-Token-사용" class="headerlink" title="2. CSRF Token 사용"></a>2. CSRF Token 사용</h4><p>랜덤한 수를 사용자의 세션에 저장하여 사용자의 모든 요청(Request)에 대하여 서버단에서 검증하는 방법.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 로그인시, 또는 작업화면 요청시 CSRF 토큰을 생성하여 세션에 저장한다. </span><br><span class="line">session.setAttribute(&quot;CSRF_TOKEN&quot;,UUID.randomUUID().toString()); </span><br><span class="line"></span><br><span class="line">// 요청 페이지에 CSRF 토큰을 셋팅하여 전송한다 </span><br><span class="line">&lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;$&#123;CSRF_TOKEN&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-CAPTCHA-사용"><a href="#3-CAPTCHA-사용" class="headerlink" title="3. CAPTCHA 사용"></a>3. CAPTCHA 사용</h4><p>요즘은 거의 모든 웹사이트에서 캡차를 이용하는 것 같은데 캡차이미지상의 숫자/문자가 아니라면 해당 요청을 거부하는 것이다.</p>
+<p>이 외에도 form 태그를 입력할 시 GET방식을 지양하고 POST방식을 쓰도록 하는 것은 기본이라고 할 수 있다.</p>
+<hr>
+<p>출처 : <a href="https://namu.wiki/w/CSRF" target="_blank" rel="noopener">나무위키</a>, <a href="https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%ED%8A%B8_%EA%B0%84_%EC%9A%94%EC%B2%AD_%EC%9C%84%EC%A1%B0" target="_blank" rel="noopener">위키피디아</a>,<br><a href="http://blog.ilkyu.kr/entry/CSRF-Crosssite-Request-Forgery-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%84-%EC%9A%94%EC%B2%AD-%EC%9C%84%EC%A1%B0" target="_blank" rel="noopener">http://blog.ilkyu.kr/entry/CSRF-Crosssite-Request-Forgery-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%84-%EC%9A%94%EC%B2%AD-%EC%9C%84%EC%A1%B0</a>,<br><a href="http://itstory.tk/entry/CSRF-공격이란-그리고-CSRF-방어-방법" target="_blank" rel="noopener">http://itstory.tk/entry/CSRF-공격이란-그리고-CSRF-방어-방법</a></p>
 
             
 
@@ -294,7 +297,7 @@ f.bar()
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/javascript-static/">javascript, static</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/보안-CSRF/">보안, CSRF</a>
 
             </div>
         
@@ -304,8 +307,7 @@ f.bar()
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/10/what-is-xss/" data-tooltip="XSS(Cross Site Scription)란 무엇인가?" aria-label="PREVIOUS: XSS(Cross Site Scription)란 무엇인가?">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -314,7 +316,7 @@ f.bar()
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/27/start-blog/" data-tooltip="블로그를 시작하다" aria-label="NEXT: 블로그를 시작하다">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/13/what-is-SQL-injection/" data-tooltip="SQL injection 이란?" aria-label="NEXT: SQL injection 이란?">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -332,7 +334,7 @@ f.bar()
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/06/30/static-and-not-static/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/14/what-is-CSRF/" title="Share on Facebook">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
             </li>
@@ -391,8 +393,7 @@ f.bar()
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/10/what-is-xss/" data-tooltip="XSS(Cross Site Scription)란 무엇인가?" aria-label="PREVIOUS: XSS(Cross Site Scription)란 무엇인가?">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -401,7 +402,7 @@ f.bar()
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/27/start-blog/" data-tooltip="블로그를 시작하다" aria-label="NEXT: 블로그를 시작하다">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/13/what-is-SQL-injection/" data-tooltip="SQL injection 이란?" aria-label="NEXT: SQL injection 이란?">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -419,7 +420,7 @@ f.bar()
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/06/30/static-and-not-static/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/14/what-is-CSRF/" title="Share on Facebook">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
             </li>
@@ -452,7 +453,7 @@ f.bar()
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/06/30/static-and-not-static/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/14/what-is-CSRF/">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -513,9 +514,9 @@ f.bar()
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://sj602.github.io/2018/06/30/static-and-not-static/';
+                 this.page.url = 'https://sj602.github.io/2018/07/14/what-is-CSRF/';
                  
-                    this.page.identifier = '2018/06/30/static-and-not-static/';
+                    this.page.identifier = '2018/07/14/what-is-CSRF/';
                  
              };
             (function() {

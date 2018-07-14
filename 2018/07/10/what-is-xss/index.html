@@ -6,26 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jinco the Snorkel">
-    <title>[Javascript] Class에서의 Static이란? - Jinco the Snorkel</title>
+    <title>XSS(Cross Site Scription)란 무엇인가? - Jinco the Snorkel</title>
     <meta name="author" content="Jin Seon">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.\n예를 들어,\nclass Foo {\n    bar() {...}\n\n    static baz() {...}\n}\n라는 코드가 있을때 bar()는 \nconst f = new Foo()\nf.bar() \n위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만\nbaz()는\nFoo.baz()\n위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. \n용어의 반대 관계는 아래와 같다.\n static method != instance method \n","dateCreated":"2018-06-30T22:55:50+09:00","dateModified":"2018-06-30T23:22:45+09:00","datePublished":"2018-06-30T22:55:50+09:00","description":"","headline":"[Javascript] Class에서의 Static이란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/06/30/static-and-not-static/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/06/30/static-and-not-static/","keywords":"javascript, static"}</script>
-    <meta name="description" content="클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다. 예를 들어, class Foo {     bar() {...}      static baz() {...} } 라는 코드가 있을때 bar()는  const f = new Foo() f.bar()  위 예시처럼 f라는 Foo의 인스턴스">
-<meta name="keywords" content="javascript, static">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.\nXSS(Cross Site Scripting)이란?\nSQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키\n\n웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.\n공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.\n공격의 방법\n스크립트 태그 안에 심기\n1&lt;script&gt;alert(document.cookie)&lt;/script&gt;\n\n서버 응답 결과에 심기\n1htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz\n\n링크 또는 이미지에 심기\n\n\n피해 종류\n쿠키 정보/세션 ID 획득\n시스템 관리자 권한 획득\n악성코드 다운로드\n\n예방 방법1. 태그 문자 무효화기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.\n2. 라이브러리 이용일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.다음과 같은 라이브러리들이 있다.\n\nAntiXSS(MS에서 개발)\nOWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)\nNAVER Lucy XSS filter\n\n3. 쿠키 보안 옵션 이용쿠키 생성시‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.완전히 방어 가능한 건 아니라고 한다.\n\n출처: 나무위키, 한국인터넷진흥원\n","dateCreated":"2018-07-10T21:32:40+09:00","dateModified":"2018-07-14T18:21:35+09:00","datePublished":"2018-07-10T21:32:40+09:00","description":"","headline":"XSS(Cross Site Scription)란 무엇인가?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/10/what-is-xss/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/07/10/what-is-xss/","keywords":"보안, XSS"}</script>
+    <meta name="description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란? SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에">
+<meta name="keywords" content="보안, XSS">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="[Javascript] Class에서의 Static이란?">
-<meta property="og:url" content="https://sj602.github.io/2018/06/30/static-and-not-static/index.html">
+<meta property="og:title" content="XSS(Cross Site Scription)란 무엇인가?">
+<meta property="og:url" content="https://sj602.github.io/2018/07/10/what-is-xss/index.html">
 <meta property="og:site_name" content="Jinco the Snorkel">
-<meta property="og:description" content="클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다. 예를 들어, class Foo {     bar() {...}      static baz() {...} } 라는 코드가 있을때 bar()는  const f = new Foo() f.bar()  위 예시처럼 f라는 Foo의 인스턴스">
+<meta property="og:description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란? SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-30T14:22:45.383Z">
+<meta property="og:image" content="https://sj602.github.io/2018/07/10/what-is-xss/image/html%20tag%20encoding.png">
+<meta property="og:updated_time" content="2018-07-14T09:21:35.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Javascript] Class에서의 Static이란?">
-<meta name="twitter:description" content="클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다. 예를 들어, class Foo {     bar() {...}      static baz() {...} } 라는 코드가 있을때 bar()는  const f = new Foo() f.bar()  위 예시처럼 f라는 Foo의 인스턴스">
+<meta name="twitter:title" content="XSS(Cross Site Scription)란 무엇인가?">
+<meta name="twitter:description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란? SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에">
+<meta name="twitter:image" content="https://sj602.github.io/2018/07/10/what-is-xss/image/html%20tag%20encoding.png">
     
     
         
@@ -84,7 +86,7 @@
         
         </a>
     
-<link rel="canonical" href="https://sj602.github.io/2018/06/30/static-and-not-static/"/>
+<link rel="canonical" href="https://sj602.github.io/2018/07/10/what-is-xss/"/>
 </header>
 
             <!-- Define author's picture -->
@@ -249,14 +251,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            [Javascript] Class에서의 Static이란?
+            XSS(Cross Site Scription)란 무엇인가?
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-06-30T22:55:50+09:00">
+    <time datetime="2018-07-10T21:32:40+09:00">
 	
-		    Jun 30, 2018
+		    Jul 10, 2018
     	
     </time>
     
@@ -268,22 +270,37 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p>
-<p>예를 들어,</p>
-<pre><code>class Foo {
-    bar() {...}
-
-    static baz() {...}
-}
-</code></pre><p>라는 코드가 있을때 bar()는 </p>
-<pre><code>const f = new Foo()
-f.bar() 
-</code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만</p>
-<p>baz()는</p>
-<pre><code>Foo.baz()
-</code></pre><p>위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.<br>Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. </p>
-<p>용어의 반대 관계는 아래와 같다.</p>
-<p><strong> static method != instance method </strong></p>
+            <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
+<h1 id="XSS-Cross-Site-Scripting-이란"><a href="#XSS-Cross-Site-Scripting-이란" class="headerlink" title="XSS(Cross Site Scripting)이란?"></a>XSS(Cross Site Scripting)이란?</h1><blockquote>
+<p>SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,<br>악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.<br>공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,<br>보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</p>
+</blockquote>
+<p>웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.<br>예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.</p>
+<p>공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.</p>
+<h1 id="공격의-방법"><a href="#공격의-방법" class="headerlink" title="공격의 방법"></a>공격의 방법</h1><ol>
+<li><p>스크립트 태그 안에 심기</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>서버 응답 결과에 심기</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>링크 또는 이미지에 심기</p>
+</li>
+</ol>
+<h1 id="피해-종류"><a href="#피해-종류" class="headerlink" title="피해 종류"></a>피해 종류</h1><ol>
+<li>쿠키 정보/세션 ID 획득</li>
+<li>시스템 관리자 권한 획득</li>
+<li>악성코드 다운로드</li>
+</ol>
+<h1 id="예방-방법"><a href="#예방-방법" class="headerlink" title="예방 방법"></a>예방 방법</h1><h4 id="1-태그-문자-무효화"><a href="#1-태그-문자-무효화" class="headerlink" title="1. 태그 문자 무효화"></a>1. 태그 문자 무효화</h4><p>기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를<br>서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.<br><img src="./image/html tag encoding.png" alt=""></p>
+<h4 id="2-라이브러리-이용"><a href="#2-라이브러리-이용" class="headerlink" title="2. 라이브러리 이용"></a>2. 라이브러리 이용</h4><p>일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.<br>유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.<br>다음과 같은 라이브러리들이 있다.</p>
+<ul>
+<li>AntiXSS(MS에서 개발)</li>
+<li>OWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)</li>
+<li>NAVER Lucy XSS filter</li>
+</ul>
+<h4 id="3-쿠키-보안-옵션-이용"><a href="#3-쿠키-보안-옵션-이용" class="headerlink" title="3. 쿠키 보안 옵션 이용"></a>3. 쿠키 보안 옵션 이용</h4><p>쿠키 생성시<br>‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.<br>‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.<br>완전히 방어 가능한 건 아니라고 한다.</p>
+<hr>
+<p>출처: <a href="https://namu.wiki/w/XSS" target="_blank" rel="noopener">나무위키</a>, <a href="http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf" target="_blank" rel="noopener">한국인터넷진흥원</a></p>
 
             
 
@@ -294,7 +311,7 @@ f.bar()
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/javascript-static/">javascript, static</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/보안-XSS/">보안, XSS</a>
 
             </div>
         
@@ -305,7 +322,7 @@ f.bar()
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/10/what-is-xss/" data-tooltip="XSS(Cross Site Scription)란 무엇인가?" aria-label="PREVIOUS: XSS(Cross Site Scription)란 무엇인가?">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/13/what-is-SQL-injection/" data-tooltip="SQL injection 이란?" aria-label="PREVIOUS: SQL injection 이란?">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -314,7 +331,7 @@ f.bar()
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/27/start-blog/" data-tooltip="블로그를 시작하다" aria-label="NEXT: 블로그를 시작하다">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/30/static-and-not-static/" data-tooltip="[Javascript] Class에서의 Static이란?" aria-label="NEXT: [Javascript] Class에서의 Static이란?">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -332,7 +349,7 @@ f.bar()
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/06/30/static-and-not-static/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/" title="Share on Facebook">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
             </li>
@@ -392,7 +409,7 @@ f.bar()
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/10/what-is-xss/" data-tooltip="XSS(Cross Site Scription)란 무엇인가?" aria-label="PREVIOUS: XSS(Cross Site Scription)란 무엇인가?">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/13/what-is-SQL-injection/" data-tooltip="SQL injection 이란?" aria-label="PREVIOUS: SQL injection 이란?">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -401,7 +418,7 @@ f.bar()
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/27/start-blog/" data-tooltip="블로그를 시작하다" aria-label="NEXT: 블로그를 시작하다">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/30/static-and-not-static/" data-tooltip="[Javascript] Class에서의 Static이란?" aria-label="NEXT: [Javascript] Class에서의 Static이란?">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -419,7 +436,7 @@ f.bar()
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/06/30/static-and-not-static/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/" title="Share on Facebook">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
             </li>
@@ -452,7 +469,7 @@ f.bar()
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/06/30/static-and-not-static/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -513,9 +530,9 @@ f.bar()
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://sj602.github.io/2018/06/30/static-and-not-static/';
+                 this.page.url = 'https://sj602.github.io/2018/07/10/what-is-xss/';
                  
-                    this.page.identifier = '2018/06/30/static-and-not-static/';
+                    this.page.identifier = '2018/07/10/what-is-xss/';
                  
              };
             (function() {
