@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://sj602.github.io/2018/07/10/what-is-xss/</loc>
+        <lastmod>2018-12-31T05:17:17.232Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2018/07/13/what-is-SQL-injection/</loc>
+        <lastmod>2018-12-31T05:17:04.960Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://sj602.github.io/2018/12/31/operating-system-chapter-3/</loc>
         <lastmod>2018-12-31T05:00:17.693Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,30 +33,6 @@
     <url>
         <loc>https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/</loc>
         <lastmod>2018-12-31T04:32:19.886Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/07/14/what-is-CSRF/</loc>
-        <lastmod>2018-07-14T09:22:46.080Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/07/13/what-is-SQL-injection/</loc>
-        <lastmod>2018-07-14T09:21:43.700Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/07/10/what-is-xss/</loc>
-        <lastmod>2018-07-14T09:21:35.286Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -250,7 +250,7 @@
                 <h1 class="postShorten-title">
                     
                         <a class="link-unstyled" href="/2018/07/10/what-is-xss/">
-                            XSS(Cross Site Scription)란 무엇인가?
+                            [보안] XSS(Cross Site Scription)란 무엇인가?
                         </a>
                     
                 </h1>
@@ -266,55 +266,35 @@
             </div>
             
                 <div class="postShorten-content">
-                    <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>
-그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
-<h1>XSS(Cross Site Scripting)이란?</h1>
-<blockquote>
-<p>SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,<br>
-악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.<br>
-공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,<br>
-보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</p>
+                    <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
+<h1 id="XSS-Cross-Site-Scripting-이란"><a href="#XSS-Cross-Site-Scripting-이란" class="headerlink" title="XSS(Cross Site Scripting)이란?"></a>XSS(Cross Site Scripting)이란?</h1><blockquote>
+<p>SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,<br>악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.<br>공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,<br>보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</p>
 </blockquote>
-<p>웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.<br>
-예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.</p>
+<p>웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.<br>예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.</p>
 <p>공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.</p>
-<h1>공격의 방법</h1>
-<ol>
-<li>스크립트 태그 안에 심기</li>
-</ol>
+<h1 id="공격의-방법"><a href="#공격의-방법" class="headerlink" title="공격의 방법"></a>공격의 방법</h1><ol>
+<li><p>스크립트 태그 안에 심기</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>서버 응답 결과에 심기</li>
-</ol>
+</li>
+<li><p>서버 응답 결과에 심기</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>링크 또는 이미지에 심기</li>
+</li>
+<li><p>링크 또는 이미지에 심기</p>
+</li>
 </ol>
-<h1>피해 종류</h1>
-<ol>
+<h1 id="피해-종류"><a href="#피해-종류" class="headerlink" title="피해 종류"></a>피해 종류</h1><ol>
 <li>쿠키 정보/세션 ID 획득</li>
 <li>시스템 관리자 권한 획득</li>
 <li>악성코드 다운로드</li>
 </ol>
-<h1>예방 방법</h1>
-<h4>1. 태그 문자 무효화</h4>
-<p>기본적으로 HTML 태그 안에 심어놓는걸 방지.(’&lt;’. ‘&gt;’) 등의 태그를<br>
-서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.<br>
-![](./image/html tag encoding.png)</p>
-<h4>2. 라이브러리 이용</h4>
-<p>일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.<br>
-유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.<br>
-다음과 같은 라이브러리들이 있다.</p>
+<h1 id="예방-방법"><a href="#예방-방법" class="headerlink" title="예방 방법"></a>예방 방법</h1><h4 id="1-태그-문자-무효화"><a href="#1-태그-문자-무효화" class="headerlink" title="1. 태그 문자 무효화"></a>1. 태그 문자 무효화</h4><p>기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를<br>서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.<br><img src="./image/html tag encoding.png" alt=""></p>
+<h4 id="2-라이브러리-이용"><a href="#2-라이브러리-이용" class="headerlink" title="2. 라이브러리 이용"></a>2. 라이브러리 이용</h4><p>일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.<br>유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.<br>다음과 같은 라이브러리들이 있다.</p>
 <ul>
 <li>AntiXSS(MS에서 개발)</li>
 <li>OWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)</li>
 <li>NAVER Lucy XSS filter</li>
 </ul>
-<h4>3. 쿠키 보안 옵션 이용</h4>
-<p>쿠키 생성시<br>
-’보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.<br>
-‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.<br>
-완전히 방어 가능한 건 아니라고 한다.</p>
+<h4 id="3-쿠키-보안-옵션-이용"><a href="#3-쿠키-보안-옵션-이용" class="headerlink" title="3. 쿠키 보안 옵션 이용"></a>3. 쿠키 보안 옵션 이용</h4><p>쿠키 생성시<br>‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.<br>‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.<br>완전히 방어 가능한 건 아니라고 한다.</p>
 <hr>
 <p>출처: <a href="https://namu.wiki/w/XSS" target="_blank" rel="noopener">나무위키</a>, <a href="http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf" target="_blank" rel="noopener">한국인터넷진흥원</a></p>
 
@@ -462,7 +442,7 @@
                     
                     <div class="media-body">
                         <a class="link-unstyled" href="https://sj602.github.io/2018/07/10/what-is-xss/">
-                            <h3 class="media-heading">XSS(Cross Site Scription)란 무엇인가?</h3>
+                            <h3 class="media-heading">[보안] XSS(Cross Site Scription)란 무엇인가?</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
@@ -481,31 +461,12 @@
                     
                     <div class="media-body">
                         <a class="link-unstyled" href="https://sj602.github.io/2018/07/13/what-is-SQL-injection/">
-                            <h3 class="media-heading">SQL injection 이란?</h3>
+                            <h3 class="media-heading">[보안] SQL injection 이란?</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
                                     Jul 13, 2018
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="https://sj602.github.io/2018/07/14/what-is-CSRF/">
-                            <h3 class="media-heading">CSRF(Cross Site Request Forgery)란 무엇인가?</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    Jul 14, 2018
                                 
                             </span>
                         </span>
@@ -560,7 +521,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                7 posts found
+                6 posts found
             </p>
         </div>
     </div>
