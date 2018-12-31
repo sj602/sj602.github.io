@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/</loc>
+        <lastmod>2018-12-31T05:30:06.497Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://sj602.github.io/2018/07/10/what-is-xss/</loc>
-        <lastmod>2018-12-31T05:17:17.232Z</lastmod>
+        <lastmod>2018-12-31T05:26:52.349Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,23 +24,7 @@
 
     <url>
         <loc>https://sj602.github.io/2018/07/13/what-is-SQL-injection/</loc>
-        <lastmod>2018-12-31T05:17:04.960Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/12/31/operating-system-chapter-3/</loc>
-        <lastmod>2018-12-31T05:00:17.693Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/</loc>
-        <lastmod>2018-12-31T04:32:19.886Z</lastmod>
+        <lastmod>2018-12-31T05:26:42.011Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -40,7 +32,15 @@
 
     <url>
         <loc>https://sj602.github.io/2018/06/30/static-and-not-static/</loc>
-        <lastmod>2018-06-30T14:22:45.383Z</lastmod>
+        <lastmod>2018-12-31T05:26:24.660Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2018/12/31/operating-system-chapter-3/</loc>
+        <lastmod>2018-12-31T05:26:09.108Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
