@@ -37,13 +37,6 @@
     </url>
 
     <url>
-        <loc>https://sj602.github.io/tags/%EB%B3%B4%EC%95%88/</loc>
-        <lastmod>2018-12-31T05:26:52.349Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://sj602.github.io/tags/XSS/</loc>
         <lastmod>2018-12-31T05:26:52.349Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -60,6 +53,20 @@
     <url>
         <loc>https://sj602.github.io/tags/OS/</loc>
         <lastmod>2018-12-31T05:30:06.497Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/tags/%EB%B3%B4%EC%95%88/</loc>
+        <lastmod>2018-12-31T05:43:37.007Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/tags/CSRF/</loc>
+        <lastmod>2018-12-31T05:43:37.007Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
