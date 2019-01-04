@@ -248,6 +248,90 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2019/01/01/operating-system-chapter-4and5/">
+                            [운영체제] 4장 5장 Semaphore, Monitor 요약
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2019-01-01T14:08:09+09:00">
+	
+		    Jan 01, 2019
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <ol start="0">
+<li>임계영역(Critical Section)</li>
+</ol>
+<ul>
+<li>다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역</li>
+<li>어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다</li>
+<li>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</li>
+</ul>
+<p>1) 임계영역 문제 해결책</p>
+<ul>
+<li>상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능</li>
+<li>진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다</li>
+<li>제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한</li>
+<li>동기화 도구: 세마포어, 모니터</li>
+</ul>
+<ol>
+<li>세마포어(Semaphore)</li>
+</ol>
+<ul>
+<li>다익스트라가 제안</li>
+<li>구조: 정수형 변수 + 두 개의 동작(P, V)</li>
+<li>세마포어란 음이 아닌 정수값을 가지는 플래그 변수</li>
+<li>임계영역에 들어가기전에 P: acquire() 하고 </li>
+<li>임계영역으로부터 나올 때 V: release() 한다</li>
+<li>P와 V를 다음과 같이 정의한다<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가</span><br><span class="line">	    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락</span><br><span class="line">- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>모니터(Monitor)</li>
+</ol>
+<ul>
+<li>세마포어보다 고수준의 개념</li>
+<li>구조: 공유자원 + 공유자원 접근 함수</li>
+<li>2개의 queues: 배타동기 + 조건동기</li>
+</ul>
+<ol start="3">
+<li>교착상태(Deadlock)</li>
+</ol>
+<p>1) 교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)<br>2) 교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</p>
+<ul>
+<li>실제 상황에서 교착상태는 잘 일어나지 않는다</li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/2019/01/01/operating-system-chapter-4and5/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2018/12/31/operating-system-chapter-3/">
                             [운영체제] 3장 프로세스, 스레드 요약
                         </a>
@@ -337,7 +421,7 @@
             </div>
             
                 <div class="postShorten-content">
-                    <p>도서관에서 빌린 &lt;운영체제 : 그림으로 배우는 원리와 구조&gt;라는 책을 읽고<br>각 장을 정리 및 요약해보려고 한다.</p>
+                    <p>학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고<br>훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며<br>도서관에서 빌린 &lt;운영체제 : 그림으로 배우는 원리와 구조&gt;라는 책을 읽고 모자란 설명을 채울 생각이다.</p>
 <p>1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다.</p>
 <p>1장. 컴퓨터 시스템 소개</p>
 <ol>
@@ -361,7 +445,7 @@
 <li>메모리의 지역성: 실행 중인 프로세서가 실행기간 동안 메모리 정보를 균일하게 접근하지 않고 일부만 집중적을 참조</li>
 <li>메모리 속도: 메모리 사이클 시간 &amp; 메모리 접근 시간</li>
 <li>가상 메모리(Virtual Memory): 보조기억장치에 저장했다가 주기억장치에 필요할 때 실행</li>
-<li>메모리의 논리적 주소 -&gt; 물리적 주소 : Memory Mapping</li>
+<li>메모리의 논리적 주소 -&gt; 물리적 주소 : Memory Mapping (메모리 관리 장치 MMU: Memory Management Unit이 해줌)</li>
 <li>캐시(Cache): 처리 속도가 빠른 프로세서와 상대적으로 느린 주기억장치 사이에서 데이터를 저장하여 속도 차이를 줄여줌. 주기억장치<br>에서 일정 블록의 데이터를 가져와 워드(Word) 단위로 프로세서에 전달</li>
 <li>프로세서는 주기억장치 접근이 필요하면 먼저 캐시를 조사</li>
 <li>캐시 태그와 원하는 메모리 주소 태그가 일치하면 캐시 적중(Cache Hit)라 한다 <-> 캐시 실패(Cache Miss)</-></li>
@@ -756,7 +840,7 @@ f.bar()
 </script> 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2018 Jin Seon. All Rights Reserved.
+        Copyrights &copy; 2019 Jin Seon. All Rights Reserved.
     </span>
 </footer>
 
@@ -954,6 +1038,25 @@ f.bar()
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/">
+                            <h3 class="media-heading">[운영체제] 4장 5장 Semaphore, Monitor 요약</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jan 1, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
@@ -961,7 +1064,7 @@ f.bar()
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                7 posts found
+                8 posts found
             </p>
         </div>
     </div>

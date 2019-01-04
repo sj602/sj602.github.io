@@ -6,28 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jinko the Snokl">
-    <title>[보안] XSS(Cross Site Scription)란 무엇인가? - Jinko the Snokl</title>
+    <title>Tag: Semaphore - Jinko the Snokl</title>
     <meta name="author" content="Jin Seon">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.\nXSS(Cross Site Scripting)이란?\nSQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키\n\n웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.\n공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.\n공격의 방법\n스크립트 태그 안에 심기\n1&lt;script&gt;alert(document.cookie)&lt;/script&gt;\n\n서버 응답 결과에 심기\n1htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz\n\n링크 또는 이미지에 심기\n\n\n피해 종류\n쿠키 정보/세션 ID 획득\n시스템 관리자 권한 획득\n악성코드 다운로드\n\n예방 방법1. 태그 문자 무효화기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.\n2. 라이브러리 이용일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.다음과 같은 라이브러리들이 있다.\n\nAntiXSS(MS에서 개발)\nOWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)\nNAVER Lucy XSS filter\n\n3. 쿠키 보안 옵션 이용쿠키 생성시‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.완전히 방어 가능한 건 아니라고 한다.\n\n출처: 나무위키, 한국인터넷진흥원\n","dateCreated":"2018-07-10T21:32:40+09:00","dateModified":"2018-12-31T14:26:52+09:00","datePublished":"2018-07-10T21:32:40+09:00","description":"","headline":"[보안] XSS(Cross Site Scription)란 무엇인가?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/10/what-is-xss/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/07/10/what-is-xss/","keywords":"보안, XSS"}</script>
-    <meta name="description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란? SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에">
-<meta name="keywords" content="보안,XSS">
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="A Voyage to Freedom">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="[보안] XSS(Cross Site Scription)란 무엇인가?">
-<meta property="og:url" content="https://sj602.github.io/2018/07/10/what-is-xss/index.html">
+<meta property="og:title" content="Jinko the Snokl">
+<meta property="og:url" content="https://sj602.github.io/tags/Semaphore/index.html">
 <meta property="og:site_name" content="Jinko the Snokl">
-<meta property="og:description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란? SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에">
+<meta property="og:description" content="A Voyage to Freedom">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://sj602.github.io/2018/07/10/what-is-xss/image/html%20tag%20encoding.png">
-<meta property="og:updated_time" content="2018-12-31T05:26:52.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[보안] XSS(Cross Site Scription)란 무엇인가?">
-<meta name="twitter:description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란? SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에">
-<meta name="twitter:image" content="https://sj602.github.io/2018/07/10/what-is-xss/image/html%20tag%20encoding.png">
+<meta name="twitter:title" content="Jinko the Snokl">
+<meta name="twitter:description" content="A Voyage to Freedom">
     
     
         
@@ -71,7 +67,7 @@
         
     
 
-<header id="header" data-behavior="5">
+<header id="header" data-behavior="2">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Jinko the Snokl</a>
@@ -86,7 +82,7 @@
         
         </a>
     
-<link rel="canonical" href="https://sj602.github.io/2018/07/10/what-is-xss/"/>
+<link rel="canonical" href="https://sj602.github.io/tags/semaphore/"/>
 </header>
 
             <!-- Define author's picture -->
@@ -96,7 +92,7 @@
         
     
 
-<nav id="sidebar" data-behavior="5">
+<nav id="sidebar" data-behavior="2">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -232,7 +228,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="5"
+            <div id="main" data-behavior="2"
                  class="
                         hasCoverMetaIn
                         ">
@@ -244,147 +240,101 @@
   });
 </script> 
                 
-<article class="post">
-
+    <section class="postShorten-group main-content-wrap">
     
     
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title">
-            [보안] XSS(Cross Site Scription)란 무엇인가?
-        </h1>
-    
-    
-        <div class="post-meta">
-    <time datetime="2018-07-10T21:32:40+09:00">
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2019/01/01/operating-system-chapter-4and5/">
+                            [운영체제] 4장 5장 Semaphore, Monitor 요약
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2019-01-01T14:08:09+09:00">
 	
-		    Jul 10, 2018
+		    Jan 01, 2019
     	
     </time>
     
 </div>
 
-    
-</div>
-
-    
-    <div class="post-content markdown">
-        <div class="main-content-wrap">
-            <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
-<h1 id="XSS-Cross-Site-Scripting-이란"><a href="#XSS-Cross-Site-Scripting-이란" class="headerlink" title="XSS(Cross Site Scripting)이란?"></a>XSS(Cross Site Scripting)이란?</h1><blockquote>
-<p>SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,<br>악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.<br>공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,<br>보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</p>
-</blockquote>
-<p>웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.<br>예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.</p>
-<p>공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.</p>
-<h1 id="공격의-방법"><a href="#공격의-방법" class="headerlink" title="공격의 방법"></a>공격의 방법</h1><ol>
-<li><p>스크립트 태그 안에 심기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>서버 응답 결과에 심기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>링크 또는 이미지에 심기</p>
-</li>
-</ol>
-<h1 id="피해-종류"><a href="#피해-종류" class="headerlink" title="피해 종류"></a>피해 종류</h1><ol>
-<li>쿠키 정보/세션 ID 획득</li>
-<li>시스템 관리자 권한 획득</li>
-<li>악성코드 다운로드</li>
-</ol>
-<h1 id="예방-방법"><a href="#예방-방법" class="headerlink" title="예방 방법"></a>예방 방법</h1><h4 id="1-태그-문자-무효화"><a href="#1-태그-문자-무효화" class="headerlink" title="1. 태그 문자 무효화"></a>1. 태그 문자 무효화</h4><p>기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를<br>서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.<br><img src="./image/html tag encoding.png" alt=""></p>
-<h4 id="2-라이브러리-이용"><a href="#2-라이브러리-이용" class="headerlink" title="2. 라이브러리 이용"></a>2. 라이브러리 이용</h4><p>일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.<br>유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.<br>다음과 같은 라이브러리들이 있다.</p>
-<ul>
-<li>AntiXSS(MS에서 개발)</li>
-<li>OWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)</li>
-<li>NAVER Lucy XSS filter</li>
-</ul>
-<h4 id="3-쿠키-보안-옵션-이용"><a href="#3-쿠키-보안-옵션-이용" class="headerlink" title="3. 쿠키 보안 옵션 이용"></a>3. 쿠키 보안 옵션 이용</h4><p>쿠키 생성시<br>‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.<br>‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.<br>완전히 방어 가능한 건 아니라고 한다.</p>
-<hr>
-<p>출처: <a href="https://namu.wiki/w/XSS" target="_blank" rel="noopener">나무위키</a>, <a href="http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf" target="_blank" rel="noopener">한국인터넷진흥원</a></p>
-
-            
-
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/XSS/">XSS</a> <a class="tag tag--primary tag--small t-link" href="/tags/보안/">보안</a>
-
             </div>
-        
-        
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
+            
+                <div class="postShorten-content">
+                    <ol start="0">
+<li>임계영역(Critical Section)</li>
+</ol>
+<ul>
+<li>다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역</li>
+<li>어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다</li>
+<li>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</li>
+</ul>
+<p>1) 임계영역 문제 해결책</p>
+<ul>
+<li>상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능</li>
+<li>진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다</li>
+<li>제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한</li>
+<li>동기화 도구: 세마포어, 모니터</li>
+</ul>
+<ol>
+<li>세마포어(Semaphore)</li>
+</ol>
+<ul>
+<li>다익스트라가 제안</li>
+<li>구조: 정수형 변수 + 두 개의 동작(P, V)</li>
+<li>세마포어란 음이 아닌 정수값을 가지는 플래그 변수</li>
+<li>임계영역에 들어가기전에 P: acquire() 하고 </li>
+<li>임계영역으로부터 나올 때 V: release() 한다</li>
+<li>P와 V를 다음과 같이 정의한다<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가</span><br><span class="line">	    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락</span><br><span class="line">- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>모니터(Monitor)</li>
+</ol>
+<ul>
+<li>세마포어보다 고수준의 개념</li>
+<li>구조: 공유자원 + 공유자원 접근 함수</li>
+<li>2개의 queues: 배타동기 + 조건동기</li>
+</ul>
+<ol start="3">
+<li>교착상태(Deadlock)</li>
+</ol>
+<p>1) 교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)<br>2) 교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</p>
+<ul>
+<li>실제 상황에서 교착상태는 잘 일어나지 않는다</li>
+</ul>
+
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/13/what-is-SQL-injection/" data-tooltip="[보안] SQL injection 이란?" aria-label="PREVIOUS: [보안] SQL injection 이란?">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
+                        
+
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/30/static-and-not-static/" data-tooltip="[Javascript] Class에서의 Static이란?" aria-label="NEXT: [Javascript] Class에서의 Static이란?">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
+                    
+                        <p>
+                            <a href="/2019/01/01/operating-system-chapter-4and5/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
         
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/" title="Share on Facebook">
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                </a>
-            </li>
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
         
         
-            
-                <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                        <i class="fa fa-comment-o"></i>
-                    </a>
-                </li>
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
+        <li class="pagination-number">page 1 of 1</li>
     </ul>
 </div>
 
-
-        
-        
-            
-                <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-            
-        
-    </div>
-</article>
-
+</section>
 
 
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -401,82 +351,6 @@
 </footer>
 
             </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/13/what-is-SQL-injection/" data-tooltip="[보안] SQL injection 이란?" aria-label="PREVIOUS: [보안] SQL injection 이란?">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/30/static-and-not-static/" data-tooltip="[Javascript] Class에서의 Static이란?" aria-label="NEXT: [Javascript] Class에서의 Static이란?">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/" title="Share on Facebook">
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-                <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                        <i class="fa fa-comment-o"></i>
-                    </a>
-                </li>
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
-    <i id="btn-close-shareoptions" class="fa fa-close"></i>
-    <ul class="share-options">
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/10/what-is-xss/">
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
             
         </div>
         
@@ -711,25 +585,6 @@
 <script src="/assets/js/thumbs.js"></script>
 <script src="/assets/js/tranquilpeak.js"></script>
 <!--SCRIPTS END-->
-
-    
-        <script>
-             var disqus_config = function () {
-                 this.page.url = 'https://sj602.github.io/2018/07/10/what-is-xss/';
-                 
-                    this.page.identifier = '2018/07/10/what-is-xss/';
-                 
-             };
-            (function() {
-                var d = document, s = d.createElement('script');
-                var disqus_shortname = 'sj602-github-io';
-                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        </script>
-    
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
