@@ -272,10 +272,10 @@
 <ul>
 <li>다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역</li>
 <li>어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다</li>
-<li>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</li>
-</ul>
-<p>1) 임계영역 문제 해결책</p>
-<ul>
+<li><p>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</p>
+</li>
+<li><p>임계영역 문제 해결책</p>
+</li>
 <li>상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능</li>
 <li>진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다</li>
 <li>제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한</li>
@@ -304,8 +304,9 @@
 <ol start="3">
 <li>교착상태(Deadlock)</li>
 </ol>
-<p>1) 교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)<br>2) 교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</p>
 <ul>
+<li>교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)</li>
+<li>교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</li>
 <li>실제 상황에서 교착상태는 잘 일어나지 않는다</li>
 </ul>
 
@@ -563,6 +564,25 @@
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://sj602.github.io/2019/01/04/pragmatic-thinking-and-learning/">
+                            <h3 class="media-heading">[책] 실용주의 사고와 학습</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jan 4, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
@@ -570,7 +590,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                8 posts found
+                9 posts found
             </p>
         </div>
     </div>

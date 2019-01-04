@@ -6,26 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jinko the Snokl">
-    <title>[운영체제] 1장 2장 요약 - Jinko the Snokl</title>
+    <title>Tag: 실용주의 사고와 학습 - Jinko the Snokl</title>
     <meta name="author" content="Jin Seon">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며도서관에서 빌린 &lt;운영체제 : 그림으로 배우는 원리와 구조&gt;라는 책을 읽고 모자란 설명을 채울 생각이다.\n1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다.\n1장. 컴퓨터 시스템 소개\n\n컴퓨터 시스템 구성요소\n\n1) 프로세서\n\n중앙처리장치(CPU) : 레지스터, 산술논리연산장치(ALU), 제어장치\n\n2) 버스\n3) 레지스터\n\n프로그램 카운터(PC: Program Counter): 프로그램 수행을 제어하는 명령어 실행 순서 보관(다음에 실행할 명령어 주소 저장)\n명령어 레지스터(IR: Instrument Register): 현재 수행하는 명령어를 저장, 명령어의 연산자 부분만 저장한다.\n프로그램 상태 레지스터(PSR: Program Status Register): 플래그 같은 상태 정보 저장\n메모리 주소 레지스터(MAR: Memory Address Register): 접근하려는 메모리의 주소 저장\n메모리 버퍼 레지스터(MBR: Memory Buffer Register): 메모리에서 정보를 읽거나 저장할 때 사용\n\n4) 메모리\n\n메모리의 지역성: 실행 중인 프로세서가 실행기간 동안 메모리 정보를 균일하게 접근하지 않고 일부만 집중적을 참조\n메모리 속도: 메모리 사이클 시간 &amp; 메모리 접근 시간\n가상 메모리(Virtual Memory): 보조기억장치에 저장했다가 주기억장치에 필요할 때 실행\n메모리의 논리적 주소 -&gt; 물리적 주소 : Memory Mapping (메모리 관리 장치 MMU: Memory Management Unit이 해줌)\n캐시(Cache): 처리 속도가 빠른 프로세서와 상대적으로 느린 주기억장치 사이에서 데이터를 저장하여 속도 차이를 줄여줌. 주기억장치에서 일정 블록의 데이터를 가져와 워드(Word) 단위로 프로세서에 전달\n프로세서는 주기억장치 접근이 필요하면 먼저 캐시를 조사\n캐시 태그와 원하는 메모리 주소 태그가 일치하면 캐시 적중(Cache Hit)라 한다  캐시 실패(Cache Miss)\n\n5) 주변장치\n\n키보드, 마우스 등\n\n\n컴퓨터 시스템의 동작\n\n1) 명령어 구성\n\n실행할 연산을 나타내는 연산 코드(Operation Code) &amp; 처리할 데이터가 저장된 주소를 나타내는 오퍼랜드(Operand)로 이루어짐\n직접 주소와 간접 주소\n\n2) 인터럽트\n\n인터럽트를 받은 프로그램은 실행을 멈추고 다른 프로그램을 실행한다\n입출력장치가 새로운 입출력 연산을 수행하려고 하면 프로세서는 폴링(Polling)을 통해 각 장치의 상태 비트 검사 (폴링 방식)\n인터럽트가 발생했을 때 프로세서에게 알려줌. 버스 중 인터럽트 요청 회선(IRQ: Interrupt Request Line)이 이런 용도로 쓰임(인터럽트 방식)\n\n2장. 운영체제 소개\n\n운영체제의 기능\n\n\n버퍼링과 스풀링 모두 입출력장치의 느린 속도를 보완하기 위해 이용하고 프로세서와 입출력장치를 항상 분주하게, 유휴 시간이 없게 만듬\n버퍼링(Buffering): 주기억장치(보통 캐시메모리)를 버퍼로 사용\n스풀링(Spooling): 보조기억장치(하드디스크)를 버퍼로 사용\n\n","dateCreated":"2018-12-29T20:29:20+09:00","dateModified":"2019-01-01T14:53:38+09:00","datePublished":"2018-12-29T20:29:20+09:00","description":"","headline":"[운영체제] 1장 2장 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/","keywords":"운영체제, OS"}</script>
-    <meta name="description" content="학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며도서관에서 빌린 &amp;lt;운영체제 : 그림으로 배우는 원리와 구조&amp;gt;라는 책을 읽고 모자란 설명을 채울 생각이다. 1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다">
-<meta name="keywords" content="운영체제,OS">
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="A Voyage to Freedom">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="[운영체제] 1장 2장 요약">
-<meta property="og:url" content="https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/index.html">
+<meta property="og:title" content="Jinko the Snokl">
+<meta property="og:url" content="https://sj602.github.io/tags/실용주의-사고와-학습/index.html">
 <meta property="og:site_name" content="Jinko the Snokl">
-<meta property="og:description" content="학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며도서관에서 빌린 &amp;lt;운영체제 : 그림으로 배우는 원리와 구조&amp;gt;라는 책을 읽고 모자란 설명을 채울 생각이다. 1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다">
+<meta property="og:description" content="A Voyage to Freedom">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-01T05:53:38.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[운영체제] 1장 2장 요약">
-<meta name="twitter:description" content="학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며도서관에서 빌린 &amp;lt;운영체제 : 그림으로 배우는 원리와 구조&amp;gt;라는 책을 읽고 모자란 설명을 채울 생각이다. 1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다">
+<meta name="twitter:title" content="Jinko the Snokl">
+<meta name="twitter:description" content="A Voyage to Freedom">
     
     
         
@@ -69,7 +67,7 @@
         
     
 
-<header id="header" data-behavior="5">
+<header id="header" data-behavior="2">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Jinko the Snokl</a>
@@ -84,7 +82,7 @@
         
         </a>
     
-<link rel="canonical" href="https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/"/>
+<link rel="canonical" href="https://sj602.github.io/tags/실용주의-사고와-학습/"/>
 </header>
 
             <!-- Define author's picture -->
@@ -94,7 +92,7 @@
         
     
 
-<nav id="sidebar" data-behavior="5">
+<nav id="sidebar" data-behavior="2">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -230,7 +228,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="5"
+            <div id="main" data-behavior="2"
                  class="
                         hasCoverMetaIn
                         ">
@@ -242,172 +240,130 @@
   });
 </script> 
                 
-<article class="post">
-
+    <section class="postShorten-group main-content-wrap">
     
     
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title">
-            [운영체제] 1장 2장 요약
-        </h1>
-    
-    
-        <div class="post-meta">
-    <time datetime="2018-12-29T20:29:20+09:00">
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2019/01/04/pragmatic-thinking-and-learning/">
+                            [책] 실용주의 사고와 학습
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2019-01-04T20:48:03+09:00">
 	
-		    Dec 29, 2018
+		    Jan 04, 2019
     	
     </time>
     
 </div>
 
-    
-</div>
-
-    
-    <div class="post-content markdown">
-        <div class="main-content-wrap">
-            <p>학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고<br>훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며<br>도서관에서 빌린 &lt;운영체제 : 그림으로 배우는 원리와 구조&gt;라는 책을 읽고 모자란 설명을 채울 생각이다.</p>
-<p>1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다.</p>
-<p>1장. 컴퓨터 시스템 소개</p>
-<ol>
-<li>컴퓨터 시스템 구성요소</li>
-</ol>
-<p>1) 프로세서</p>
-<ul>
-<li>중앙처리장치(CPU) : 레지스터, 산술논리연산장치(ALU), 제어장치</li>
-</ul>
-<p>2) 버스</p>
-<p>3) 레지스터</p>
-<ul>
-<li>프로그램 카운터(PC: Program Counter): 프로그램 수행을 제어하는 명령어 실행 순서 보관(다음에 실행할 명령어 주소 저장)</li>
-<li>명령어 레지스터(IR: Instrument Register): 현재 수행하는 명령어를 저장, 명령어의 연산자 부분만 저장한다.</li>
-<li>프로그램 상태 레지스터(PSR: Program Status Register): 플래그 같은 상태 정보 저장</li>
-<li>메모리 주소 레지스터(MAR: Memory Address Register): 접근하려는 메모리의 주소 저장</li>
-<li>메모리 버퍼 레지스터(MBR: Memory Buffer Register): 메모리에서 정보를 읽거나 저장할 때 사용</li>
-</ul>
-<p>4) 메모리</p>
-<ul>
-<li>메모리의 지역성: 실행 중인 프로세서가 실행기간 동안 메모리 정보를 균일하게 접근하지 않고 일부만 집중적을 참조</li>
-<li>메모리 속도: 메모리 사이클 시간 &amp; 메모리 접근 시간</li>
-<li>가상 메모리(Virtual Memory): 보조기억장치에 저장했다가 주기억장치에 필요할 때 실행</li>
-<li>메모리의 논리적 주소 -&gt; 물리적 주소 : Memory Mapping (메모리 관리 장치 MMU: Memory Management Unit이 해줌)</li>
-<li>캐시(Cache): 처리 속도가 빠른 프로세서와 상대적으로 느린 주기억장치 사이에서 데이터를 저장하여 속도 차이를 줄여줌. 주기억장치<br>에서 일정 블록의 데이터를 가져와 워드(Word) 단위로 프로세서에 전달</li>
-<li>프로세서는 주기억장치 접근이 필요하면 먼저 캐시를 조사</li>
-<li>캐시 태그와 원하는 메모리 주소 태그가 일치하면 캐시 적중(Cache Hit)라 한다 <-> 캐시 실패(Cache Miss)</-></li>
-</ul>
-<p>5) 주변장치</p>
-<ul>
-<li>키보드, 마우스 등</li>
-</ul>
-<ol start="2">
-<li>컴퓨터 시스템의 동작</li>
-</ol>
-<p>1) 명령어 구성</p>
-<ul>
-<li>실행할 연산을 나타내는 연산 코드(Operation Code) &amp; 처리할 데이터가 저장된 주소를 나타내는 오퍼랜드(Operand)로 이루어짐</li>
-<li>직접 주소와 간접 주소</li>
-</ul>
-<p>2) 인터럽트</p>
-<ul>
-<li>인터럽트를 받은 프로그램은 실행을 멈추고 다른 프로그램을 실행한다</li>
-<li>입출력장치가 새로운 입출력 연산을 수행하려고 하면 프로세서는 폴링(Polling)을 통해 각 장치의 상태 비트 검사 (폴링 방식)</li>
-<li>인터럽트가 발생했을 때 프로세서에게 알려줌. 버스 중 인터럽트 요청 회선(IRQ: Interrupt Request Line)이 이런 용도로 쓰임(인터럽트 방식)</li>
-</ul>
-<p>2장. 운영체제 소개</p>
-<ol>
-<li>운영체제의 기능</li>
-</ol>
-<ul>
-<li>버퍼링과 스풀링 모두 입출력장치의 느린 속도를 보완하기 위해 이용하고 프로세서와 입출력장치를 항상 분주하게, 유휴 시간이 없게 만듬</li>
-<li>버퍼링(Buffering): 주기억장치(보통 캐시메모리)를 버퍼로 사용</li>
-<li>스풀링(Spooling): 보조기억장치(하드디스크)를 버퍼로 사용</li>
-</ul>
-
-            
-
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/OS/">OS</a> <a class="tag tag--primary tag--small t-link" href="/tags/운영체제/">운영체제</a>
-
             </div>
-        
-        
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
+            
+                <div class="postShorten-content">
+                    <p>리뷰라기 보다는 책을 읽고 내용이 머릿속에 잘 안 남는 것 같아 이렇게라도 따로 내용정리를 해둘려고 한다.<br>책의 내용을 그대로 쓴 것이 대부분이고 중간중간 나의 생각을 짧게 곁들일 것이다.<br>개발자라는 직업을 선택한 이상 또한 이 시대를 살아가는 현대인인 이상<br>매일 매일 새로운 것들을 배워야 하고 그 배움의 과정을 보다 효율적으로 할 수 없을까라는 궁금증을 풀어줄 수 있었다<br>배워야 한다는 사실에 스트레스 받지 않고 배움 자체를 즐기다보면 어느 순간 꼭대기에 올라가 있지 않을까</p>
+<p>#실용주의 사고와 학습</p>
+<ul>
+<li>바람직한 어려움: 학습할 때 오히려 어려운 것들이 학생에게 더 이득이 되는 경우가 많다</li>
+<li>학생들의 수업 만족도가 높은(잘 배웠다고 생각이 드는) 수업이 오히려 학생에게 해가 되는 경우가 있다</li>
+<li>앞으로 의사소통 기술, 배우고 생각하는 기술이 중요</li>
+<li>우리는 교사와 학생의 관계를 착각하는 경우가 많다. 학습은 교사가 가르치는게 아니라 학생이 배우는 것이다</li>
+<li>삶에 있어서 고정불변인 것은 아무것도 없다. 오직 죽은 물고기만이 흐름을 따라간다</li>
+<li>인간의 사고(인지)에는 내재된 편견이 있다<br>  _ 지금 내가 떠오르는 생각이 정답이 아닐 수 있다<br>  _ 인간의 생각은 단순한 사실 하나에도 영향을 받는다. 신입사원 면접을 보는 층으로 올라가기 위해 엘리베이터 안에서 마시는 커피가 아이스냐 핫이냐에 따라 그 면접관의 편향은 달라지는 것처럼..</li>
+</ul>
+<h2 id="드라이퍼스-모델"><a href="#드라이퍼스-모델" class="headerlink" title="드라이퍼스 모델"></a>드라이퍼스 모델</h2><ul>
+<li>초보자는 규칙을 활용하고 전문가는 직관을 활용하라</li>
+<li>초보자에서 전문가로 가는 과정에 동반되는 것<br>  _ 규칙에 의지 -&gt; 직관에 의존<br>  _ 관찰자 -&gt; 시스템의 일부(시스템적 사고)</li>
+<li>사려 깊은 연습(말콤 글래드웰이 아웃라이어에서 말한 10년의 법칙)<br>  _ 작업은 적당히 어려워야된다. 도전적이지만 할 수 있는 수준<br>  _ 피드백을 적극적으로 받을 수 있는 환경<br>  _ 반복하면서 잘못을 교정할 기회</li>
+<li>근무 환경에 모범이 될 만한 사람에게 배우기 -&gt; 학교든 회사든 나만의 멘토를 정해 마음 속으로 정해서 따라해야겠다!</li>
+</ul>
+<h2 id="두-개의-CPU-모드"><a href="#두-개의-CPU-모드" class="headerlink" title="두 개의 CPU 모드"></a>두 개의 CPU 모드</h2><ul>
+<li>우리의 뇌는 두 개의 모드로 구성(L모드, R모드)</li>
+<li>L모드: 선형적, 논리적, 언어처리</li>
+<li>R모드: 직관, 문제해결, 창조성</li>
+<li>두 가지 모두 필요</li>
+<li>R모드는 예측할 수 없기 때문에 늘 R모드가 주는 해답이나 통찰력을 대비해야 한다<br>  _ 어떤 아이디어가 떠오르면 바로 잡을 수 있도록 24시간 준비되있어야 한다<br>  _ 좋은 아이디어는 누구나 갖고 있으나 아주 일부만이 그 아이디어를 기록하는 수고를 한다<br>  _ 그 중에 아주 일부만이 아이디어를 실천한다<br>  _ 그 중에 아주 일부만이 아이디어를 성공시킨다<br>  _ 최소한 기록이라도 해둬야지 윗 단계의 가능성이 열리므로 아이폰의 메모장을 잘 활용해서 늘 기록하자!</li>
+<li><blockquote>
+<p>컴퓨터는 쓸모없다. 컴퓨터는 오로지 답을 줄 뿐이다 - 파블로 피카소</p>
+</blockquote>
+</li>
+<li>질문이 더 중요하다는 얘기(R모드의 중요성)</li>
+<li>상품화란 심미성을 겨루는 것이다. 좋은 디자인을 위해 노력하자 (ex: 마이크로소프트가 아이폰을 만든다면? 포장박스부터 덕지덕지 문구..)</li>
+<li>연구 결과: 매력적인 사용자가 인터페이스가 못 생긴 인터페이스보다 더 사용하기 쉽다</li>
+<li>뇌의 가소성: 가능성을 믿는한 뇌의 상한은 존재하지 않는다<br>  _ Impossible is nothing<br>  _ 생각하는 대로 된다<br>  _ 용불용설<br>  _ 외국어를 배우고 싶다? 늘 그언어로 말하고 생각<ul>
+<li>코딩을 잘하고 싶다? 코딩을 더해라..</li>
+</ul>
+</li>
+<li>지각력 있는 뇌의 R모드에 접근하려면 언어적이고 분석적인 L모드를 꺼버릴 만한 일을 주어야 한다 (음악 듣기, 그림 그리기, 명상, 조깅 등등)<br>  _ 요즘 공부를 하면서 재즈를 들으면서 하고 있는데 이게 생각 외로 큰 도움이 되는 것 같다<br>  _ 뒤늦게 공부를 시작한 나로선 공부에 대한 압박감이 있는데 공부라는 것이 L모드와 R모드가 조합이 되어야 한다면 무조건적으로 시간읆 많이 투자해 앉아서 책읽기같은 전통적인 공부 방법에 치중해서는 안된다<br>  _ 때로는 공부/코딩 이외의 활동을 하면서 일부로 공부와 전혀 상관없는 활동을 해야된다는 말이고 넓게 보면 모든 일은 한번씩 해봄으로써 새로운 경험이 될 것이다<br>  _ 나에겐 웨이트를 꾸준히 하는 것이 그 예<br>  _ 어려운 문제를 풀려면 키보드에서 떨어져라</li>
+<li>변화는 좋은 것이다<br>  _ 깊이 물든 습관은 뇌에 좋지 않음<br>  _ 뇌는 적응해야하는 것이 없다면 축 늘어지게 됨<br>  _ 일상적으로 하는 작은 행동에도 변화를 줘보자(양치를 할 때 왼손으로 하기 등)</li>
+</ul>
+<h2 id="당신의-마음을-디버그하라"><a href="#당신의-마음을-디버그하라" class="headerlink" title="당신의 마음을 디버그하라"></a>당신의 마음을 디버그하라</h2><ul>
+<li>상관 관계 VS 인과 관계<br>  _ 단순한 상관 관계를 원인과 결과로 오해하기 쉽다<br>  _ 두 변수가 연관되어 있다는 것이 꼭 어느 한 쪽이 다른 쪽의 원인이라는 것은 아니다</li>
+<li>기업고다 글로 쓴 것을 신뢰하라. 기억은 모두 읽기와 쓰기가 함께 일어난다</li>
+<li>여러분이 무엇인가를 엄청나게 확실하고 있을 때 자신에게 왜냐고 물어보자 -&gt;<br>  _ 어떻게 알았는가?<br>  _ 누가 말한 것인가?<br>  _ 구체적으로 어떠한가?<br>  _ 내가 하고 있는 일이 당신에게는 어떤 영향을 주는가?<br>  _ 무엇이랑 비교하면? 혹은 누구랑 비교하면?<br>  _ 항상 일어나는가? 예외는 없는가?<br>  _ 당신이 했다면 어땠겠는가?<br>  _ 무엇때문에 못하는가?<br>  _ 언론들도 왜곡 보도를 하고 가짜 뉴스가 판 치는 세상에서 인터넷에서 단순히 어떤 사실을 봤다고 믿지 말자. 진정한 정보를 가려내는 능력을 길러야 한다</li>
+</ul>
+<h2 id="의도적으로-배우라"><a href="#의도적으로-배우라" class="headerlink" title="의도적으로 배우라"></a>의도적으로 배우라</h2><ul>
+<li>현재의 기술과 문화에서 배우는 능력은 성공에 있어 가장 중요한 요소</li>
+<li>교육(education)이란 단어는 라틴어 educare에서 온 단어인데 ‘끄집어낸다’라는 의미.</li>
+<li>학습은 누군가가 여러분에게 해주는 것이 아니다. 여러분이 하는 것이다.</li>
+<li>지식을 경험없이 그 자체로만 습득하는 것은 효과적이지 않다 -&gt; 목적없이 책읽기?</li>
+<li>목표와 피드백 없이 무작위로 접근하게 되면 무작위적인 결과를 낳는다</li>
+<li>SMART한 목표 설정<br>  _ Specific(구체적인)<br>  _ Measurable(측정 가능한)<br>  _ Achievable(달성 가능한)<br>  _ Relavant(의미 있는)<br>  _ Time-Boxed(시간 제한이 있는)</li>
+<li><blockquote>
+<p>계획하기는 계획 그 자체보다 중요하다 - 아이젠하워</p>
+</blockquote>
+</li>
+<li>독서할 때의 의식적인 SQ3R 학습법<br>  _ Survey(훑어보기): 목차를 보면서 훑어보며 전체적인 개요 파악<br>  _ Question(질문): 생각나는 질문들을 적어놓기<br>  _ Read(읽기)<br>  _ Recite(낭송): 요약하고 메모하고 스스로 표현해보기<br>  _ Review(복습): 다시 읽고 메모를 확장하고 동료와 토론</li>
+<li>마인드맵</li>
+<li>타이핑보다는 손글씨</li>
+<li>가르치며 배우기 -&gt; <a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging" target="_blank" rel="noopener">러버덕디버깅</a></li>
+</ul>
+<h2 id="경험-축적"><a href="#경험-축적" class="headerlink" title="경험 축적"></a>경험 축적</h2><ul>
+<li>배우기 위해 놀기 -&gt; 그 언어를 공부하고 그 라이브러리를 공부하기 전에 일단 그 언어로 뭐라도 만들어보자. Learning by Coding</li>
+<li>압박은 인지를 죽인다<br>  _ 촉박한 마감이 닥쳐야 가장 효과적인 것은 L모드에 일정 부분 유효하지만 R모드에서는 그렇지 않다<ul>
+<li>시간 압박은 후유증까지 남긴다. 벼락치기는 이틀 정도는 축 처지게 됨</li>
+</ul>
+</li>
+<li>뇌는 입력의 원천이 뭔지에 대해 속기 쉽기 때문에 성공을 상상하는 것은 그것을 달성하는데 확실히 효과적이다 -&gt; 이미 한 것처럼 연기하기 / 이미지 트레이닝</li>
+<li>우리는 모방자다 -&gt; 나보다 뛰어난 사람들 속에 있기</li>
+</ul>
+<h2 id="초점-관리하기"><a href="#초점-관리하기" class="headerlink" title="초점 관리하기"></a>초점 관리하기</h2><ul>
+<li>정보가 넘쳐나는 시대에서 정보 과잉은 지식과 주의의 결핍을 만들었다<br>  _ 어쩌면 미래는 이러한 노이즈에 집중하지 않고 자신의 것을 묵묵히 꾸준히 하는 사람에 있지 않을까? </li>
+<li>명상의 이득: 명상을 할 때나 의식적으로 주의를 기울일 때뿐만 아니라 하루 종일 효과가 있다 -&gt; 명상앱은 오늘부터 깔아서 자기 전에 10분이라도 해봐야겠다라는 생각을 했는데 앉아서 해야된다네..</li>
+<li>멀티태스킹을 하지 말자. 우리의 뇌는 컴퓨터와 달라서 Context Switching시 20분의 시간이 든다.<br>  _ 대마초를 피우는 것보다 계속 메일을 확인 하는 것이 우리의 아이큐를 더 떨어뜨린다고 한다<br>  _ 윈도우나 맥에서 알트탭, 커맨드탭으로 화면전환하는 것조차 단기기억과 에너지를 필요로 한다<br>  _ 더블 모니터를 쓰기만 해도 생산성이 30퍼센트 올라감</li>
+</ul>
+
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/31/operating-system-chapter-3/" data-tooltip="[운영체제] 3장 프로세스, 스레드 요약" aria-label="PREVIOUS: [운영체제] 3장 프로세스, 스레드 요약">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
+                        
+
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/14/what-is-CSRF/" data-tooltip="[보안] CSRF(Cross Site Request Forgery)란 무엇인가?" aria-label="NEXT: [보안] CSRF(Cross Site Request Forgery)란 무엇인가?">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
+                    
+                        <p>
+                            <a href="/2019/01/04/pragmatic-thinking-and-learning/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
         
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/" title="Share on Facebook">
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                </a>
-            </li>
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
         
         
-            
-                <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                        <i class="fa fa-comment-o"></i>
-                    </a>
-                </li>
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
+        <li class="pagination-number">page 1 of 1</li>
     </ul>
 </div>
 
-
-        
-        
-            
-                <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-            
-        
-    </div>
-</article>
-
+</section>
 
 
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -424,82 +380,6 @@
 </footer>
 
             </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/31/operating-system-chapter-3/" data-tooltip="[운영체제] 3장 프로세스, 스레드 요약" aria-label="PREVIOUS: [운영체제] 3장 프로세스, 스레드 요약">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/14/what-is-CSRF/" data-tooltip="[보안] CSRF(Cross Site Request Forgery)란 무엇인가?" aria-label="NEXT: [보안] CSRF(Cross Site Request Forgery)란 무엇인가?">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/" title="Share on Facebook">
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-                <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                        <i class="fa fa-comment-o"></i>
-                    </a>
-                </li>
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
-    <i id="btn-close-shareoptions" class="fa fa-close"></i>
-    <ul class="share-options">
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/">
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
             
         </div>
         
@@ -753,25 +633,6 @@
 <script src="/assets/js/thumbs.js"></script>
 <script src="/assets/js/tranquilpeak.js"></script>
 <!--SCRIPTS END-->
-
-    
-        <script>
-             var disqus_config = function () {
-                 this.page.url = 'https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/';
-                 
-                    this.page.identifier = '2018/12/29/operating-system-chapter-1and2/';
-                 
-             };
-            (function() {
-                var d = document, s = d.createElement('script');
-                var disqus_shortname = 'sj602-github-io';
-                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        </script>
-    
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>

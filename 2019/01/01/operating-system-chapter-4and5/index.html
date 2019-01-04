@@ -13,19 +13,19 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"\n임계영역(Critical Section)\n\n\n다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역\n어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다\n프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다\n\n1) 임계영역 문제 해결책\n\n상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능\n진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다\n제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한\n동기화 도구: 세마포어, 모니터\n\n\n세마포어(Semaphore)\n\n\n다익스트라가 제안\n구조: 정수형 변수 + 두 개의 동작(P, V)\n세마포어란 음이 아닌 정수값을 가지는 플래그 변수\n임계영역에 들어가기전에 P: acquire() 하고 \n임계영역으로부터 나올 때 V: release() 한다\nP와 V를 다음과 같이 정의한다123- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가\t    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬\n\n\n\n모니터(Monitor)\n\n\n세마포어보다 고수준의 개념\n구조: 공유자원 + 공유자원 접근 함수\n2개의 queues: 배타동기 + 조건동기\n\n\n교착상태(Deadlock)\n\n1) 교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)2) 교착상태의 처리: 방지, 회피, 검출 및 복구, 무시\n\n실제 상황에서 교착상태는 잘 일어나지 않는다\n\n","dateCreated":"2019-01-01T14:08:09+09:00","dateModified":"2019-01-01T15:55:49+09:00","datePublished":"2019-01-01T14:08:09+09:00","description":"","headline":"[운영체제] 4장 5장 Semaphore, Monitor 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/","keywords":"운영체제, OS, 임계영역, Critical Section, 세마포어, Semaphore, 모니터, Monitor, Mutual Exclusion, 상호배제, 데드락, Deadlock"}</script>
-    <meta name="description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  1) 임계영역 문제 해결책  상호">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"\n임계영역(Critical Section)\n\n\n다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역\n어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다\n프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다\n\n임계영역 문제 해결책\n\n상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능\n진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다\n제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한\n동기화 도구: 세마포어, 모니터\n\n\n세마포어(Semaphore)\n\n\n다익스트라가 제안\n구조: 정수형 변수 + 두 개의 동작(P, V)\n세마포어란 음이 아닌 정수값을 가지는 플래그 변수\n임계영역에 들어가기전에 P: acquire() 하고 \n임계영역으로부터 나올 때 V: release() 한다\nP와 V를 다음과 같이 정의한다123- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가\t    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬\n\n\n\n모니터(Monitor)\n\n\n세마포어보다 고수준의 개념\n구조: 공유자원 + 공유자원 접근 함수\n2개의 queues: 배타동기 + 조건동기\n\n\n교착상태(Deadlock)\n\n\n교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)\n교착상태의 처리: 방지, 회피, 검출 및 복구, 무시\n실제 상황에서 교착상태는 잘 일어나지 않는다\n\n","dateCreated":"2019-01-01T14:08:09+09:00","dateModified":"2019-01-04T20:47:16+09:00","datePublished":"2019-01-01T14:08:09+09:00","description":"","headline":"[운영체제] 4장 5장 Semaphore, Monitor 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/","keywords":"운영체제, OS, 임계영역, Critical Section, 세마포어, Semaphore, 모니터, Monitor, Mutual Exclusion, 상호배제, 데드락, Deadlock"}</script>
+    <meta name="description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  임계영역 문제 해결책  상호배제(">
 <meta name="keywords" content="운영체제,OS,임계영역,Critical Section,세마포어,Semaphore,모니터,Monitor,Mutual Exclusion,상호배제,데드락,Deadlock">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[운영체제] 4장 5장 Semaphore, Monitor 요약">
 <meta property="og:url" content="https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/index.html">
 <meta property="og:site_name" content="Jinko the Snokl">
-<meta property="og:description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  1) 임계영역 문제 해결책  상호">
+<meta property="og:description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  임계영역 문제 해결책  상호배제(">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-01T06:55:49.304Z">
+<meta property="og:updated_time" content="2019-01-04T11:47:16.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[운영체제] 4장 5장 Semaphore, Monitor 요약">
-<meta name="twitter:description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  1) 임계영역 문제 해결책  상호">
+<meta name="twitter:description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  임계영역 문제 해결책  상호배제(">
     
     
         
@@ -274,10 +274,10 @@
 <ul>
 <li>다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역</li>
 <li>어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다</li>
-<li>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</li>
-</ul>
-<p>1) 임계영역 문제 해결책</p>
-<ul>
+<li><p>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</p>
+</li>
+<li><p>임계영역 문제 해결책</p>
+</li>
 <li>상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능</li>
 <li>진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다</li>
 <li>제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한</li>
@@ -306,8 +306,9 @@
 <ol start="3">
 <li>교착상태(Deadlock)</li>
 </ol>
-<p>1) 교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)<br>2) 교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</p>
 <ul>
+<li>교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)</li>
+<li>교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</li>
 <li>실제 상황에서 교착상태는 잘 일어나지 않는다</li>
 </ul>
 
@@ -330,7 +331,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/04/pragmatic-thinking-and-learning/" data-tooltip="[책] 실용주의 사고와 학습" aria-label="PREVIOUS: [책] 실용주의 사고와 학습">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -416,7 +418,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/04/pragmatic-thinking-and-learning/" data-tooltip="[책] 실용주의 사고와 학습" aria-label="PREVIOUS: [책] 실용주의 사고와 학습">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -696,6 +699,25 @@
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://sj602.github.io/2019/01/04/pragmatic-thinking-and-learning/">
+                            <h3 class="media-heading">[책] 실용주의 사고와 학습</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jan 4, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
@@ -703,7 +725,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                8 posts found
+                9 posts found
             </p>
         </div>
     </div>
