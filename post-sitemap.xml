@@ -8,39 +8,7 @@
 
     <url>
         <loc>https://sj602.github.io/2019/01/31/mergesort/</loc>
-        <lastmod>2019-01-31T02:32:24.971Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2019/01/04/pragmatic-thinking-and-learning/</loc>
-        <lastmod>2019-01-31T02:21:40.094Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/</loc>
-        <lastmod>2019-01-04T11:47:16.579Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/</loc>
-        <lastmod>2019-01-01T05:53:38.354Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/07/14/what-is-CSRF/</loc>
-        <lastmod>2018-12-31T05:43:37.007Z</lastmod>
+        <lastmod>2019-01-31T10:20:00.096Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -48,7 +16,7 @@
 
     <url>
         <loc>https://sj602.github.io/2018/07/10/what-is-xss/</loc>
-        <lastmod>2018-12-31T05:26:52.349Z</lastmod>
+        <lastmod>2019-01-31T10:18:16.183Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -56,7 +24,15 @@
 
     <url>
         <loc>https://sj602.github.io/2018/07/13/what-is-SQL-injection/</loc>
-        <lastmod>2018-12-31T05:26:42.011Z</lastmod>
+        <lastmod>2019-01-31T10:18:12.210Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2018/07/14/what-is-CSRF/</loc>
+        <lastmod>2019-01-31T10:18:08.111Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -64,15 +40,7 @@
 
     <url>
         <loc>https://sj602.github.io/2018/06/30/static-and-not-static/</loc>
-        <lastmod>2018-12-31T05:26:24.660Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/12/31/operating-system-chapter-3/</loc>
-        <lastmod>2018-12-31T05:26:09.108Z</lastmod>
+        <lastmod>2019-01-31T10:18:01.286Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -80,7 +48,39 @@
 
     <url>
         <loc>https://sj602.github.io/2018/06/27/start-blog/</loc>
-        <lastmod>2018-06-28T11:48:19.532Z</lastmod>
+        <lastmod>2019-01-31T10:17:49.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2019/01/04/pragmatic-thinking-and-learning/</loc>
+        <lastmod>2019-01-31T10:17:11.308Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/</loc>
+        <lastmod>2019-01-31T10:15:42.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2018/12/31/operating-system-chapter-3/</loc>
+        <lastmod>2019-01-31T10:15:37.808Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/</loc>
+        <lastmod>2019-01-31T10:15:29.514Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -15,7 +15,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg"},"articleBody":"3장. 프로세스, 스레드\n\n프로세스\n\n\n프로세스: 메모리에 적재되서 현재 실행 중인 프로그램\n각 프로세스마다 코드, 데이터, BSS, 힙, 스택 등의 메모리 구조를 가짐\n프로세스는 운영체제 내에서 프로세스 제어 블록(PCB: Process Control Block)으로 표현됨\nPCB에는 프로세스 식별자, 프로세스 상태, 프로그램 카운터, 레지스터 등이 저장된다\n문맥교환(Context Switching): 프로세스끼리 제어 상태 변화가 일어났을 때 발생 -&gt; 오버헤드(Overhead) 발생\nOS의 스케쥴링에 의해 프로세스 실행 순서 결정\n각각의 프로세스는 독립적이므로 한 프로세스가 비정상적으로 종료되도 다른 프로세스에 영향이 없다\n\n\n스레드\n\n\n스레드: 하나의 프로세스 내에서 실행되는 여러 흐름의 단위\n각 스레드는 스택만 할당받고 코드, 데이터, 힙 등은 프로세스 내에서 공유한다\nOS의 스케쥴러는 스레드를 최소 단위로 작업\n각각의 스레드는 프로세스와 달리 비정상적으로 종료되면 다른 스레드들도 종료된\n\n\n기타\n\n\n일반적으로 새로운 프로세스가 생성되면 프로세스를 위한 스레드도 함께 생성된다\n프로세스의 생성/종료보다 스레드의 생성/종료의 오버헤드가 훨씬 적다\n트랩(Trap): 부적절한 파일접근이나 오류, 예외 상황때문에 발생 -&gt; 소프트웨어적인 흐름의 변화 (인터럽트: 하드웨어적인 흐름의 변)\n\n","dateCreated":"2018-12-31T13:31:56+09:00","dateModified":"2018-12-31T14:26:09+09:00","datePublished":"2018-12-31T13:31:56+09:00","description":"","headline":"[운영체제] 3장 프로세스, 스레드 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/12/31/operating-system-chapter-3/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg","logo":{"@type":"ImageObject","url":"bio_photo_small.jpg"}},"url":"https://sj602.github.io/2018/12/31/operating-system-chapter-3/","keywords":"운영체제, OS, 프로세스, 스레드"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg"},"articleBody":"3장. 프로세스, 스레드\n\n프로세스\n\n\n프로세스: 메모리에 적재되서 현재 실행 중인 프로그램\n각 프로세스마다 코드, 데이터, BSS, 힙, 스택 등의 메모리 구조를 가짐\n프로세스는 운영체제 내에서 프로세스 제어 블록(PCB: Process Control Block)으로 표현됨\nPCB에는 프로세스 식별자, 프로세스 상태, 프로그램 카운터, 레지스터 등이 저장된다\n문맥교환(Context Switching): 프로세스끼리 제어 상태 변화가 일어났을 때 발생 -&gt; 오버헤드(Overhead) 발생\nOS의 스케쥴링에 의해 프로세스 실행 순서 결정\n각각의 프로세스는 독립적이므로 한 프로세스가 비정상적으로 종료되도 다른 프로세스에 영향이 없다\n\n\n스레드\n\n\n스레드: 하나의 프로세스 내에서 실행되는 여러 흐름의 단위\n각 스레드는 스택만 할당받고 코드, 데이터, 힙 등은 프로세스 내에서 공유한다\nOS의 스케쥴러는 스레드를 최소 단위로 작업\n각각의 스레드는 프로세스와 달리 비정상적으로 종료되면 다른 스레드들도 종료된\n\n\n기타\n\n\n일반적으로 새로운 프로세스가 생성되면 프로세스를 위한 스레드도 함께 생성된다\n프로세스의 생성/종료보다 스레드의 생성/종료의 오버헤드가 훨씬 적다\n트랩(Trap): 부적절한 파일접근이나 오류, 예외 상황때문에 발생 -&gt; 소프트웨어적인 흐름의 변화 (인터럽트: 하드웨어적인 흐름의 변)\n\n","dateCreated":"2018-12-31T13:31:56+09:00","dateModified":"2019-01-31T19:15:37+09:00","datePublished":"2018-12-31T13:31:56+09:00","description":"","headline":"[운영체제] 3장 프로세스, 스레드 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/12/31/operating-system-chapter-3/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg","logo":{"@type":"ImageObject","url":"bio_photo_small.jpg"}},"url":"https://sj602.github.io/2018/12/31/operating-system-chapter-3/","keywords":"운영체제, OS, 프로세스, 스레드"}</script>
     <meta name="description" content="3장. 프로세스, 스레드  프로세스   프로세스: 메모리에 적재되서 현재 실행 중인 프로그램 각 프로세스마다 코드, 데이터, BSS, 힙, 스택 등의 메모리 구조를 가짐 프로세스는 운영체제 내에서 프로세스 제어 블록(PCB: Process Control Block)으로 표현됨 PCB에는 프로세스 식별자, 프로세스 상태, 프로그램 카운터, 레지스터 등이 저장">
 <meta name="keywords" content="운영체제,OS,프로세스,스레드">
 <meta property="og:type" content="blog">
@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="Jinko the Snokl">
 <meta property="og:description" content="3장. 프로세스, 스레드  프로세스   프로세스: 메모리에 적재되서 현재 실행 중인 프로그램 각 프로세스마다 코드, 데이터, BSS, 힙, 스택 등의 메모리 구조를 가짐 프로세스는 운영체제 내에서 프로세스 제어 블록(PCB: Process Control Block)으로 표현됨 PCB에는 프로세스 식별자, 프로세스 상태, 프로그램 카운터, 레지스터 등이 저장">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-31T05:26:09.108Z">
+<meta property="og:updated_time" content="2019-01-31T10:15:37.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[운영체제] 3장 프로세스, 스레드 요약">
 <meta name="twitter:description" content="3장. 프로세스, 스레드  프로세스   프로세스: 메모리에 적재되서 현재 실행 중인 프로그램 각 프로세스마다 코드, 데이터, BSS, 힙, 스택 등의 메모리 구조를 가짐 프로세스는 운영체제 내에서 프로세스 제어 블록(PCB: Process Control Block)으로 표현됨 PCB에는 프로세스 식별자, 프로세스 상태, 프로그램 카운터, 레지스터 등이 저장">
@@ -261,6 +261,12 @@
 		    Dec 31, 2018
     	
     </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/운영체제/">운영체제</a>
+
+
     
 </div>
 
