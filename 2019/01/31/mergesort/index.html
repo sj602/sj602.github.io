@@ -6,26 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jinko the Snokl">
-    <title>[보안] SQL injection 이란? - Jinko the Snokl</title>
+    <title>[알고리즘] 병합정렬(머지소트/Merge Sort) - Jinko the Snokl</title>
     <meta name="author" content="Jin Seon">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"XSS와 더불어 가장 흔한 보안 공격 기술인 SQL injection에 대해서 알아보았다.\nSQL injection 이란?1SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키\n데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에 해를 가하는 공격이라고 할 수 있다.\n예를 들어, 로그인을 하는 코드가 있다고 하자.1SELECT user FROM user_table WHERE id=&apos;입력한 아이디&apos; AND password=&apos;입력한 비밀번호&apos;;\n위와 같이 SQL문을 짜서 데이터베이스에 존재하는 user_table 테이블에서 입력한 id와 입력한 password와 동일한 값을 찾아 반환해주는 코드이다.\n일반적인 유저라면\n\nid = 홍길동password = 1234\n\n이런식으로 입력을 하겠지만\nSQl injection을 할 유저는\n\nid = 홍길동password = 1234’; DROP table user_table–\n\n이런식으로 입력을 하게 된다.\n그렇게 되면 전체 SQL 구문은 이렇게 되어버린다.\n12SELECT user FROM user_table WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;; DROP TABLE user_table--&apos;;\nSQL에서 ;(세미콜론)은 한 구문의 끝을 나타내므로 위 구문은\n1SELECT user FROM user_table WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;\n1DROP TABLE user_table--&apos;\n이렇게 2개의 구문으로 나눠져 실행되게 된다.\n–(하이픈 2개) 다음으로 오는 문장은 주석 처리가 되므로,결국 DROP 명령어에 의해 해당 table은 DB에서 지워지게 된다.\n이 외에도 로그인을 무조건 성공하게 하는‘ OR ‘1’ = ‘1 (1은 1과 같으니 WHERE절은 무조건 참이 되어 아이디 또는 비밀번호가 무엇이든 로그인 성공)등 수많은 케이스가 있다.\n\n방어 방법1. 입력값 검증다음과 같은 특수문자 혹은 SQL 명렁문이 입력값에 포함되있는지 검증한 후 차단한다.123*, –, ‘, “, ?, #, (, ), ;, @, =, *, +, union, select, drop, update, from, where, join, substr, user_tables, user_table_columns, information_schema, sysobject, table_schema, declare, dual,…\n유저가 클라이언트단에서 자바스크립트를 끌 수 있으니클라이언트 단에서도 차단 및 서버 단에서도 차단하여 이중장치를 마련하자.대부분의 경우, 입력값 검증만 해도 막을 수 있다.\n2. SQL 오류 발생시 오류 메세지 클라이언트 표시 금지SQL 오류 메세지를 통하여 유저가 해당 DB의 구조를 알 수 있다.\n3. HASH 사용DB에 데이터 저장시 민감한 정보는 HASH를 이용해 저장한다.특히 패스워드는 반드시 SHA-256 이상으로 해싱 후 저장! (하지 않을시 개인정보보호법 29조 위반이라고 한다..)\n\n출처 : 나무위키, http://blog.plura.io/?p=6056, https://docs.microsoft.com/ko-kr/sql/relational-databases/security/sql-injection?view=sql-server-2017, http://asfirstalways.tistory.com/360, http://brownbears.tistory.com/59\n","dateCreated":"2018-07-13T19:26:17+09:00","dateModified":"2018-12-31T14:26:42+09:00","datePublished":"2018-07-13T19:26:17+09:00","description":"","headline":"[보안] SQL injection 이란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/13/what-is-SQL-injection/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2018/07/13/what-is-SQL-injection/","keywords":"보안, SQL injection"}</script>
-    <meta name="description" content="XSS와 더불어 가장 흔한 보안 공격 기술인 SQL injection에 대해서 알아보았다. SQL injection 이란?1SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키 데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에">
-<meta name="keywords" content="보안,SQL injection">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg"},"articleBody":"병합정렬(Merge Sort)\n나누는 부분인 mergesort()와나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다.\n1234567891011121314151617181920212223242526272829303132333435363738394041mergesort(int arr[], int left, int right)&#123;    // left가 right보다 작으면 계속 반씩 나눠준다. 크다면 아무런 동작도 하지 않고 빠져 나와 재귀함수의 merge부분으로 들어간다.    if(left &lt; right) &#123;        int mid = (left+right)/2;                mergesort(arr, left, mid);        mergesort(arr, mid+1, right);        merge(arr, left, mid, right); // 반씩 나눈 부분을 합친다.    &#125;    &#125;merge(int arr[], int left, int mid, int right)&#123;    int i = left, j = mid+1, k = left;    // 나눈 부분을 합친다    while(i &lt;= mid &amp;&amp; j &lt;= right) &#123;        if(arr[i] &lt; arr[j]) &#123;            sorted[k] = arr[i];            i++;        &#125; else &#123;            sorted[k] = arr[j];            j++;        &#125;        k++;    &#125;    // 왼쪽 부분이 먼저 끝날수도, 오른쪽 부분이 먼저 끝날수도 있기 때문에 남아있는 원소를 넣어준다.    if(i &gt; mid) &#123;        for(; j &lt;= right; j++) &#123;            sorted[k] = arr[j];            k++;        &#125;    &#125; else &#123;        for(; i &lt;= mid; i++) &#123;            sorted[k] = arr[i];            k++;        &#125;    &#125;    // 최종적으로 sorted배열에 있는 원소를 실제 배열인 arr로 옮겨준다    for(int m = left; m &lt;= right; m++) &#123;        arr[m] = sorted[m];    &#125;&#125;\n시간복잡도는 평균적인 경우나 최악의 경우에도 O(NlogN)을 보장한다.왜냐면 원소들의 순서가 어떻든, 퀵소트처럼 이미 정렬이 됬든 안됬든, 무조건 낱개가 될때까지 반씩 나눈 다음에낱개가 된 원소들끼리 합치면서 정렬을 하기 때문이다.이미 공부를 했던 정렬인데 영상을 참고하면서 따라했다.언제나 개념은 알고있지만 실제로 코드로 옮기는 부분에 있어서 문제가 많다.Keep Going\n","dateCreated":"2019-01-31T10:17:14+09:00","dateModified":"2019-01-31T11:24:17+09:00","datePublished":"2019-01-31T10:17:14+09:00","description":"","headline":"[알고리즘] 병합정렬(머지소트/Merge Sort)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2019/01/31/mergesort/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo.jpeg","logo":{"@type":"ImageObject","url":"bio_photo.jpeg"}},"url":"https://sj602.github.io/2019/01/31/mergesort/","keywords":"알고리즘, 병합정렬, 머지소트, mergesort"}</script>
+    <meta name="description" content="병합정렬(Merge Sort) 나누는 부분인 mergesort()와나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다. 1234567891011121314151617181920212223242526272829303132333435363738394041mergesort(">
+<meta name="keywords" content="알고리즘,병합정렬,머지소트,mergesort">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="[보안] SQL injection 이란?">
-<meta property="og:url" content="https://sj602.github.io/2018/07/13/what-is-SQL-injection/index.html">
+<meta property="og:title" content="[알고리즘] 병합정렬(머지소트&#x2F;Merge Sort)">
+<meta property="og:url" content="https://sj602.github.io/2019/01/31/mergesort/index.html">
 <meta property="og:site_name" content="Jinko the Snokl">
-<meta property="og:description" content="XSS와 더불어 가장 흔한 보안 공격 기술인 SQL injection에 대해서 알아보았다. SQL injection 이란?1SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키 데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에">
+<meta property="og:description" content="병합정렬(Merge Sort) 나누는 부분인 mergesort()와나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다. 1234567891011121314151617181920212223242526272829303132333435363738394041mergesort(">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-31T05:26:42.011Z">
+<meta property="og:updated_time" content="2019-01-31T02:24:17.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[보안] SQL injection 이란?">
-<meta name="twitter:description" content="XSS와 더불어 가장 흔한 보안 공격 기술인 SQL injection에 대해서 알아보았다. SQL injection 이란?1SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키 데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에">
+<meta name="twitter:title" content="[알고리즘] 병합정렬(머지소트&#x2F;Merge Sort)">
+<meta name="twitter:description" content="병합정렬(Merge Sort) 나누는 부분인 mergesort()와나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다. 1234567891011121314151617181920212223242526272829303132333435363738394041mergesort(">
     
     
         
@@ -84,7 +84,7 @@
         
         </a>
     
-<link rel="canonical" href="https://sj602.github.io/2018/07/13/what-is-sql-injection/"/>
+<link rel="canonical" href="https://sj602.github.io/2019/01/31/mergesort/"/>
 </header>
 
             <!-- Define author's picture -->
@@ -249,14 +249,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            [보안] SQL injection 이란?
+            [알고리즘] 병합정렬(머지소트/Merge Sort)
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-07-13T19:26:17+09:00">
+    <time datetime="2019-01-31T10:17:14+09:00">
 	
-		    Jul 13, 2018
+		    Jan 31, 2019
     	
     </time>
     
@@ -268,36 +268,10 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <p>XSS와 더불어 가장 흔한 보안 공격 기술인 <strong>SQL injection</strong>에 대해서 알아보았다.</p>
-<h1 id="SQL-injection-이란"><a href="#SQL-injection-이란" class="headerlink" title="SQL injection 이란?"></a>SQL injection 이란?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키</span><br></pre></td></tr></table></figure>
-<p>데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에 해를 가하는 공격이라고 할 수 있다.</p>
-<p>예를 들어, 로그인을 하는 코드가 있다고 하자.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT user FROM user_table WHERE id=&apos;입력한 아이디&apos; AND password=&apos;입력한 비밀번호&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>위와 같이 SQL문을 짜서 데이터베이스에 존재하는 user_table 테이블에서 입력한 id와 입력한 password와 동일한 값을 찾아 반환해주는 코드이다.</p>
-<p>일반적인 유저라면</p>
-<blockquote>
-<p>id = 홍길동<br>password = 1234</p>
-</blockquote>
-<p>이런식으로 입력을 하겠지만</p>
-<p>SQl injection을 할 유저는</p>
-<blockquote>
-<p>id = 홍길동<br>password = 1234’; DROP table user_table–</p>
-</blockquote>
-<p>이런식으로 입력을 하게 된다.</p>
-<p>그렇게 되면 전체 SQL 구문은 이렇게 되어버린다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT user FROM user_table </span><br><span class="line">WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;; DROP TABLE user_table--&apos;;</span><br></pre></td></tr></table></figure>
-<p>SQL에서 ;(세미콜론)은 한 구문의 끝을 나타내므로 위 구문은</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT user FROM user_table WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE user_table--&apos;</span><br></pre></td></tr></table></figure>
-<p>이렇게 2개의 구문으로 나눠져 실행되게 된다.</p>
-<p>–(하이픈 2개) 다음으로 오는 문장은 주석 처리가 되므로,<br>결국 DROP 명령어에 의해 해당 table은 DB에서 지워지게 된다.</p>
-<p>이 외에도 로그인을 무조건 성공하게 하는<br><strong>‘ OR ‘1’ = ‘1</strong> (1은 1과 같으니 WHERE절은 무조건 참이 되어 아이디 또는 비밀번호가 무엇이든 로그인 성공)<br>등 수많은 케이스가 있다.</p>
-<hr>
-<h1 id="방어-방법"><a href="#방어-방법" class="headerlink" title="방어 방법"></a>방어 방법</h1><h4 id="1-입력값-검증"><a href="#1-입력값-검증" class="headerlink" title="1. 입력값 검증"></a>1. 입력값 검증</h4><p>다음과 같은 특수문자 혹은 SQL 명렁문이 입력값에 포함되있는지 검증한 후 차단한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*, –, ‘, “, ?, #, (, ), ;, @, =, *, +, union, select, drop, update, from, </span><br><span class="line">where, join, substr, user_tables, user_table_columns, </span><br><span class="line">information_schema, sysobject, table_schema, declare, dual,…</span><br></pre></td></tr></table></figure></p>
-<p>유저가 클라이언트단에서 자바스크립트를 끌 수 있으니<br>클라이언트 단에서도 차단 및 서버 단에서도 차단하여 이중장치를 마련하자.<br>대부분의 경우, 입력값 검증만 해도 막을 수 있다.</p>
-<h4 id="2-SQL-오류-발생시-오류-메세지-클라이언트-표시-금지"><a href="#2-SQL-오류-발생시-오류-메세지-클라이언트-표시-금지" class="headerlink" title="2. SQL 오류 발생시 오류 메세지 클라이언트 표시 금지"></a>2. SQL 오류 발생시 오류 메세지 클라이언트 표시 금지</h4><p>SQL 오류 메세지를 통하여 유저가 해당 DB의 구조를 알 수 있다.</p>
-<h4 id="3-HASH-사용"><a href="#3-HASH-사용" class="headerlink" title="3. HASH 사용"></a>3. HASH 사용</h4><p>DB에 데이터 저장시 민감한 정보는 HASH를 이용해 저장한다.<br>특히 패스워드는 반드시 SHA-256 이상으로 해싱 후 저장! (하지 않을시 개인정보보호법 29조 위반이라고 한다..)</p>
-<hr>
-<p>출처 : <a href="https://namu.wiki/w/SQL%20injection" target="_blank" rel="noopener">나무위키</a>, <a href="http://blog.plura.io/?p=6056" target="_blank" rel="noopener">http://blog.plura.io/?p=6056</a>, <a href="https://docs.microsoft.com/ko-kr/sql/relational-databases/security/sql-injection?view=sql-server-2017" target="_blank" rel="noopener">https://docs.microsoft.com/ko-kr/sql/relational-databases/security/sql-injection?view=sql-server-2017</a>, <a href="http://asfirstalways.tistory.com/360" target="_blank" rel="noopener">http://asfirstalways.tistory.com/360</a>, <a href="http://brownbears.tistory.com/59" target="_blank" rel="noopener">http://brownbears.tistory.com/59</a></p>
+            <p>병합정렬(Merge Sort)</p>
+<p>나누는 부분인 mergesort()와<br>나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.<br>중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">mergesort(int arr[], int left, int right)&#123;</span><br><span class="line">    // left가 right보다 작으면 계속 반씩 나눠준다. 크다면 아무런 동작도 하지 않고 빠져 나와 재귀함수의 merge부분으로 들어간다.</span><br><span class="line">    if(left &lt; right) &#123;</span><br><span class="line">        int mid = (left+right)/2;</span><br><span class="line">        </span><br><span class="line">        mergesort(arr, left, mid);</span><br><span class="line">        mergesort(arr, mid+1, right);</span><br><span class="line">        merge(arr, left, mid, right); // 반씩 나눈 부분을 합친다.</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(int arr[], int left, int mid, int right)&#123;</span><br><span class="line">    int i = left, j = mid+1, k = left;</span><br><span class="line">    // 나눈 부분을 합친다</span><br><span class="line">    while(i &lt;= mid &amp;&amp; j &lt;= right) &#123;</span><br><span class="line">        if(arr[i] &lt; arr[j]) &#123;</span><br><span class="line">            sorted[k] = arr[i];</span><br><span class="line">            i++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            sorted[k] = arr[j];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    // 왼쪽 부분이 먼저 끝날수도, 오른쪽 부분이 먼저 끝날수도 있기 때문에 남아있는 원소를 넣어준다.</span><br><span class="line">    if(i &gt; mid) &#123;</span><br><span class="line">        for(; j &lt;= right; j++) &#123;</span><br><span class="line">            sorted[k] = arr[j];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for(; i &lt;= mid; i++) &#123;</span><br><span class="line">            sorted[k] = arr[i];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 최종적으로 sorted배열에 있는 원소를 실제 배열인 arr로 옮겨준다</span><br><span class="line">    for(int m = left; m &lt;= right; m++) &#123;</span><br><span class="line">        arr[m] = sorted[m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>시간복잡도는 평균적인 경우나 최악의 경우에도 O(NlogN)을 보장한다.<br>왜냐면 원소들의 순서가 어떻든, 퀵소트처럼 이미 정렬이 됬든 안됬든, 무조건 낱개가 될때까지 반씩 나눈 다음에<br>낱개가 된 원소들끼리 합치면서 정렬을 하기 때문이다.<br>이미 공부를 했던 정렬인데 영상을 참고하면서 따라했다.<br>언제나 개념은 알고있지만 실제로 코드로 옮기는 부분에 있어서 문제가 많다.<br>Keep Going</p>
 
             
 
@@ -308,7 +282,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/SQL-injection/">SQL injection</a> <a class="tag tag--primary tag--small t-link" href="/tags/보안/">보안</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/mergesort/">mergesort</a> <a class="tag tag--primary tag--small t-link" href="/tags/머지소트/">머지소트</a> <a class="tag tag--primary tag--small t-link" href="/tags/병합정렬/">병합정렬</a> <a class="tag tag--primary tag--small t-link" href="/tags/알고리즘/">알고리즘</a>
 
             </div>
         
@@ -318,8 +292,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/14/what-is-CSRF/" data-tooltip="[보안] CSRF(Cross Site Request Forgery)란 무엇인가?" aria-label="PREVIOUS: [보안] CSRF(Cross Site Request Forgery)란 무엇인가?">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -328,7 +301,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/10/what-is-xss/" data-tooltip="[보안] XSS(Cross Site Scription)란 무엇인가?" aria-label="NEXT: [보안] XSS(Cross Site Scription)란 무엇인가?">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/04/pragmatic-thinking-and-learning/" data-tooltip="[책] 실용주의 사고와 학습" aria-label="NEXT: [책] 실용주의 사고와 학습">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -346,7 +319,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/13/what-is-SQL-injection/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2019/01/31/mergesort/" title="Share on Facebook">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
             </li>
@@ -405,8 +378,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/14/what-is-CSRF/" data-tooltip="[보안] CSRF(Cross Site Request Forgery)란 무엇인가?" aria-label="PREVIOUS: [보안] CSRF(Cross Site Request Forgery)란 무엇인가?">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -415,7 +387,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/07/10/what-is-xss/" data-tooltip="[보안] XSS(Cross Site Scription)란 무엇인가?" aria-label="NEXT: [보안] XSS(Cross Site Scription)란 무엇인가?">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/04/pragmatic-thinking-and-learning/" data-tooltip="[책] 실용주의 사고와 학습" aria-label="NEXT: [책] 실용주의 사고와 학습">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -433,7 +405,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/13/what-is-SQL-injection/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2019/01/31/mergesort/" title="Share on Facebook">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
             </li>
@@ -466,7 +438,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2018/07/13/what-is-SQL-injection/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2019/01/31/mergesort/">
                     <i class="fa fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -750,9 +722,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://sj602.github.io/2018/07/13/what-is-SQL-injection/';
+                 this.page.url = 'https://sj602.github.io/2019/01/31/mergesort/';
                  
-                    this.page.identifier = '2018/07/13/what-is-SQL-injection/';
+                    this.page.identifier = '2019/01/31/mergesort/';
                  
              };
             (function() {
