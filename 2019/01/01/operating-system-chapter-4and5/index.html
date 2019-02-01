@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Jinko the Snokl">
+    <title>[운영체제] 4장 5장 Semaphore, Monitor 요약 - Jinko the Snokl</title>
+    <meta name="author" content="Jin Seon">
+    
+    
+        <link rel="icon" href="https://sj602.github.io/assets/images/profile_cartoon.ico">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_cartoon.jpg"},"articleBody":"\n임계영역(Critical Section)\n\n\n다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역\n어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다\n프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다\n\n임계영역 문제 해결책\n\n상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능\n진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다\n제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한\n동기화 도구: 세마포어, 모니터\n\n\n세마포어(Semaphore)\n\n\n다익스트라가 제안\n구조: 정수형 변수 + 두 개의 동작(P, V)\n세마포어란 음이 아닌 정수값을 가지는 플래그 변수\n임계영역에 들어가기전에 P: acquire() 하고 \n임계영역으로부터 나올 때 V: release() 한다\nP와 V를 다음과 같이 정의한다123- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가\t    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬\n\n\n\n모니터(Monitor)\n\n\n세마포어보다 고수준의 개념\n구조: 공유자원 + 공유자원 접근 함수\n2개의 queues: 배타동기 + 조건동기\n\n\n교착상태(Deadlock)\n\n\n교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)\n교착상태의 처리: 방지, 회피, 검출 및 복구, 무시\n실제 상황에서 교착상태는 잘 일어나지 않는다\n\n","dateCreated":"2019-01-01T14:08:09+09:00","dateModified":"2019-01-31T19:15:42+09:00","datePublished":"2019-01-01T14:08:09+09:00","description":"","headline":"[운영체제] 4장 5장 Semaphore, Monitor 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_cartoon.jpg","logo":{"@type":"ImageObject","url":"profile_cartoon.jpg"}},"url":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/","keywords":"운영체제, OS, 임계영역, Critical Section, 세마포어, Semaphore, 모니터, Monitor, Mutual Exclusion, 상호배제, 데드락, Deadlock"}</script>
+    <meta name="description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  임계영역 문제 해결책  상호배제(">
+<meta name="keywords" content="운영체제,OS,임계영역,Critical Section,세마포어,Semaphore,모니터,Monitor,Mutual Exclusion,상호배제,데드락,Deadlock">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[운영체제] 4장 5장 Semaphore, Monitor 요약">
+<meta property="og:url" content="https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/index.html">
+<meta property="og:site_name" content="Jinko the Snokl">
+<meta property="og:description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  임계영역 문제 해결책  상호배제(">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-31T10:15:42.880Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[운영체제] 4장 5장 Semaphore, Monitor 요약">
+<meta name="twitter:description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  임계영역 문제 해결책  상호배제(">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile_cartoon.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91560310-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-91560310-2');
+    </script>
+
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Jinko the Snokl</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Jin Seon</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>Aspiring developer who’s dreaming about freedom</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                            title="Search"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/sj602" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.facebook.com/profile.php?id=100003671903401" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/in/jinseon602/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [운영체제] 4장 5장 Semaphore, Monitor 요약
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-01-01T14:08:09+09:00">
+	
+		    Jan 01, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/운영체제/">운영체제</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <ol start="0">
+<li>임계영역(Critical Section)</li>
+</ol>
+<ul>
+<li>다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역</li>
+<li>어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다</li>
+<li><p>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</p>
+</li>
+<li><p>임계영역 문제 해결책</p>
+</li>
+<li>상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능</li>
+<li>진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다</li>
+<li>제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한</li>
+<li>동기화 도구: 세마포어, 모니터</li>
+</ul>
+<ol>
+<li>세마포어(Semaphore)</li>
+</ol>
+<ul>
+<li>다익스트라가 제안</li>
+<li>구조: 정수형 변수 + 두 개의 동작(P, V)</li>
+<li>세마포어란 음이 아닌 정수값을 가지는 플래그 변수</li>
+<li>임계영역에 들어가기전에 P: acquire() 하고 </li>
+<li>임계영역으로부터 나올 때 V: release() 한다</li>
+<li>P와 V를 다음과 같이 정의한다<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가</span><br><span class="line">	    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락</span><br><span class="line">- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>모니터(Monitor)</li>
+</ol>
+<ul>
+<li>세마포어보다 고수준의 개념</li>
+<li>구조: 공유자원 + 공유자원 접근 함수</li>
+<li>2개의 queues: 배타동기 + 조건동기</li>
+</ul>
+<ol start="3">
+<li>교착상태(Deadlock)</li>
+</ol>
+<ul>
+<li>교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)</li>
+<li>교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</li>
+<li>실제 상황에서 교착상태는 잘 일어나지 않는다</li>
+</ul>
+
+            
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Critical-Section/">Critical Section</a> <a class="tag tag--primary tag--small t-link" href="/tags/Deadlock/">Deadlock</a> <a class="tag tag--primary tag--small t-link" href="/tags/Monitor/">Monitor</a> <a class="tag tag--primary tag--small t-link" href="/tags/Mutual-Exclusion/">Mutual Exclusion</a> <a class="tag tag--primary tag--small t-link" href="/tags/OS/">OS</a> <a class="tag tag--primary tag--small t-link" href="/tags/Semaphore/">Semaphore</a> <a class="tag tag--primary tag--small t-link" href="/tags/데드락/">데드락</a> <a class="tag tag--primary tag--small t-link" href="/tags/모니터/">모니터</a> <a class="tag tag--primary tag--small t-link" href="/tags/상호배제/">상호배제</a> <a class="tag tag--primary tag--small t-link" href="/tags/세마포어/">세마포어</a> <a class="tag tag--primary tag--small t-link" href="/tags/운영체제/">운영체제</a> <a class="tag tag--primary tag--small t-link" href="/tags/임계영역/">임계영역</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/04/pragmatic-thinking-and-learning/" data-tooltip="[책] 실용주의 사고와 학습" aria-label="PREVIOUS: [책] 실용주의 사고와 학습">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/31/operating-system-chapter-3/" data-tooltip="[운영체제] 3장 프로세스, 스레드 요약" aria-label="NEXT: [운영체제] 3장 프로세스, 스레드 요약">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5141238373396882",
+    enable_page_level_ads: true
+  });
+</script>
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Jin Seon. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/04/pragmatic-thinking-and-learning/" data-tooltip="[책] 실용주의 사고와 학습" aria-label="PREVIOUS: [책] 실용주의 사고와 학습">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/31/operating-system-chapter-3/" data-tooltip="[운영체제] 3장 프로세스, 스레드 요약" aria-label="NEXT: [운영체제] 3장 프로세스, 스레드 요약">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Jin Seon</h4>
+        
+            <div id="about-card-bio"><p>Aspiring developer who’s dreaming about freedom</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Developer</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Seoul
+            </div>
+        
+    </div>
+</div>
+
+        
+            <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-times"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    />
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://sj602.github.io/2018/06/27/start-blog/">
+                            <h3 class="media-heading">블로그를 시작하다</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jun 27, 2018
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                10 posts found
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/';
+                 
+                    this.page.identifier = '2019/01/01/operating-system-chapter-4and5/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'sj602-github-io';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script>
+        var algoliaClient = algoliasearch('E0191Z7PV7', 'c8e4e5fda4fa31bbe12ef5f42e90acce');
+        var algoliaIndex = algoliaClient.initIndex('blog');
+    </script>
+
+
+    </body>
+</html>
