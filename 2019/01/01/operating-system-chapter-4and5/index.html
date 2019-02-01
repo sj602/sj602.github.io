@@ -15,7 +15,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg"},"articleBody":"\n임계영역(Critical Section)\n\n\n다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역\n어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다\n프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다\n\n임계영역 문제 해결책\n\n상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능\n진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다\n제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한\n동기화 도구: 세마포어, 모니터\n\n\n세마포어(Semaphore)\n\n\n다익스트라가 제안\n구조: 정수형 변수 + 두 개의 동작(P, V)\n세마포어란 음이 아닌 정수값을 가지는 플래그 변수\n임계영역에 들어가기전에 P: acquire() 하고 \n임계영역으로부터 나올 때 V: release() 한다\nP와 V를 다음과 같이 정의한다123- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가\t    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬\n\n\n\n모니터(Monitor)\n\n\n세마포어보다 고수준의 개념\n구조: 공유자원 + 공유자원 접근 함수\n2개의 queues: 배타동기 + 조건동기\n\n\n교착상태(Deadlock)\n\n\n교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)\n교착상태의 처리: 방지, 회피, 검출 및 복구, 무시\n실제 상황에서 교착상태는 잘 일어나지 않는다\n\n","dateCreated":"2019-01-01T14:08:09+09:00","dateModified":"2019-01-31T19:15:42+09:00","datePublished":"2019-01-01T14:08:09+09:00","description":"","headline":"[운영체제] 4장 5장 Semaphore, Monitor 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg","logo":{"@type":"ImageObject","url":"bio_photo_small.jpg"}},"url":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/","keywords":"운영체제, OS, 임계영역, Critical Section, 세마포어, Semaphore, 모니터, Monitor, Mutual Exclusion, 상호배제, 데드락, Deadlock"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_small.jpg"},"articleBody":"\n임계영역(Critical Section)\n\n\n다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역\n어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다\n프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다\n\n임계영역 문제 해결책\n\n상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능\n진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다\n제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한\n동기화 도구: 세마포어, 모니터\n\n\n세마포어(Semaphore)\n\n\n다익스트라가 제안\n구조: 정수형 변수 + 두 개의 동작(P, V)\n세마포어란 음이 아닌 정수값을 가지는 플래그 변수\n임계영역에 들어가기전에 P: acquire() 하고 \n임계영역으로부터 나올 때 V: release() 한다\nP와 V를 다음과 같이 정의한다123- P(S): while S &lt;= 0 do no-op; // 세마포어 변수 S가 0이면 임계구역 진입 불가\t    S = S - 1; // 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락- V(S): S = S + 1; // 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬\n\n\n\n모니터(Monitor)\n\n\n세마포어보다 고수준의 개념\n구조: 공유자원 + 공유자원 접근 함수\n2개의 queues: 배타동기 + 조건동기\n\n\n교착상태(Deadlock)\n\n\n교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)\n교착상태의 처리: 방지, 회피, 검출 및 복구, 무시\n실제 상황에서 교착상태는 잘 일어나지 않는다\n\n","dateCreated":"2019-01-01T14:08:09+09:00","dateModified":"2019-01-31T19:15:42+09:00","datePublished":"2019-01-01T14:08:09+09:00","description":"","headline":"[운영체제] 4장 5장 Semaphore, Monitor 요약","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_small.jpg","logo":{"@type":"ImageObject","url":"profile_small.jpg"}},"url":"https://sj602.github.io/2019/01/01/operating-system-chapter-4and5/","keywords":"운영체제, OS, 임계영역, Critical Section, 세마포어, Semaphore, 모니터, Monitor, Mutual Exclusion, 상호배제, 데드락, Deadlock"}</script>
     <meta name="description" content="임계영역(Critical Section)   다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역 어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다 프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다  임계영역 문제 해결책  상호배제(">
 <meta name="keywords" content="운영체제,OS,임계영역,Critical Section,세마포어,Semaphore,모니터,Monitor,Mutual Exclusion,상호배제,데드락,Deadlock">
 <meta property="og:type" content="blog">
@@ -33,13 +33,13 @@
         
     
     
-        <meta property="og:image" content="https://sj602.github.io/assets/images/bio_photo_small.jpg"/>
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile_small.jpg"/>
     
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-odrgksmhhaat3fmrbtvmcpaj5flpzenufxempcx6j38cmjz7jxvwcqsmsft7.min.css">
+    <link rel="stylesheet" href="/assets/css/style-0o50wystmisnloke82ixdlnjcwwou2043annugrcs7m8txj8xuqkuugypigp.min.css">
     <!--STYLES END-->
     
     <script type="text/javascript">
@@ -79,7 +79,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -98,7 +98,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Jin Seon</h4>
                 
@@ -507,7 +507,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Jin Seon</h4>
         
@@ -588,7 +588,7 @@
         
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
-<script src="/assets/js/script-o0watm6cdmutovj4mxazs5dxbdpug2docnbbmcqv7bkrbf99y6msbmn75yck.min.js"></script>
+<script src="/assets/js/script-mgakg77eenekjv0drzj5dksktcrzm87menok9guatzk0eakgnmlvprxg0qdo.min.js"></script>
 <!--SCRIPTS END-->
 
     

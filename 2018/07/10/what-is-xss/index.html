@@ -15,7 +15,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg"},"articleBody":"웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.\nXSS(Cross Site Scripting)이란?\nSQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키\n\n웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.\n공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.\n공격의 방법\n스크립트 태그 안에 심기\n1&lt;script&gt;alert(document.cookie)&lt;/script&gt;\n\n서버 응답 결과에 심기\n1htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz\n\n링크 또는 이미지에 심기\n\n\n피해 종류\n쿠키 정보/세션 ID 획득\n시스템 관리자 권한 획득\n악성코드 다운로드\n\n예방 방법1. 태그 문자 무효화기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.\n2. 라이브러리 이용일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.다음과 같은 라이브러리들이 있다.\n\nAntiXSS(MS에서 개발)\nOWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)\nNAVER Lucy XSS filter\n\n3. 쿠키 보안 옵션 이용쿠키 생성시‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.완전히 방어 가능한 건 아니라고 한다.\n\n출처: 나무위키, 한국인터넷진흥원\n","dateCreated":"2018-07-10T21:32:40+09:00","dateModified":"2019-01-31T19:18:16+09:00","datePublished":"2018-07-10T21:32:40+09:00","description":"","headline":"[보안] XSS(Cross Site Scription)란 무엇인가?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/10/what-is-xss/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg","logo":{"@type":"ImageObject","url":"bio_photo_small.jpg"}},"url":"https://sj602.github.io/2018/07/10/what-is-xss/","keywords":"보안, XSS"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_small.jpg"},"articleBody":"웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.\nXSS(Cross Site Scripting)이란?\nSQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키\n\n웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.\n공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.\n공격의 방법\n스크립트 태그 안에 심기\n1&lt;script&gt;alert(document.cookie)&lt;/script&gt;\n\n서버 응답 결과에 심기\n1htt://www.server.com/search/?q=&lt;script&gt;(document.cookie)&lt;/script&gt;&amp;xyz\n\n링크 또는 이미지에 심기\n\n\n피해 종류\n쿠키 정보/세션 ID 획득\n시스템 관리자 권한 획득\n악성코드 다운로드\n\n예방 방법1. 태그 문자 무효화기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.\n2. 라이브러리 이용일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.다음과 같은 라이브러리들이 있다.\n\nAntiXSS(MS에서 개발)\nOWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)\nNAVER Lucy XSS filter\n\n3. 쿠키 보안 옵션 이용쿠키 생성시‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.완전히 방어 가능한 건 아니라고 한다.\n\n출처: 나무위키, 한국인터넷진흥원\n","dateCreated":"2018-07-10T21:32:40+09:00","dateModified":"2019-01-31T19:18:16+09:00","datePublished":"2018-07-10T21:32:40+09:00","description":"","headline":"[보안] XSS(Cross Site Scription)란 무엇인가?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/10/what-is-xss/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_small.jpg","logo":{"@type":"ImageObject","url":"profile_small.jpg"}},"url":"https://sj602.github.io/2018/07/10/what-is-xss/","keywords":"보안, XSS"}</script>
     <meta name="description" content="웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자. XSS(Cross Site Scripting)이란? SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.공격에 성공하면 사이트에">
 <meta name="keywords" content="보안,XSS">
 <meta property="og:type" content="blog">
@@ -35,13 +35,13 @@
         
     
     
-        <meta property="og:image" content="https://sj602.github.io/assets/images/bio_photo_small.jpg"/>
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile_small.jpg"/>
     
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-odrgksmhhaat3fmrbtvmcpaj5flpzenufxempcx6j38cmjz7jxvwcqsmsft7.min.css">
+    <link rel="stylesheet" href="/assets/css/style-0o50wystmisnloke82ixdlnjcwwou2043annugrcs7m8txj8xuqkuugypigp.min.css">
     <!--STYLES END-->
     
     <script type="text/javascript">
@@ -81,7 +81,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -100,7 +100,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Jin Seon</h4>
                 
@@ -497,7 +497,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Jin Seon</h4>
         
@@ -578,7 +578,7 @@
         
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
-<script src="/assets/js/script-o0watm6cdmutovj4mxazs5dxbdpug2docnbbmcqv7bkrbf99y6msbmn75yck.min.js"></script>
+<script src="/assets/js/script-mgakg77eenekjv0drzj5dksktcrzm87menok9guatzk0eakgnmlvprxg0qdo.min.js"></script>
 <!--SCRIPTS END-->
 
     

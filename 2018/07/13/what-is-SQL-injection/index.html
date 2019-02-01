@@ -15,7 +15,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg"},"articleBody":"XSS와 더불어 가장 흔한 보안 공격 기술인 SQL injection에 대해서 알아보았다.\nSQL injection 이란?1SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키\n데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에 해를 가하는 공격이라고 할 수 있다.\n예를 들어, 로그인을 하는 코드가 있다고 하자.1SELECT user FROM user_table WHERE id=&apos;입력한 아이디&apos; AND password=&apos;입력한 비밀번호&apos;;\n위와 같이 SQL문을 짜서 데이터베이스에 존재하는 user_table 테이블에서 입력한 id와 입력한 password와 동일한 값을 찾아 반환해주는 코드이다.\n일반적인 유저라면\n\nid = 홍길동password = 1234\n\n이런식으로 입력을 하겠지만\nSQl injection을 할 유저는\n\nid = 홍길동password = 1234’; DROP table user_table–\n\n이런식으로 입력을 하게 된다.\n그렇게 되면 전체 SQL 구문은 이렇게 되어버린다.\n12SELECT user FROM user_table WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;; DROP TABLE user_table--&apos;;\nSQL에서 ;(세미콜론)은 한 구문의 끝을 나타내므로 위 구문은\n1SELECT user FROM user_table WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;\n1DROP TABLE user_table--&apos;\n이렇게 2개의 구문으로 나눠져 실행되게 된다.\n–(하이픈 2개) 다음으로 오는 문장은 주석 처리가 되므로,결국 DROP 명령어에 의해 해당 table은 DB에서 지워지게 된다.\n이 외에도 로그인을 무조건 성공하게 하는‘ OR ‘1’ = ‘1 (1은 1과 같으니 WHERE절은 무조건 참이 되어 아이디 또는 비밀번호가 무엇이든 로그인 성공)등 수많은 케이스가 있다.\n\n방어 방법1. 입력값 검증다음과 같은 특수문자 혹은 SQL 명렁문이 입력값에 포함되있는지 검증한 후 차단한다.123*, –, ‘, “, ?, #, (, ), ;, @, =, *, +, union, select, drop, update, from, where, join, substr, user_tables, user_table_columns, information_schema, sysobject, table_schema, declare, dual,…\n유저가 클라이언트단에서 자바스크립트를 끌 수 있으니클라이언트 단에서도 차단 및 서버 단에서도 차단하여 이중장치를 마련하자.대부분의 경우, 입력값 검증만 해도 막을 수 있다.\n2. SQL 오류 발생시 오류 메세지 클라이언트 표시 금지SQL 오류 메세지를 통하여 유저가 해당 DB의 구조를 알 수 있다.\n3. HASH 사용DB에 데이터 저장시 민감한 정보는 HASH를 이용해 저장한다.특히 패스워드는 반드시 SHA-256 이상으로 해싱 후 저장! (하지 않을시 개인정보보호법 29조 위반이라고 한다..)\n\n출처 : 나무위키, http://blog.plura.io/?p=6056, https://docs.microsoft.com/ko-kr/sql/relational-databases/security/sql-injection?view=sql-server-2017, http://asfirstalways.tistory.com/360, http://brownbears.tistory.com/59\n","dateCreated":"2018-07-13T19:26:17+09:00","dateModified":"2019-01-31T19:18:12+09:00","datePublished":"2018-07-13T19:26:17+09:00","description":"","headline":"[보안] SQL injection 이란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/13/what-is-SQL-injection/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"bio_photo_small.jpg","logo":{"@type":"ImageObject","url":"bio_photo_small.jpg"}},"url":"https://sj602.github.io/2018/07/13/what-is-SQL-injection/","keywords":"보안, SQL injection"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_small.jpg"},"articleBody":"XSS와 더불어 가장 흔한 보안 공격 기술인 SQL injection에 대해서 알아보았다.\nSQL injection 이란?1SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키\n데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에 해를 가하는 공격이라고 할 수 있다.\n예를 들어, 로그인을 하는 코드가 있다고 하자.1SELECT user FROM user_table WHERE id=&apos;입력한 아이디&apos; AND password=&apos;입력한 비밀번호&apos;;\n위와 같이 SQL문을 짜서 데이터베이스에 존재하는 user_table 테이블에서 입력한 id와 입력한 password와 동일한 값을 찾아 반환해주는 코드이다.\n일반적인 유저라면\n\nid = 홍길동password = 1234\n\n이런식으로 입력을 하겠지만\nSQl injection을 할 유저는\n\nid = 홍길동password = 1234’; DROP table user_table–\n\n이런식으로 입력을 하게 된다.\n그렇게 되면 전체 SQL 구문은 이렇게 되어버린다.\n12SELECT user FROM user_table WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;; DROP TABLE user_table--&apos;;\nSQL에서 ;(세미콜론)은 한 구문의 끝을 나타내므로 위 구문은\n1SELECT user FROM user_table WHERE id=&apos;홍길동&apos; AND password=&apos;1234&apos;\n1DROP TABLE user_table--&apos;\n이렇게 2개의 구문으로 나눠져 실행되게 된다.\n–(하이픈 2개) 다음으로 오는 문장은 주석 처리가 되므로,결국 DROP 명령어에 의해 해당 table은 DB에서 지워지게 된다.\n이 외에도 로그인을 무조건 성공하게 하는‘ OR ‘1’ = ‘1 (1은 1과 같으니 WHERE절은 무조건 참이 되어 아이디 또는 비밀번호가 무엇이든 로그인 성공)등 수많은 케이스가 있다.\n\n방어 방법1. 입력값 검증다음과 같은 특수문자 혹은 SQL 명렁문이 입력값에 포함되있는지 검증한 후 차단한다.123*, –, ‘, “, ?, #, (, ), ;, @, =, *, +, union, select, drop, update, from, where, join, substr, user_tables, user_table_columns, information_schema, sysobject, table_schema, declare, dual,…\n유저가 클라이언트단에서 자바스크립트를 끌 수 있으니클라이언트 단에서도 차단 및 서버 단에서도 차단하여 이중장치를 마련하자.대부분의 경우, 입력값 검증만 해도 막을 수 있다.\n2. SQL 오류 발생시 오류 메세지 클라이언트 표시 금지SQL 오류 메세지를 통하여 유저가 해당 DB의 구조를 알 수 있다.\n3. HASH 사용DB에 데이터 저장시 민감한 정보는 HASH를 이용해 저장한다.특히 패스워드는 반드시 SHA-256 이상으로 해싱 후 저장! (하지 않을시 개인정보보호법 29조 위반이라고 한다..)\n\n출처 : 나무위키, http://blog.plura.io/?p=6056, https://docs.microsoft.com/ko-kr/sql/relational-databases/security/sql-injection?view=sql-server-2017, http://asfirstalways.tistory.com/360, http://brownbears.tistory.com/59\n","dateCreated":"2018-07-13T19:26:17+09:00","dateModified":"2019-01-31T19:18:12+09:00","datePublished":"2018-07-13T19:26:17+09:00","description":"","headline":"[보안] SQL injection 이란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/07/13/what-is-SQL-injection/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_small.jpg","logo":{"@type":"ImageObject","url":"profile_small.jpg"}},"url":"https://sj602.github.io/2018/07/13/what-is-SQL-injection/","keywords":"보안, SQL injection"}</script>
     <meta name="description" content="XSS와 더불어 가장 흔한 보안 공격 기술인 SQL injection에 대해서 알아보았다. SQL injection 이란?1SQL 인젝션은 코드 인젝션의 한 기법으로 클라이언트의 입력값을 조작하여 서버의 데이터베이스를 공격할 수 있는 공격방식을 말한다. - 나무위키 데이터베이스 조작언어인 SQL 입력값에 정상적인 값이 아닌 SQL문을 삽입해 데이터베이스에">
 <meta name="keywords" content="보안,SQL injection">
 <meta property="og:type" content="blog">
@@ -33,13 +33,13 @@
         
     
     
-        <meta property="og:image" content="https://sj602.github.io/assets/images/bio_photo_small.jpg"/>
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile_small.jpg"/>
     
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-odrgksmhhaat3fmrbtvmcpaj5flpzenufxempcx6j38cmjz7jxvwcqsmsft7.min.css">
+    <link rel="stylesheet" href="/assets/css/style-0o50wystmisnloke82ixdlnjcwwou2043annugrcs7m8txj8xuqkuugypigp.min.css">
     <!--STYLES END-->
     
     <script type="text/javascript">
@@ -79,7 +79,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -98,7 +98,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Jin Seon</h4>
                 
@@ -494,7 +494,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/bio_photo_small.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/profile_small.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Jin Seon</h4>
         
@@ -575,7 +575,7 @@
         
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
-<script src="/assets/js/script-o0watm6cdmutovj4mxazs5dxbdpug2docnbbmcqv7bkrbf99y6msbmn75yck.min.js"></script>
+<script src="/assets/js/script-mgakg77eenekjv0drzj5dksktcrzm87menok9guatzk0eakgnmlvprxg0qdo.min.js"></script>
 <!--SCRIPTS END-->
 
     
