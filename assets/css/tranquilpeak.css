@@ -1,48 +1,49 @@
 @charset "UTF-8";
+@import url(https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css);
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Open Sans"), local("OpenSans"), url(https://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3SZ2oysoEQEeKwjgmXLRnTc.ttf) format("truetype"); }
+  src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(https://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzJS3E-kSBmtLoNJPDtbj2Pk.ttf) format("truetype"); }
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(../fonts/open-sans-bold.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
   font-weight: 300;
-  src: local("Merriweather Light"), local("Merriweather-Light"), url(https://fonts.gstatic.com/s/merriweather/v8/ZvcMqxEwPfh2qDWBPxn6nk7nEl83IKQRaQwpv_tz1Eg.ttf) format("truetype"); }
+  src: local("Merriweather Light"), local("Merriweather-Light"), url(../fonts/merriweather-light.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
   font-weight: 400;
-  src: local("Merriweather"), url(https://fonts.gstatic.com/s/merriweather/v8/RFda8w1V0eDZheqfcyQ4EJS3E-kSBmtLoNJPDtbj2Pk.ttf) format("truetype"); }
+  src: local("Merriweather"), url(../fonts/merriweather.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
   font-weight: 700;
-  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(https://fonts.gstatic.com/s/merriweather/v8/ZvcMqxEwPfh2qDWBPxn6nv83cGrqhiQgWmjXfohD0fc.ttf) format("truetype"); }
+  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(../fonts/merriweather-bold.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Merriweather';
   font-style: italic;
   font-weight: 300;
-  src: local("Merriweather Light Italic"), local("Merriweather-LightItalic"), url(https://fonts.gstatic.com/s/merriweather/v8/EYh7Vl4ywhowqULgRdYwIGrKw6K5wsYdxr6rUL2ZGaM.ttf) format("truetype"); }
+  src: local("Merriweather Light Italic"), local("Merriweather-LightItalic"), url(../fonts/merriweather-light-italic.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Merriweather';
   font-style: italic;
   font-weight: 700;
-  src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"), url(https://fonts.gstatic.com/s/merriweather/v8/EYh7Vl4ywhowqULgRdYwII1kRdeHIFWYEsp6A2f99b0.ttf) format("truetype"); }
+  src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"), url(../fonts/merriweather-bold-italic.ttf) format("truetype"); }
 
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
   font-size: 10px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -56,7 +57,7 @@ body {
   margin: 0;
   padding: 0;
   background: white;
-  font-family: "Open Sans", sans-serif;
+  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
   font-size: 1.6rem;
   line-height: 1.9em;
   letter-spacing: 0.01em;
@@ -72,7 +73,7 @@ h4,
 h5,
 h6 {
   letter-spacing: -0.04em;
-  font-family: "Open Sans", sans-serif;
+  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
   font-weight: 700;
   line-height: 1.45em;
   color: #4a4a4a; }
@@ -154,7 +155,7 @@ pre > code {
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
-  font-family: Menlo, Consolas, monospace;
+  font-family: Source Code Pro, NanumSquareRound, Consolas;
   border: none;
   margin: 0;
   cursor: text;
@@ -165,7 +166,7 @@ pre > code {
 code {
   font-size: 1.5rem;
   display: inline-block;
-  font-family: Menlo, Consolas, monospace;
+  font-family: "Source Code Pro", "NanumSquareRound", Consolas;
   font-weight: 400;
   background-color: #f7f8f8;
   padding: 0 10px; }
@@ -227,6 +228,7 @@ blockquote {
   line-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  cursor: pointer;
   z-index: 30; }
   #about #about-card {
     position: relative;
@@ -237,6 +239,7 @@ blockquote {
     margin: 15px auto;
     border-radius: 3px;
     padding: 30px 0;
+    cursor: initial;
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
@@ -638,7 +641,7 @@ blockquote {
       transform: translate3d(75px, 0, 0); } }
 
 #sidebar {
-  font-family: "Open Sans", sans-serif;
+  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
   height: 100%;
   position: fixed;
   top: 0;
@@ -1446,7 +1449,7 @@ blockquote {
 
 .caption {
   display: block;
-  font-family: "Merriweather", serif;
+  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
   font-size: 1.3rem;
   color: #81929d;
   text-align: center;
@@ -1474,7 +1477,7 @@ figure.highlight,
   .codeblock .code,
   .codeblock .tag {
     background-color: inherit;
-    font-family: Menlo, Consolas, monospace;
+    font-family: Source Code Pro, NanumSquareRound, Consolas;
     border: none;
     padding: 0;
     margin: 0;
@@ -1533,7 +1536,7 @@ figure.highlight,
 
 .gist .line,
 .gist .line-number {
-  font-family: Menlo, Consolas, monospace;
+  font-family: "Source Code Pro", "NanumSquareRound", Consolas;
   font-size: 1em;
   margin: 0 0 5px 0; }
 
@@ -1576,6 +1579,10 @@ figure.highlight,
 .figure.right {
   float: right;
   margin: 2px; }
+
+.figure .fig-video {
+  width: 100%;
+  height: auto; }
 
 .figure.fig-20 {
   width: calc(20% - 4px); }
@@ -1694,7 +1701,7 @@ figure.highlight,
     position: absolute;
     bottom: 0;
     width: calc(100% - (1.5em) * 2);
-    font-family: "Open Sans";
+    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
     font-style: italic;
     background: rgba(0, 0, 0, 0.75);
     font-size: 1.3rem;
@@ -1904,7 +1911,7 @@ a.fancybox {
       text-decoration: none; }
   .post .post-meta {
     line-height: 1.5em;
-    font-family: "Open Sans", sans-serif;
+    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
     color: #9eabb3; }
@@ -1913,7 +1920,7 @@ a.fancybox {
   .post .post-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "Merriweather", serif;
+    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
     color: #5d686f;
     margin-top: 20px;
     font-weight: 400;
@@ -1966,7 +1973,7 @@ a.fancybox {
     z-index: 42; }
     .post-actions-wrap ul.post-action-nav li.post-action {
       float: left;
-      min-width: 42px; }
+      min-width: 45px; }
       .post-actions-wrap ul.post-action-nav li.post-action:last-child .post-action-btn {
         margin-left: 15px; }
   .post-actions-wrap ul.post-action-share {
@@ -2044,7 +2051,7 @@ a.fancybox {
         text-decoration: none; }
     .post-header-cover .post-header .post-meta {
       max-width: 750px;
-      font-family: "Open Sans", sans-serif;
+      font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
       font-size: 1.6rem;
       color: white !important;
       font-weight: 400;
@@ -2192,14 +2199,14 @@ a.fancybox {
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime,
   .postShorten .postShorten-excerpt_link {
-    font-family: "Open Sans", sans-serif;
+    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
     font-size: 1.3rem;
     font-weight: 400; }
   .postShorten .postShorten-excerpt,
   .postShorten .postShorten-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "Merriweather", serif;
+    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
     color: #5d686f;
     font-weight: 400;
     overflow: hidden;
@@ -2515,7 +2522,7 @@ a.tag--small,
     transform: translateY(-12px); }
 
 .tooltip--top:before, .tooltip:before, [data-tooltip]:before {
-  margin-bottom: -12px;
+  margin-bottom: -;
   border-top-color: rgba(0, 0, 20, 0.93); }
 
 .tooltip--top:after, .tooltip:after, [data-tooltip]:after {
@@ -2523,7 +2530,7 @@ a.tag--small,
 
 .tooltip--top:before, .tooltip:before, [data-tooltip]:before, .tooltip--top:after, .tooltip:after, [data-tooltip]:after {
   bottom: 100%;
-  left: calc(50% - (15px / 2)); }
+  left: calc(50% - ( / 2)); }
 
 .tooltip--top:hover:before, .tooltip:hover:before, [data-tooltip]:hover:before, .tooltip--top:hover:after, .tooltip:hover:after, [data-tooltip]:hover:after, .tooltip--top:focus:before, .tooltip:focus:before, [data-tooltip]:focus:before, .tooltip--top:focus:after, .tooltip:focus:after, [data-tooltip]:focus:after {
   -webkit-transform: translateY(-12px);
@@ -2534,18 +2541,18 @@ a.tag--small,
 
 .tooltip--left:before {
   margin-left: 0;
-  margin-right: -12px;
+  margin-right: -;
   margin-bottom: 0;
   border-top-color: transparent;
   border-left-color: rgba(0, 0, 20, 0.93); }
 
 .tooltip--left:after {
   margin-left: 0;
-  margin-bottom: -15px; }
+  margin-bottom: -; }
 
 .tooltip--left:before, .tooltip--left:after {
   right: 100%;
-  bottom: calc(50% - (15px / 2));
+  bottom: calc(50% - ( / 2));
   left: auto; }
 
 .tooltip--left:hover:before, .tooltip--left:hover:after, .tooltip--left:focus:before, .tooltip--left:focus:after {
@@ -2556,7 +2563,7 @@ a.tag--small,
   transform: translateX(-12px); }
 
 .tooltip--bottom:before {
-  margin-top: -12px;
+  margin-top: -;
   margin-bottom: 0;
   border-top-color: transparent;
   border-bottom-color: rgba(0, 0, 20, 0.93); }
@@ -2564,7 +2571,7 @@ a.tag--small,
 .tooltip--bottom:before, .tooltip--bottom:after {
   top: 100%;
   bottom: auto;
-  left: calc(50% - (15px / 2)); }
+  left: calc(50% - ( / 2)); }
 
 .tooltip--bottom:hover:before, .tooltip--bottom:hover:after, .tooltip--bottom:focus:before, .tooltip--bottom:focus:after {
   -webkit-transform: translateY(12px);
@@ -2575,16 +2582,16 @@ a.tag--small,
 
 .tooltip--right:before {
   margin-bottom: 0;
-  margin-left: -12px;
+  margin-left: -;
   border-top-color: transparent;
   border-right-color: rgba(0, 0, 20, 0.93); }
 
 .tooltip--right:after {
   margin-left: 0;
-  margin-bottom: -15px; }
+  margin-bottom: -; }
 
 .tooltip--right:before, .tooltip--right:after {
-  bottom: calc(50% - (15px / 2));
+  bottom: calc(50% - ( / 2));
   left: 100%;
   right: auto; }
 
