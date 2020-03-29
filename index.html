@@ -10,14 +10,14 @@
     <meta name="author" content="Jin Seon">
     
     
-        <link rel="icon" href="https://sj602.github.io/assets/images/profile_cartoon.ico">
+        <link rel="icon" href="https://sj602.github.io/assets/images/profile.png">
     
     
         
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"https://sj602.github.io","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_cartoon.jpg"},"name":"Jinko the Snokl","description":"A Voyage to Freedom","url":"https://sj602.github.io"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"https://sj602.github.io","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png"},"name":"Jinko the Snokl","description":"A Voyage to Freedom","url":"https://sj602.github.io"}</script>
     <meta name="description" content="A Voyage to Freedom">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Jinko the Snokl">
@@ -32,7 +32,7 @@
         
     
     
-        <meta property="og:image" content="https://sj602.github.io/assets/images/profile_cartoon.jpg"/>
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile.png"/>
     
     
     
@@ -98,7 +98,7 @@
             >
         
         
-            <img class="header-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -119,11 +119,11 @@
                     href="/#about"
                     aria-label="Read more about the author"
                 >
-                    <img class="sidebar-profile-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Jin Seon</h4>
                 
-                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+                    <h5 class="sidebar-profile-bio"><p>Aspiring developer dreaming about freedom</p>
 </h5>
                 
             </div>
@@ -306,17 +306,140 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/03/18/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/"
-                            aria-label=": [object Object]"
+                            href="/2020/03/29/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-2%EC%A3%BC%EC%B0%A8/"
+                            aria-label=": [컴퓨터구성] 2주차"
                         >
-                            [object Object]
+                            [컴퓨터구성] 2주차
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-03-18T23:28:07+09:00">
+    <time datetime="2020-03-29T15:30:31+09:00">
 	
-		    Mar 18, 2020
+		    Mar 29, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1/">컴퓨터구성</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <ul>
+<li><p>(AND-OR === NAND-NAND, OR-AND === NOR-NOR)이므로 (AND-OR/OR-AND보다는 NAND-NAND/NOR-NOR를 쓰는게 더 저렴하다)</p>
+</li>
+<li><p>여러가지 Boolean Algebra의 정리를 이용해서 Logic minimization(# of gates, # of gate inputs)하는데 어떤 정리를 먼저 쓰냐에 따라 결과가 다르기 때문에 쉽지가 않다.</p>
+</li>
+<li><p>Don’t care condition: F값이 0/1이 정의되지 않는 경우로 0/1로 나눠서 2번 풀어서 비용을 비교해야함</p>
+</li>
+</ul>
+<h1 id="Useful-Theorems"><a href="#Useful-Theorems" class="headerlink" title="Useful Theorems"></a>Useful Theorems</h1><ul>
+<li><ol>
+<li>x + xy = x, x + x’y = x+y</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="2">
+<li>ab + b’c + ac = ab + b’c</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="3">
+<li>if ab’ + a’b = ac’ + a’c, then b=c</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ab&#39; + a&#39;b &#x3D; ac&#39; + a&#39;c이 같다면 두 항을 xor취했을 때 결과가 0이 나와야 한다</span><br><span class="line">-&gt; ab&#39; + a&#39;b &#x3D; ac&#39; + a&#39;c</span><br><span class="line">-&gt; (a xor b) xor (a xor c) &#x3D; 0</span><br><span class="line">-&gt; a xor a xor b xor c &#x3D; 0</span><br><span class="line">-&gt; b xor c &#x3D; 0</span><br><span class="line">-&gt; hence, b &#x3D; c</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="4">
+<li>if a = b, then a xor c = b xor c</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3번과 마찬가지로, xor 이용</span><br><span class="line">-&gt; (a xor c) xor (b xor c)</span><br><span class="line">-&gt; a xor b xor c xor c</span><br><span class="line">-&gt; a xor b &#x3D; 0</span><br><span class="line">-&gt; hence, a xor c &#x3D; b xor c</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="5">
+<li>find the expression of f<br><img src="/image/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-2%EC%A3%BC%EC%B0%A8.png" alt=""></li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="6">
+<li>find the product-of-sum form of f = wxy + wx’y’ + w’xy’</li>
+</ol>
+</li>
+</ul>
+<h1 id="카르노맵"><a href="#카르노맵" class="headerlink" title="카르노맵"></a>카르노맵</h1><ul>
+<li>이런 문제를 쉽게 풀고자 나온게 카르노맵</li>
+<li>카르노맵의 출발은 AB’ + AB = A으로 Canonical Form을 나타내기에 충분하다라는 것</li>
+<li>보통 입력수가 4개 이하일 때 카르노맵을 이용해서 문제를 푼다.</li>
+<li>이웃한 1을 그룹지어 항을 만든다</li>
+<li>테이블을 만들때, 변수가 하나씩 바뀌어야 한다</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(00, 01, 11, 10) &#x2F;&#x2F; O</span><br><span class="line">(00, 01, 10, 11) &#x2F;&#x2F; X</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>각 끝 행과 열은 처음 행과 열로 그룹지을 수 있다</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/03/29/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-2%EC%A3%BC%EC%B0%A8/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/"
+                            aria-label=": [운영체제] 1주차"
+                        >
+                            [운영체제] 1주차
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-29T15:30:31+09:00">
+	
+		    Mar 29, 2020
     	
     </time>
     
@@ -356,7 +479,7 @@
                     
                         <p>
                             <a
-                                href="/2020/03/18/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/#post-footer"
+                                href="/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -379,7 +502,7 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-1%EA%B0%95/"
+                            href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-1%EC%A3%BC%EC%B0%A8/"
                             aria-label=": [컴퓨터구성] 1주차"
                         >
                             [컴퓨터구성] 1주차
@@ -497,7 +620,7 @@
                     
                         <p>
                             <a
-                                href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-1%EA%B0%95/#post-footer"
+                                href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-1%EC%A3%BC%EC%B0%A8/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -1180,94 +1303,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2018/07/10/what-is-xss/"
-                            aria-label=": [보안] XSS(Cross Site Scription)란 무엇인가?"
-                        >
-                            [보안] XSS(Cross Site Scription)란 무엇인가?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-07-10T21:32:40+09:00">
-	
-		    Jul 10, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/%EB%B3%B4%EC%95%88/">보안</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
-<h1 id="XSS-Cross-Site-Scripting-이란"><a href="#XSS-Cross-Site-Scripting-이란" class="headerlink" title="XSS(Cross Site Scripting)이란?"></a>XSS(Cross Site Scripting)이란?</h1><blockquote>
-<p>SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,<br>악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.<br>공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,<br>보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</p>
-</blockquote>
-<p>웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.<br>예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.</p>
-<p>공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.</p>
-<h1 id="공격의-방법"><a href="#공격의-방법" class="headerlink" title="공격의 방법"></a>공격의 방법</h1><ol>
-<li><p>스크립트 태그 안에 심기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>서버 응답 결과에 심기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htt:&#x2F;&#x2F;www.server.com&#x2F;search&#x2F;?q&#x3D;&lt;script&gt;(document.cookie)&lt;&#x2F;script&gt;&amp;xyz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>링크 또는 이미지에 심기</p>
-</li>
-</ol>
-<h1 id="피해-종류"><a href="#피해-종류" class="headerlink" title="피해 종류"></a>피해 종류</h1><ol>
-<li>쿠키 정보/세션 ID 획득</li>
-<li>시스템 관리자 권한 획득</li>
-<li>악성코드 다운로드</li>
-</ol>
-<h1 id="예방-방법"><a href="#예방-방법" class="headerlink" title="예방 방법"></a>예방 방법</h1><h4 id="1-태그-문자-무효화"><a href="#1-태그-문자-무효화" class="headerlink" title="1. 태그 문자 무효화"></a>1. 태그 문자 무효화</h4><p>기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를<br>서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.<br>![](./image/html tag encoding.png)</p>
-<h4 id="2-라이브러리-이용"><a href="#2-라이브러리-이용" class="headerlink" title="2. 라이브러리 이용"></a>2. 라이브러리 이용</h4><p>일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.<br>유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.<br>다음과 같은 라이브러리들이 있다.</p>
-<ul>
-<li>AntiXSS(MS에서 개발)</li>
-<li>OWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)</li>
-<li>NAVER Lucy XSS filter</li>
-</ul>
-<h4 id="3-쿠키-보안-옵션-이용"><a href="#3-쿠키-보안-옵션-이용" class="headerlink" title="3. 쿠키 보안 옵션 이용"></a>3. 쿠키 보안 옵션 이용</h4><p>쿠키 생성시<br>‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.<br>‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.<br>완전히 방어 가능한 건 아니라고 한다.</p>
-<hr>
-<p>출처: <a href="https://namu.wiki/w/XSS" target="_blank" rel="noopener">나무위키</a>, <a href="http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf" target="_blank" rel="noopener">한국인터넷진흥원</a></p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2018/07/10/what-is-xss/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -1312,18 +1347,18 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Jin Seon</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>Aspiring developer dreaming about freedom</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Software Engineer</p>
 
             </div>
         
@@ -1387,7 +1422,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                12 posts found
+                13 posts found
             </p>
         </div>
     </div>

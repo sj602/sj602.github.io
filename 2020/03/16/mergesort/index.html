@@ -10,14 +10,14 @@
     <meta name="author" content="Jin Seon">
     
     
-        <link rel="icon" href="https://sj602.github.io/assets/images/profile_cartoon.ico">
+        <link rel="icon" href="https://sj602.github.io/assets/images/profile.png">
     
     
         
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_cartoon.jpg"},"articleBody":"병합정렬(Merge Sort)\n나누는 부분인 mergesort()와나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다.\n1234567891011121314151617181920212223242526272829303132333435363738394041424344int arr[10];int sorted[10];mergesort(int arr[], int left, int right)&#123;    &#x2F;&#x2F; left가 right보다 작으면 계속 반씩 나눠준다. 크다면 아무런 동작도 하지 않고 빠져 나와 재귀함수의 merge부분으로 들어간다.    if(left &lt; right) &#123;        int mid &#x3D; (left+right)&#x2F;2;                mergesort(arr, left, mid);        mergesort(arr, mid+1, right);        merge(arr, left, mid, right); &#x2F;&#x2F; 반씩 나눈 부분을 합친다.    &#125;    &#125;merge(int arr[], int left, int mid, int right)&#123;    int i &#x3D; left, j &#x3D; mid+1, k &#x3D; left;    &#x2F;&#x2F; 나눈 부분을 합친다    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; right) &#123;        if(arr[i] &lt; arr[j]) &#123;            sorted[k] &#x3D; arr[i];            i++;        &#125; else &#123;            sorted[k] &#x3D; arr[j];            j++;        &#125;        k++;    &#125;    &#x2F;&#x2F; 왼쪽 부분이 먼저 끝날수도, 오른쪽 부분이 먼저 끝날수도 있기 때문에 남아있는 원소를 넣어준다.    if(i &gt; mid) &#123;        for(; j &lt;&#x3D; right; j++) &#123;            sorted[k] &#x3D; arr[j];            k++;        &#125;    &#125; else &#123;        for(; i &lt;&#x3D; mid; i++) &#123;            sorted[k] &#x3D; arr[i];            k++;        &#125;    &#125;    &#x2F;&#x2F; 최종적으로 sorted배열에 있는 원소를 실제 배열인 arr로 옮겨준다    for(int m &#x3D; left; m &lt;&#x3D; right; m++) &#123;        arr[m] &#x3D; sorted[m];    &#125;&#125;\n\n시간복잡도는 평균적인 경우나 최악의 경우에도 O(NlogN)을 보장한다.왜냐면 원소들의 순서가 어떻든, 퀵소트처럼 이미 정렬이 됬든 안됬든, 무조건 낱개가 될때까지 반씩 나눈 다음에낱개가 된 원소들끼리 합치면서 정렬을 하기 때문이다.이미 공부를 했던 정렬인데 영상을 참고하면서 따라했다.언제나 개념은 알고있지만 실제로 코드로 옮기는 부분에 있어서 문제가 많다.Keep Going\n","dateCreated":"2020-03-16T08:27:55+09:00","dateModified":"2020-03-16T08:27:55+09:00","datePublished":"2020-03-16T08:27:55+09:00","description":"","headline":"[알고리즘] 병합정렬(머지소트/Merge Sort)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2020/03/16/mergesort/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_cartoon.jpg","logo":{"@type":"ImageObject","url":"profile_cartoon.jpg"}},"url":"https://sj602.github.io/2020/03/16/mergesort/","keywords":"알고리즘, 병합정렬, 머지소트, mergesort"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png"},"articleBody":"병합정렬(Merge Sort)\n나누는 부분인 mergesort()와나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다.\n1234567891011121314151617181920212223242526272829303132333435363738394041424344int arr[10];int sorted[10];mergesort(int arr[], int left, int right)&#123;    &#x2F;&#x2F; left가 right보다 작으면 계속 반씩 나눠준다. 크다면 아무런 동작도 하지 않고 빠져 나와 재귀함수의 merge부분으로 들어간다.    if(left &lt; right) &#123;        int mid &#x3D; (left+right)&#x2F;2;                mergesort(arr, left, mid);        mergesort(arr, mid+1, right);        merge(arr, left, mid, right); &#x2F;&#x2F; 반씩 나눈 부분을 합친다.    &#125;    &#125;merge(int arr[], int left, int mid, int right)&#123;    int i &#x3D; left, j &#x3D; mid+1, k &#x3D; left;    &#x2F;&#x2F; 나눈 부분을 합친다    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; right) &#123;        if(arr[i] &lt; arr[j]) &#123;            sorted[k] &#x3D; arr[i];            i++;        &#125; else &#123;            sorted[k] &#x3D; arr[j];            j++;        &#125;        k++;    &#125;    &#x2F;&#x2F; 왼쪽 부분이 먼저 끝날수도, 오른쪽 부분이 먼저 끝날수도 있기 때문에 남아있는 원소를 넣어준다.    if(i &gt; mid) &#123;        for(; j &lt;&#x3D; right; j++) &#123;            sorted[k] &#x3D; arr[j];            k++;        &#125;    &#125; else &#123;        for(; i &lt;&#x3D; mid; i++) &#123;            sorted[k] &#x3D; arr[i];            k++;        &#125;    &#125;    &#x2F;&#x2F; 최종적으로 sorted배열에 있는 원소를 실제 배열인 arr로 옮겨준다    for(int m &#x3D; left; m &lt;&#x3D; right; m++) &#123;        arr[m] &#x3D; sorted[m];    &#125;&#125;\n\n시간복잡도는 평균적인 경우나 최악의 경우에도 O(NlogN)을 보장한다.왜냐면 원소들의 순서가 어떻든, 퀵소트처럼 이미 정렬이 됬든 안됬든, 무조건 낱개가 될때까지 반씩 나눈 다음에낱개가 된 원소들끼리 합치면서 정렬을 하기 때문이다.이미 공부를 했던 정렬인데 영상을 참고하면서 따라했다.언제나 개념은 알고있지만 실제로 코드로 옮기는 부분에 있어서 문제가 많다.Keep Going\n","dateCreated":"2020-03-16T08:27:55+09:00","dateModified":"2020-03-16T08:27:55+09:00","datePublished":"2020-03-16T08:27:55+09:00","description":"","headline":"[알고리즘] 병합정렬(머지소트/Merge Sort)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2020/03/16/mergesort/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png","logo":{"@type":"ImageObject","url":"profile.png"}},"url":"https://sj602.github.io/2020/03/16/mergesort/","keywords":"알고리즘, 병합정렬, 머지소트, mergesort"}</script>
     <meta name="description" content="병합정렬(Merge Sort) 나누는 부분인 mergesort()와나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다. 1234567891011121314151617181920212223242526272829303132333435363738394041424344int">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[알고리즘] 병합정렬(머지소트&#x2F;Merge Sort)">
@@ -38,7 +38,7 @@
         
     
     
-        <meta property="og:image" content="https://sj602.github.io/assets/images/profile_cartoon.jpg"/>
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile.png"/>
     
     
     
@@ -106,7 +106,7 @@
             >
         
         
-            <img class="header-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -127,11 +127,11 @@
                     href="/#about"
                     aria-label="Read more about the author"
                 >
-                    <img class="sidebar-profile-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Jin Seon</h4>
                 
-                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+                    <h5 class="sidebar-profile-bio"><p>Aspiring developer dreaming about freedom</p>
 </h5>
                 
             </div>
@@ -364,7 +364,7 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-1%EA%B0%95/"
+                    href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-1%EC%A3%BC%EC%B0%A8/"
                     data-tooltip="[컴퓨터구성] 1주차"
                     aria-label="PREVIOUS: [컴퓨터구성] 1주차"
                 >
@@ -467,7 +467,7 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-1%EA%B0%95/"
+                    href="/2020/03/16/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-1%EC%A3%BC%EC%B0%A8/"
                     data-tooltip="[컴퓨터구성] 1주차"
                     aria-label="PREVIOUS: [컴퓨터구성] 1주차"
                 >
@@ -578,18 +578,18 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Jin Seon</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>Aspiring developer dreaming about freedom</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Software Engineer</p>
 
             </div>
         
@@ -653,7 +653,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                12 posts found
+                13 posts found
             </p>
         </div>
     </div>

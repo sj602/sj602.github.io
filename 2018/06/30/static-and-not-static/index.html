@@ -10,14 +10,14 @@
     <meta name="author" content="Jin Seon">
     
     
-        <link rel="icon" href="https://sj602.github.io/assets/images/profile_cartoon.ico">
+        <link rel="icon" href="https://sj602.github.io/assets/images/profile.png">
     
     
         
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_cartoon.jpg"},"articleBody":"클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.\n예를 들어,\nclass Foo {\n    bar() {...}\n\n    static baz() {...}\n}라는 코드가 있을때 bar()는 \nconst f = new Foo()\nf.bar() 위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만\nbaz()는\nFoo.baz()위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. \n용어의 반대 관계는 아래와 같다.\n** static method != instance method **\n","dateCreated":"2018-06-30T22:55:50+09:00","dateModified":"2020-03-16T08:27:55+09:00","datePublished":"2018-06-30T22:55:50+09:00","description":"","headline":"[Javascript] Class에서의 Static이란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/06/30/static-and-not-static/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile_cartoon.jpg","logo":{"@type":"ImageObject","url":"profile_cartoon.jpg"}},"url":"https://sj602.github.io/2018/06/30/static-and-not-static/","keywords":"javascript, static"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png"},"articleBody":"클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.\n예를 들어,\nclass Foo {\n    bar() {...}\n\n    static baz() {...}\n}라는 코드가 있을때 bar()는 \nconst f = new Foo()\nf.bar() 위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만\nbaz()는\nFoo.baz()위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. \n용어의 반대 관계는 아래와 같다.\n** static method != instance method **\n","dateCreated":"2018-06-30T22:55:50+09:00","dateModified":"2020-03-16T08:27:55+09:00","datePublished":"2018-06-30T22:55:50+09:00","description":"","headline":"[Javascript] Class에서의 Static이란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2018/06/30/static-and-not-static/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png","logo":{"@type":"ImageObject","url":"profile.png"}},"url":"https://sj602.github.io/2018/06/30/static-and-not-static/","keywords":"javascript, static"}</script>
     <meta name="description" content="클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다. 예를 들어, class Foo {     bar() {...}      static baz() {...} }라는 코드가 있을때 bar()는  const f &#x3D; new Foo() f.bar() 위 예시처럼 f라는 Foo의 인스턴스를">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[Javascript] Class에서의 Static이란?">
@@ -36,7 +36,7 @@
         
     
     
-        <meta property="og:image" content="https://sj602.github.io/assets/images/profile_cartoon.jpg"/>
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile.png"/>
     
     
     
@@ -104,7 +104,7 @@
             >
         
         
-            <img class="header-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -125,11 +125,11 @@
                     href="/#about"
                     aria-label="Read more about the author"
                 >
-                    <img class="sidebar-profile-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Jin Seon</h4>
                 
-                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+                    <h5 class="sidebar-profile-bio"><p>Aspiring developer dreaming about freedom</p>
 </h5>
                 
             </div>
@@ -584,18 +584,18 @@ f.bar() </code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언�
             <i class="fa fa-times"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/profile_cartoon.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/profile.png" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Jin Seon</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>Aspiring developer dreaming about freedom</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Software Engineer</p>
 
             </div>
         
@@ -659,7 +659,7 @@ f.bar() </code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언�
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                12 posts found
+                13 posts found
             </p>
         </div>
     </div>
