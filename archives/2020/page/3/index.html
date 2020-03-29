@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jinko the Snokl">
-    <title>Category: 보안 - Jinko the Snokl</title>
+    <title>Archives: 2020 - Jinko the Snokl</title>
     <meta name="author" content="Jin Seon">
     
     
@@ -21,7 +21,7 @@
     <meta name="description" content="A Voyage to Freedom">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Jinko the Snokl">
-<meta property="og:url" content="https://sj602.github.io/categories/%EB%B3%B4%EC%95%88/page/4/index.html">
+<meta property="og:url" content="https://sj602.github.io/archives/2020/page/3/index.html">
 <meta property="og:site_name" content="Jinko the Snokl">
 <meta property="og:description" content="A Voyage to Freedom">
 <meta property="og:locale" content="en_US">
@@ -307,23 +307,23 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2018/07/10/what-is-xss/"
-                            aria-label=": [보안] XSS(Cross Site Scription)란 무엇인가?"
+                            href="/2020/03/16/mergesort/"
+                            aria-label=": [알고리즘] 병합정렬(머지소트/Merge Sort)"
                         >
-                            [보안] XSS(Cross Site Scription)란 무엇인가?
+                            [알고리즘] 병합정렬(머지소트/Merge Sort)
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2018-07-10T21:32:40+09:00">
+    <time datetime="2020-03-16T08:27:55+09:00">
 	
-		    Jul 10, 2018
+		    Mar 16, 2020
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/%EB%B3%B4%EC%95%88/">보안</a>
+    <a class="category-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
 
 
     
@@ -332,37 +332,11 @@
             </div>
             
                 <div class="postShorten-content">
-                    <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
-<h1 id="XSS-Cross-Site-Scripting-이란"><a href="#XSS-Cross-Site-Scripting-이란" class="headerlink" title="XSS(Cross Site Scripting)이란?"></a>XSS(Cross Site Scripting)이란?</h1><blockquote>
-<p>SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,<br>악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.<br>공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,<br>보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</p>
-</blockquote>
-<p>웹페이지 내에 악의적인 자바스크립트 코드를 심어넣는 방법으로 공격한다.<br>예전부터 쓰이는 간단하고 전통적인 공격 방법이지만 많은 사이트들이 이 간단한 공격에 대비를 하지 않아 공격을 받는 경우가 많다.</p>
-<p>공격/방어방식 라는 면에서 XSS(자바스크립트 이용해 공격)와 SQL Injection(쿼리를 통해 공격)은 서로 비슷하다고 볼 수 있다.</p>
-<h1 id="공격의-방법"><a href="#공격의-방법" class="headerlink" title="공격의 방법"></a>공격의 방법</h1><ol>
-<li><p>스크립트 태그 안에 심기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>서버 응답 결과에 심기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htt:&#x2F;&#x2F;www.server.com&#x2F;search&#x2F;?q&#x3D;&lt;script&gt;(document.cookie)&lt;&#x2F;script&gt;&amp;xyz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>링크 또는 이미지에 심기</p>
-</li>
-</ol>
-<h1 id="피해-종류"><a href="#피해-종류" class="headerlink" title="피해 종류"></a>피해 종류</h1><ol>
-<li>쿠키 정보/세션 ID 획득</li>
-<li>시스템 관리자 권한 획득</li>
-<li>악성코드 다운로드</li>
-</ol>
-<h1 id="예방-방법"><a href="#예방-방법" class="headerlink" title="예방 방법"></a>예방 방법</h1><h4 id="1-태그-문자-무효화"><a href="#1-태그-문자-무효화" class="headerlink" title="1. 태그 문자 무효화"></a>1. 태그 문자 무효화</h4><p>기본적으로 HTML 태그 안에 심어놓는걸 방지.(‘&lt;’. ‘&gt;’) 등의 태그를<br>서버에서 브라우저로 전송시 다음과 같은 문자로 인코딩해 전송한다.<br>![](./image/html tag encoding.png)</p>
-<h4 id="2-라이브러리-이용"><a href="#2-라이브러리-이용" class="headerlink" title="2. 라이브러리 이용"></a>2. 라이브러리 이용</h4><p>일일이 개발자가 위와 같이 인코딩하는 것은 무리가 있다.<br>유명한 라이브러리를 이용하면 손쉽게 처리가 가능하다.<br>다음과 같은 라이브러리들이 있다.</p>
-<ul>
-<li>AntiXSS(MS에서 개발)</li>
-<li>OWASP ESAPI(validator:입력값 필터링, encoder:출력값 인코딩/디코딩)</li>
-<li>NAVER Lucy XSS filter</li>
-</ul>
-<h4 id="3-쿠키-보안-옵션-이용"><a href="#3-쿠키-보안-옵션-이용" class="headerlink" title="3. 쿠키 보안 옵션 이용"></a>3. 쿠키 보안 옵션 이용</h4><p>쿠키 생성시<br>‘보안 쿠키’ 파라미터 지정시 TLS 상에서만 사용하게 할 수 있다.<br>‘HTTP ONLY’ 파라미터 지정시 웹브라우저상에서만 사용하게 할 수 있다.<br>완전히 방어 가능한 건 아니라고 한다.</p>
-<hr>
-<p>출처: <a href="https://namu.wiki/w/XSS" target="_blank" rel="noopener">나무위키</a>, <a href="http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf" target="_blank" rel="noopener">한국인터넷진흥원</a></p>
+                    <p>병합정렬(Merge Sort)</p>
+<p>나누는 부분인 mergesort()와<br>나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.<br>중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">int arr[10];</span><br><span class="line">int sorted[10];</span><br><span class="line"></span><br><span class="line">mergesort(int arr[], int left, int right)&#123;</span><br><span class="line">    &#x2F;&#x2F; left가 right보다 작으면 계속 반씩 나눠준다. 크다면 아무런 동작도 하지 않고 빠져 나와 재귀함수의 merge부분으로 들어간다.</span><br><span class="line">    if(left &lt; right) &#123;</span><br><span class="line">        int mid &#x3D; (left+right)&#x2F;2;</span><br><span class="line">        </span><br><span class="line">        mergesort(arr, left, mid);</span><br><span class="line">        mergesort(arr, mid+1, right);</span><br><span class="line">        merge(arr, left, mid, right); &#x2F;&#x2F; 반씩 나눈 부분을 합친다.</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(int arr[], int left, int mid, int right)&#123;</span><br><span class="line">    int i &#x3D; left, j &#x3D; mid+1, k &#x3D; left;</span><br><span class="line">    &#x2F;&#x2F; 나눈 부분을 합친다</span><br><span class="line">    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; right) &#123;</span><br><span class="line">        if(arr[i] &lt; arr[j]) &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[i];</span><br><span class="line">            i++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[j];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 왼쪽 부분이 먼저 끝날수도, 오른쪽 부분이 먼저 끝날수도 있기 때문에 남아있는 원소를 넣어준다.</span><br><span class="line">    if(i &gt; mid) &#123;</span><br><span class="line">        for(; j &lt;&#x3D; right; j++) &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[j];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for(; i &lt;&#x3D; mid; i++) &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[i];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 최종적으로 sorted배열에 있는 원소를 실제 배열인 arr로 옮겨준다</span><br><span class="line">    for(int m &#x3D; left; m &lt;&#x3D; right; m++) &#123;</span><br><span class="line">        arr[m] &#x3D; sorted[m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>시간복잡도는 평균적인 경우나 최악의 경우에도 O(NlogN)을 보장한다.<br>왜냐면 원소들의 순서가 어떻든, 퀵소트처럼 이미 정렬이 됬든 안됬든, 무조건 낱개가 될때까지 반씩 나눈 다음에<br>낱개가 된 원소들끼리 합치면서 정렬을 하기 때문이다.<br>이미 공부를 했던 정렬인데 영상을 참고하면서 따라했다.<br>언제나 개념은 알고있지만 실제로 코드로 옮기는 부분에 있어서 문제가 많다.<br>Keep Going</p>
 
                     
                         
@@ -372,7 +346,7 @@
                     
                         <p>
                             <a
-                                href="/2018/07/10/what-is-xss/#post-footer"
+                                href="/2020/03/16/mergesort/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -392,7 +366,7 @@
           <li class="pagination-prev">
             <a
                 class="btn btn--default btn--small"
-                href="/categories/%EB%B3%B4%EC%95%88/page/3/"
+                href="/archives/2020/page/2/"
                 aria-label="NEWER POSTS"
             >
               <i class="fa fa-angle-left text-base icon-mr"></i>
@@ -401,7 +375,7 @@
           </li>
         
         
-        <li class="pagination-number">page 4 of 4</li>
+        <li class="pagination-number">page 3 of 3</li>
     </ul>
 </div>
 
@@ -506,7 +480,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                11 posts found
+                12 posts found
             </p>
         </div>
     </div>
