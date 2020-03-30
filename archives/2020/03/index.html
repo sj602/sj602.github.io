@@ -269,24 +269,6 @@
             
         </ul>
         
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/atom.xml"
-                            
-                            rel="noopener"
-                            title="RSS"
-                        >
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
     </div>
 </nav>
 
@@ -307,97 +289,88 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/03/29/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-2%EC%A3%BC%EC%B0%A8/"
-                            aria-label=": [컴퓨터구성] 2주차"
+                            href="/2020/03/30/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-2%EC%A3%BC%EC%B0%A8/"
+                            aria-label=": [운영체제] 2주차"
                         >
-                            [컴퓨터구성] 2주차
+                            [운영체제] 2주차
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-03-29T15:30:31+09:00">
+    <time datetime="2020-03-30T18:54:05+09:00">
 	
-		    Mar 29, 2020
+		    Mar 30, 2020
     	
     </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1/">컴퓨터구성</a>
-
-
     
 </div>
 
             </div>
             
                 <div class="postShorten-content">
-                    <ul>
-<li><p>(AND-OR === NAND-NAND, OR-AND === NOR-NOR)이므로 (AND-OR/OR-AND보다는 NAND-NAND/NOR-NOR를 쓰는게 더 저렴하다)</p>
-</li>
-<li><p>여러가지 Boolean Algebra의 정리를 이용해서 Logic minimization(# of gates, # of gate inputs)하는데 어떤 정리를 먼저 쓰냐에 따라 결과가 다르기 때문에 쉽지가 않다.</p>
-</li>
-<li><p>Don’t care condition: F값이 0/1이 정의되지 않는 경우로 0/1로 나눠서 2번 풀어서 비용을 비교해야함</p>
-</li>
+                    <h1 id="Special-Purpose-Registers"><a href="#Special-Purpose-Registers" class="headerlink" title="Special Purpose Registers"></a>Special Purpose Registers</h1><ul>
+<li>AR(Address Register): 메모리 주소 저장, size 12</li>
+<li>PC(Program Counter): 다음에 실행될 명령어의 주소 저장, size 12</li>
+<li>IR(Instruction Register): 지금 실행될 명령어 저장, size 16</li>
+<li>DR(Data Register): 데이터를 저장, size 16</li>
+<li>TR(Temporary Register): 임시 데이터 저장, size 16</li>
+<li>AC(Accumulator): 산술연산, AC &lt;- AC + DR, size 16</li>
 </ul>
-<h1 id="Useful-Theorems"><a href="#Useful-Theorems" class="headerlink" title="Useful Theorems"></a>Useful Theorems</h1><ul>
-<li><ol>
-<li>x + xy = x, x + x’y = x+y</li>
+<h1 id="Data-units-in-CPU"><a href="#Data-units-in-CPU" class="headerlink" title="Data units in CPU"></a>Data units in CPU</h1><pre><code>![](/image/dataunitsincpu.png)</code></pre><ul>
+<li>이 그림을 그릴줄 알아야 함</li>
+<li>7개의 레지스터가 버스를 통해서 서로 연결</li>
+<li>데이터가 동시에 들어오면 안되기 때문에 MUX(multiplexer)를 통해 데이터를 보낼 레지스터 결정</li>
+<li>ex: S2 = 1 S1 = 1 S0 = 1이라면, Memory Unit으로 데이터가 흘러감</li>
+<li>ex: PC에 있는 값을 AR로 보내고 싶다면? S2, S1, S2를 각각 010으로 세팅하고 AR의 LD를 1로 세팅</li>
+<li>LD(load): 이 단자의 값이 1이면 버스를 통해 해당 레지스터로 데이터가 들어옴</li>
+<li>INR(increment): 이 단자의 값이 1이면 레지스터가 1 증가</li>
+<li>CLR(clear): 이 단자의 값이 1이면 레지스터 값이 0이 됌</li>
+<li>IR에는 레지스터 값이 변하면 안되므로 LD단자 밖에 없다</li>
+<li>Memory Unit의 주소를 Address 단자를 통해 AR이 결정한다</li>
+<li>E(overflow bit)</li>
+</ul>
+<h1 id="CPu-Instruction-Cycle"><a href="#CPu-Instruction-Cycle" class="headerlink" title="CPu Instruction Cycle"></a>CPu Instruction Cycle</h1><ol>
+<li>Instruction Fetch</li>
 </ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><ol start="2">
-<li>ab + b’c + ac = ab + b’c</li>
+<li>메모리에서 IR로 명령어를 가져옴</li>
+</ul>
+<ol start="2">
+<li>Decode</li>
 </ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><ol start="3">
-<li>if ab’ + a’b = ac’ + a’c, then b=c</li>
+<li>IR의 명령어 opcode를 알아냄</li>
+</ul>
+<ol start="3">
+<li>Decide effective address, if MRI instruction</li>
 </ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ab&#39; + a&#39;b &#x3D; ac&#39; + a&#39;c이 같다면 두 항을 xor취했을 때 결과가 0이 나와야 한다</span><br><span class="line">-&gt; ab&#39; + a&#39;b &#x3D; ac&#39; + a&#39;c</span><br><span class="line">-&gt; (a xor b) xor (a xor c) &#x3D; 0</span><br><span class="line">-&gt; a xor a xor b xor c &#x3D; 0</span><br><span class="line">-&gt; b xor c &#x3D; 0</span><br><span class="line">-&gt; hence, b &#x3D; c</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><ol start="4">
-<li>if a = b, then a xor c = b xor c</li>
+<li>메모리로부터 effective address를 읽어들임 (if I bit = 1)</li>
+</ul>
+<ol start="4">
+<li>Data Fetch, if necessary, if MRI instruction</li>
+<li>Execute</li>
 </ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3번과 마찬가지로, xor 이용</span><br><span class="line">-&gt; (a xor c) xor (b xor c)</span><br><span class="line">-&gt; a xor b xor c xor c</span><br><span class="line">-&gt; a xor b &#x3D; 0</span><br><span class="line">-&gt; hence, a xor c &#x3D; b xor c</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><ol start="5">
-<li>find the expression of f<br><img src="/image/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-2%EC%A3%BC%EC%B0%A8.png" alt=""></li>
+<li>decoded instruction을 실행</li>
+</ul>
+<ol start="6">
+<li>Store result data, if necessary</li>
 </ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><ol start="6">
-<li>find the product-of-sum form of f = wxy + wx’y’ + w’xy’</li>
+<li>result data를 AC로부터 타겟 메모리 주소에 씀</li>
+</ul>
+<h1 id="예시로-보는-프로그램의-CPU단-실행-순서"><a href="#예시로-보는-프로그램의-CPU단-실행-순서" class="headerlink" title="예시로 보는 프로그램의 CPU단 실행 순서"></a>예시로 보는 프로그램의 CPU단 실행 순서</h1><ol>
+<li>프로그램의 아이콘을 클릭</li>
+<li>OS가 HDD(SSD)에서 해당 파일을 찾는다</li>
+<li>OS가 메인메모리에서 빈 공간을 찾는다</li>
+<li>OS가 프로그램의 첫 번째 명령어의 주소를 불러온다</li>
+<li>CPU가 PC값을 AR로 보낸다 (AR &lt;- PC)</li>
+<li>CPU가 M[AR]의 값을 IR로 보내고 PC값을 증가 시킴 (IR &lt;- M[AR], PC++)</li>
+<li>CPU가 IR에 저장된 명령어를 decode한다 (AR &lt;- IR(0-11))</li>
+<li>CPU가 메인메모리에서 DR로 데이터를 이동시킨다 (DR &lt;- M[AR])</li>
+<li>CPU가 adder와 AC를 이용해 ADD op를 실행시킨다 (AC &lt;- AC+DR)</li>
 </ol>
-</li>
-</ul>
-<h1 id="카르노맵"><a href="#카르노맵" class="headerlink" title="카르노맵"></a>카르노맵</h1><ul>
-<li>이런 문제를 쉽게 풀고자 나온게 카르노맵</li>
-<li>카르노맵의 출발은 AB’ + AB = A으로 Canonical Form을 나타내기에 충분하다라는 것</li>
-<li>보통 입력수가 4개 이하일 때 카르노맵을 이용해서 문제를 푼다.</li>
-<li>이웃한 1을 그룹지어 항을 만든다</li>
-<li>테이블을 만들때, 변수가 하나씩 바뀌어야 한다</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(00, 01, 11, 10) &#x2F;&#x2F; O</span><br><span class="line">(00, 01, 10, 11) &#x2F;&#x2F; X</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>각 끝 행과 열은 처음 행과 열로 그룹지을 수 있다</li>
-</ul>
 
                     
                         
@@ -407,7 +380,7 @@
                     
                         <p>
                             <a
-                                href="/2020/03/29/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-2%EC%A3%BC%EC%B0%A8/#post-footer"
+                                href="/2020/03/30/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-2%EC%A3%BC%EC%B0%A8/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -436,7 +409,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 1 of 4</li>
+        <li class="pagination-number">page 1 of 5</li>
     </ul>
 </div>
 
@@ -541,7 +514,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                13 posts found
+                14 posts found
             </p>
         </div>
     </div>

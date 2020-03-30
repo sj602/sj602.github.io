@@ -269,24 +269,6 @@
             
         </ul>
         
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/atom.xml"
-                            
-                            rel="noopener"
-                            title="RSS"
-                        >
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
     </div>
 </nav>
 
@@ -307,23 +289,23 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2018/06/27/start-blog/"
-                            aria-label=": 블로그를 시작하다"
+                            href="/2018/06/30/static-and-not-static/"
+                            aria-label=": [Javascript] Class에서의 Static이란?"
                         >
-                            블로그를 시작하다
+                            [Javascript] Class에서의 Static이란?
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2018-06-27T21:33:13+09:00">
+    <time datetime="2018-06-30T22:55:50+09:00">
 	
-		    Jun 27, 2018
+		    Jun 30, 2018
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Monologue/">Monologue</a>
+    <a class="category-link" href="/categories/Javascript/">Javascript</a>
 
 
     
@@ -332,25 +314,19 @@
             </div>
             
                 <div class="postShorten-content">
-                    <p>개발자로서의 첫 걸음에 앞서 블로그를 시작한다.</p>
-<p>이 블로그는 주로 내가 학습한 개발과 관련된 내용들이 주를 이룰 것이지만</p>
-<p>비단 개발 분야만이 아니라 좀 더 멋진 미래를 위해 하루하루 발전해나가는 내 모습을 기록할 것이다.</p>
-<p>평소 뭔가 기록을 남겨서 머릿속에 있는 생각이든, 공부한 내용이든 정리할 필요성을 느끼고 있었고</p>
-<p>특히나 <a href="https://hyunseob.github.io/2017/02/26/blog-for-developers/" target="_blank" rel="noopener">개발자로서 블로그 운영의 중요성</a>을 보면서</p>
-<p>당장 시작해야겠다는 생각이 들었다. 군생활도 얼마 안남은 김에 어제밤에 Hexo로 정적 사이트 생성기로 만들어봤다. </p>
-<p>이거 하나 만드는 데에도 굉장히 시간이 많이 걸렸는데 만드면서도 그 뭔가 모를 재미를 느꼈었다. </p>
-<p>아마 이 감정(Craftmanship라나 뭐라더나) 때문에 수 많은 개발자들이 개발을 시작했고 또 즐기는 이유일 것이다.</p>
-<p>블로그 제목(Jinco the Snorkel)은 요즘 하고 있는 것 중 동기들과 하고있는 스노클이라는 조직에서 내가 많은 영향을 받았고</p>
-<p>인생의 전환기에서 “항상 스노클의 정체성을 기억하자” 라는 의미를 담았다.</p>
-<p>나를 본격적으로 개발자의 길로 이끌었던 <a href="https://brunch.co.kr/@imagineer#articles" target="_blank" rel="noopener">마르코</a>님을 보면서</p>
-<p>자기만의 브랜드가 중요한 시대라고 느꼈다. 아마 15년 말부터 마르코님의 브런치 글을 읽기 시작했는데</p>
-<p>초기부터 글을 읽어온 독자로서 3년 동안 마르코님은 엄청나게 성장하신 것 같다.</p>
-<p>아마 그 이유는 여러가지가 있었겠지만 개발이든 사업구상이든 독서든 브런치 글 발행이든 </p>
-<p><U><em>무엇인가를 꾸준하게 하는 것</em></U>에 있을 것이다.</p>
-<p>이제 마르코라는 이름은 &lt;비전공 문과 출신 개발자&gt;라는 분야에서 어느 정도 브랜드화 되지 않았나싶다.</p>
-<p>마르코님은 날 모르시겠지만 개인적으로도 나의 롤모델이라고 생각하고 있다.</p>
-<p>이 블로그를 통해 비록 지금은 내세울 것 하나 없는 사람이지만 마르코님처럼 나만의 브랜드를 쌓아나갈 것이다.</p>
-<p>또, 개인적으로 논리력이 많이 부족하다고 생각하는데 글을 쓰면서 논리력과 타인에게 나를 표현할 수 있는 자기표현력도 많이 향상되었으면 좋겠다.</p>
+                    <p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p>
+<p>예를 들어,</p>
+<pre><code>class Foo {
+    bar() {...}
+
+    static baz() {...}
+}</code></pre><p>라는 코드가 있을때 bar()는 </p>
+<pre><code>const f = new Foo()
+f.bar() </code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만</p>
+<p>baz()는</p>
+<pre><code>Foo.baz()</code></pre><p>위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.<br>Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. </p>
+<p>용어의 반대 관계는 아래와 같다.</p>
+<p>** static method != instance method **</p>
 
                     
                         
@@ -360,7 +336,7 @@
                     
                         <p>
                             <a
-                                href="/2018/06/27/start-blog/#post-footer"
+                                href="/2018/06/30/static-and-not-static/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -389,7 +365,18 @@
           </li>
         
         
-        <li class="pagination-number">page 13 of 13</li>
+          <li class="pagination-next">
+            <a
+                class="btn btn--default btn--small"
+                href="/archives/page/14/"
+                aria-label="OLDER POSTS"
+            >
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+        <li class="pagination-number">page 13 of 14</li>
     </ul>
 </div>
 
@@ -494,7 +481,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                13 posts found
+                14 posts found
             </p>
         </div>
     </div>
