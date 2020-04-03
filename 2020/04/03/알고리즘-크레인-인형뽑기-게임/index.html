@@ -18,7 +18,7 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png"},"articleBody":"문제 링크\nhttps://programmers.co.kr/learn/courses/30/lessons/64061\n\n풀이 방법스택을 이용한 전형적인 문제이다. moves 배열에서 인형뽑기를 할 각 열을 꺼내주고,\nboard의 해당 칸이 0보다 크면(=인형이 있으면) 그 인형을 뽑는다.\n스택에 넣어주기 전, 스택의 top을 검사하여 뽑은 인형과 top이 같으면 인형 수를 2 증가시킨다.\n코드123456789101112131415161718192021222324252627282930from collections import dequedef solution(board, moves):    answer = 0    moves = deque([move-1 for move in moves])    stack = []    while moves:        found = False        j = moves.popleft()        for i in range(len(board)):            if board[i][j] &gt; 0:                found=True                curr = board[i][j]                board[i][j] = 0                break        if stack and found:            top = stack.pop()            if curr == top:                answer+=2            else:                stack.append(top)                stack.append(curr)        else:            stack.append(curr)    return answer\n\n배운 점파이썬의 변수 스코프에 대해서 헷갈려서 자꾸 에러가 났었다.\ncurr 변수가 루프를 돌면서 계속 살아있어서 만약 해당 칸에 인형이 없다고해도(=0) 전에 선택한 인형의 값이 남아있었다.\n파이썬의 경우, 블록 스코프를 가지고 있는 다른 언어(C, Javascript…)와 다르게 함수 스코프이고,\n오직 글로벌 변수와 로컬 변수밖에 존재하지 않는다.\n이 기회를 통해서 다시 한번 파이썬의 변수 스코프에 대해 알게 되었다.\n참고 링크https://soooprmx.com/archives/5854\n","dateCreated":"2020-04-03T16:26:47+09:00","dateModified":"2020-04-03T17:34:05+09:00","datePublished":"2020-04-03T16:26:47+09:00","description":"","headline":"[알고리즘] 크레인 인형뽑기 게임","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png","logo":{"@type":"ImageObject","url":"profile.png"}},"url":"https://sj602.github.io/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/","keywords":"알고리즘"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png"},"articleBody":"문제 링크\nhttps://programmers.co.kr/learn/courses/30/lessons/64061\n\n풀이 방법스택을 이용한 전형적인 문제이다. moves 배열에서 인형뽑기를 할 각 열을 꺼내주고,\nboard의 해당 칸이 0보다 크면(=인형이 있으면) 그 인형을 뽑는다.\n스택에 넣어주기 전, 스택의 top을 검사하여 뽑은 인형과 top이 같으면 인형 수를 2 증가시킨다.\n코드123456789101112131415161718192021222324252627282930from collections import dequedef solution(board, moves):    answer = 0    moves = deque([move-1 for move in moves])    stack = []    while moves:        found = False        j = moves.popleft()        for i in range(len(board)):            if board[i][j] &gt; 0:                found=True                curr = board[i][j]                board[i][j] = 0                break        if stack and found:            top = stack.pop()            if curr == top:                answer+=2            else:                stack.append(top)                stack.append(curr)        else:            stack.append(curr)    return answer\n\n배운 점파이썬의 변수 스코프에 대해서 헷갈려서 자꾸 에러가 났었다.\ncurr 변수가 루프를 돌면서 계속 살아있어서 만약 해당 칸에 인형이 없다고해도(=0) 전에 선택한 인형의 값이 남아있었다.\n파이썬의 경우, 블록 스코프를 가지고 있는 다른 언어(C, Javascript…)와 다르게 함수 스코프이고,\n오직 글로벌 변수와 로컬 변수밖에 존재하지 않는다.\n이 기회를 통해서 다시 한번 파이썬의 변수 스코프에 대해 알게 되었다.\n참고 링크파이썬 변수 스코프에 관해서 - https://soooprmx.com/archives/5854\n","dateCreated":"2020-04-03T16:26:47+09:00","dateModified":"2020-04-03T17:45:31+09:00","datePublished":"2020-04-03T16:26:47+09:00","description":"","headline":"[알고리즘] 크레인 인형뽑기 게임","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png","logo":{"@type":"ImageObject","url":"profile.png"}},"url":"https://sj602.github.io/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/","keywords":"알고리즘, 2019 카카오 개발자 겨울 인턴십, 프로그래머스"}</script>
     <meta name="description" content="문제 링크 https:&#x2F;&#x2F;programmers.co.kr&#x2F;learn&#x2F;courses&#x2F;30&#x2F;lessons&#x2F;64061  풀이 방법스택을 이용한 전형적인 문제이다. moves 배열에서 인형뽑기를 할 각 열을 꺼내주고, board의 해당 칸이 0보다 크면(&#x3D;인형이 있으면) 그 인형을 뽑는다. 스택에 넣어주기 전, 스택의 top을 검사하여 뽑은 인형과 top이 같으면">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[알고리즘] 크레인 인형뽑기 게임">
@@ -27,9 +27,11 @@
 <meta property="og:description" content="문제 링크 https:&#x2F;&#x2F;programmers.co.kr&#x2F;learn&#x2F;courses&#x2F;30&#x2F;lessons&#x2F;64061  풀이 방법스택을 이용한 전형적인 문제이다. moves 배열에서 인형뽑기를 할 각 열을 꺼내주고, board의 해당 칸이 0보다 크면(&#x3D;인형이 있으면) 그 인형을 뽑는다. 스택에 넣어주기 전, 스택의 top을 검사하여 뽑은 인형과 top이 같으면">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2020-04-03T07:26:47.000Z">
-<meta property="article:modified_time" content="2020-04-03T08:34:05.021Z">
+<meta property="article:modified_time" content="2020-04-03T08:45:31.135Z">
 <meta property="article:author" content="Jin Seon">
 <meta property="article:tag" content="알고리즘">
+<meta property="article:tag" content="2019 카카오 개발자 겨울 인턴십">
+<meta property="article:tag" content="프로그래머스">
 <meta name="twitter:card" content="summary">
     
     
@@ -233,10 +235,10 @@
                                 target="_blank"
                             
                             rel="noopener"
-                            title="GitHub"
+                            title="깃헙"
                         >
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
+                        <span class="sidebar-button-desc">깃헙</span>
                     </a>
             </li>
             
@@ -249,10 +251,10 @@
                                 target="_blank"
                             
                             rel="noopener"
-                            title="Facebook"
+                            title="페이스북"
                         >
                         <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
+                        <span class="sidebar-button-desc">페이스북</span>
                     </a>
             </li>
             
@@ -265,10 +267,10 @@
                                 target="_blank"
                             
                             rel="noopener"
-                            title="LinkedIn"
+                            title="링크드인"
                         >
                         <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
+                        <span class="sidebar-button-desc">링크드인</span>
                     </a>
             </li>
             
@@ -327,7 +329,7 @@
 <p>파이썬의 경우, <strong>블록 스코프</strong>를 가지고 있는 다른 언어(C, Javascript…)와 다르게 <strong>함수 스코프</strong>이고,</p>
 <p>오직 <strong>글로벌 변수</strong>와 <strong>로컬 변수</strong>밖에 존재하지 않는다.</p>
 <p>이 기회를 통해서 다시 한번 파이썬의 변수 스코프에 대해 알게 되었다.</p>
-<h1 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h1><p><a href="https://soooprmx.com/archives/5854" target="_blank" rel="noopener">https://soooprmx.com/archives/5854</a></p>
+<h1 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h1><p>파이썬 변수 스코프에 관해서 - <a href="https://soooprmx.com/archives/5854" target="_blank" rel="noopener">https://soooprmx.com/archives/5854</a></p>
 
             
 
@@ -348,7 +350,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">태그</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="tag">알고리즘</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/2019-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B2%A8%EC%9A%B8-%EC%9D%B8%ED%84%B4%EC%8B%AD/" rel="tag">2019 카카오 개발자 겨울 인턴십</a> <a class="tag tag--primary tag--small t-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="tag">알고리즘</a> <a class="tag tag--primary tag--small t-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a>
 
             </div>
         
