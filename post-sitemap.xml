@@ -72,7 +72,7 @@
     </url>
 
     <url>
-        <loc>https://sj602.github.io/2018/07/14/what-is-CSRF/</loc>
+        <loc>https://sj602.github.io/2018/06/27/start-blog/</loc>
         <lastmod>2020-03-15T23:27:55.754Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -88,15 +88,7 @@
     </url>
 
     <url>
-        <loc>https://sj602.github.io/2018/06/27/start-blog/</loc>
-        <lastmod>2020-03-15T23:27:55.754Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/07/10/what-is-xss/</loc>
+        <loc>https://sj602.github.io/2018/07/14/what-is-CSRF/</loc>
         <lastmod>2020-03-15T23:27:55.754Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,8 +104,8 @@
     </url>
 
     <url>
-        <loc>https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/</loc>
-        <lastmod>2020-03-15T23:27:55.753Z</lastmod>
+        <loc>https://sj602.github.io/2018/07/10/what-is-xss/</loc>
+        <lastmod>2020-03-15T23:27:55.754Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,6 +113,14 @@
 
     <url>
         <loc>https://sj602.github.io/2020/03/16/mergesort/</loc>
+        <lastmod>2020-03-15T23:27:55.753Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/2018/12/29/operating-system-chapter-1and2/</loc>
         <lastmod>2020-03-15T23:27:55.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
