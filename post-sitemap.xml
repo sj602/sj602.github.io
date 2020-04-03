@@ -9,7 +9,7 @@
 
     <url>
         <loc>https://sj602.github.io/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/</loc>
-        <lastmod>2020-04-03T07:31:26.419Z</lastmod>
+        <lastmod>2020-04-03T08:34:05.021Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -72,6 +72,14 @@
     </url>
 
     <url>
+        <loc>https://sj602.github.io/2018/07/13/what-is-SQL-injection/</loc>
+        <lastmod>2020-03-15T23:27:55.754Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://sj602.github.io/2018/06/30/static-and-not-static/</loc>
         <lastmod>2020-03-15T23:27:55.754Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,14 +97,6 @@
 
     <url>
         <loc>https://sj602.github.io/2018/07/14/what-is-CSRF/</loc>
-        <lastmod>2020-03-15T23:27:55.754Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/2018/07/13/what-is-SQL-injection/</loc>
         <lastmod>2020-03-15T23:27:55.754Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
