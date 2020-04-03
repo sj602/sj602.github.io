@@ -62,36 +62,6 @@
   </entry>
   
   <entry>
-    <title>[운영체제] 1주차</title>
-    <link href="https://sj602.github.io/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/"/>
-    <id>https://sj602.github.io/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/</id>
-    <published>2020-03-29T06:30:31.000Z</published>
-    <updated>2020-03-29T14:30:50.491Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="운영체제의-목표"><a href="#운영체제의-목표" class="headerlink" title="운영체제의 목표"></a>운영체제의 목표</h1><ul><li>User convenience</li><li>Efficient Resource Management</li></ul><h1 id="운영체제에서-12가지의-핵심"><a href="#운영체제에서-12가지의-핵심" class="headerlink" title="운영체제에서 12가지의 핵심"></a>운영체제에서 12가지의 핵심</h1><ul><li>컴퓨터 시스템은 CPU, Memories, HDD&amp;IO device + Bus로 구성되어있다</li><li>CPU와 Main Memory 만이 internal,</li></ul><h3 id="프로그램을-메모리에-적재에서-실행하는-이유"><a href="#프로그램을-메모리에-적재에서-실행하는-이유" class="headerlink" title="프로그램을 메모리에 적재에서 실행하는 이유?"></a>프로그램을 메모리에 적재에서 실행하는 이유?</h3><ul><li>CPU의 속도에 비해서 HDD/SSD의 속도가 너무 느려 더 빠른 Main Memory에 적재하여 실행</li></ul><h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul><li>LOAD vs STORE: Memory Hierarchy에서 데이터를 위로 보내면 LOAD, 아래로 보면 STORE</li><li>폰노이만 아키텍쳐 (일리노이 아키텍쳐): Data + Code가 모두 메모리 안에 저장</li><li>하버드 아키텍쳐: Date/Code 메모리가 분리되어 저장</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;운영체제의-목표&quot;&gt;&lt;a href=&quot;#운영체제의-목표&quot; class=&quot;headerlink&quot; title=&quot;운영체제의 목표&quot;&gt;&lt;/a&gt;운영체제의 목표&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;User convenience&lt;/li&gt;
-&lt;li&gt;Efficient Reso
-      
-    
-    </summary>
-    
-    
-      <category term="운영체제" scheme="https://sj602.github.io/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"/>
-    
-    
-      <category term="운영체제" scheme="https://sj602.github.io/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"/>
-    
-      <category term="Operating System" scheme="https://sj602.github.io/tags/Operating-System/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[컴퓨터구성] 2주차</title>
     <link href="https://sj602.github.io/2020/03/29/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-2%EC%A3%BC%EC%B0%A8/"/>
     <id>https://sj602.github.io/2020/03/29/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-2%EC%A3%BC%EC%B0%A8/</id>
@@ -119,6 +89,36 @@
       <category term="컴퓨터구성" scheme="https://sj602.github.io/tags/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1/"/>
     
       <category term="Computer Architecture" scheme="https://sj602.github.io/tags/Computer-Architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[운영체제] 1주차</title>
+    <link href="https://sj602.github.io/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/"/>
+    <id>https://sj602.github.io/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/</id>
+    <published>2020-03-29T06:30:31.000Z</published>
+    <updated>2020-03-29T14:30:50.491Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="운영체제의-목표"><a href="#운영체제의-목표" class="headerlink" title="운영체제의 목표"></a>운영체제의 목표</h1><ul><li>User convenience</li><li>Efficient Resource Management</li></ul><h1 id="운영체제에서-12가지의-핵심"><a href="#운영체제에서-12가지의-핵심" class="headerlink" title="운영체제에서 12가지의 핵심"></a>운영체제에서 12가지의 핵심</h1><ul><li>컴퓨터 시스템은 CPU, Memories, HDD&amp;IO device + Bus로 구성되어있다</li><li>CPU와 Main Memory 만이 internal,</li></ul><h3 id="프로그램을-메모리에-적재에서-실행하는-이유"><a href="#프로그램을-메모리에-적재에서-실행하는-이유" class="headerlink" title="프로그램을 메모리에 적재에서 실행하는 이유?"></a>프로그램을 메모리에 적재에서 실행하는 이유?</h3><ul><li>CPU의 속도에 비해서 HDD/SSD의 속도가 너무 느려 더 빠른 Main Memory에 적재하여 실행</li></ul><h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul><li>LOAD vs STORE: Memory Hierarchy에서 데이터를 위로 보내면 LOAD, 아래로 보면 STORE</li><li>폰노이만 아키텍쳐 (일리노이 아키텍쳐): Data + Code가 모두 메모리 안에 저장</li><li>하버드 아키텍쳐: Date/Code 메모리가 분리되어 저장</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;운영체제의-목표&quot;&gt;&lt;a href=&quot;#운영체제의-목표&quot; class=&quot;headerlink&quot; title=&quot;운영체제의 목표&quot;&gt;&lt;/a&gt;운영체제의 목표&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;User convenience&lt;/li&gt;
+&lt;li&gt;Efficient Reso
+      
+    
+    </summary>
+    
+    
+      <category term="운영체제" scheme="https://sj602.github.io/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"/>
+    
+    
+      <category term="운영체제" scheme="https://sj602.github.io/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"/>
+    
+      <category term="Operating System" scheme="https://sj602.github.io/tags/Operating-System/"/>
     
   </entry>
   
