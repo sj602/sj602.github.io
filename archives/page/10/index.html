@@ -295,17 +295,17 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2018/12/29/operating-system-chapter-1and2/"
-                            aria-label=": [운영체제] 1장 2장 요약"
+                            href="/2019/01/01/operating-system-chapter-4and5/"
+                            aria-label=": [운영체제] 4장 5장 Semaphore, Monitor 요약"
                         >
-                            [운영체제] 1장 2장 요약
+                            [운영체제] 4장 5장 Semaphore, Monitor 요약
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2018-12-29T20:29:20+09:00">
+    <time datetime="2019-01-01T14:08:09+09:00">
 	
-		    2018/12/29
+		    2019/01/01
     	
     </time>
     
@@ -320,61 +320,56 @@
             </div>
             
                 <div class="postShorten-content">
-                    <p>학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고<br>훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며<br>도서관에서 빌린 &lt;운영체제 : 그림으로 배우는 원리와 구조&gt;라는 책을 읽고 모자란 설명을 채울 생각이다.</p>
-<p>1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다.</p>
-<p>1장. 컴퓨터 시스템 소개</p>
-<ol>
-<li>컴퓨터 시스템 구성요소</li>
+                    <ol start="0">
+<li>임계영역(Critical Section)</li>
 </ol>
-<p>1) 프로세서</p>
 <ul>
-<li>중앙처리장치(CPU) : 레지스터, 산술논리연산장치(ALU), 제어장치</li>
+<li><p>다수의 프로세스가 접근 가능한 영역이면서 한 순간에 하나의 프로세스만 사용할 수 있는 영역</p>
+</li>
+<li><p>어떤 프로세스가 임계영역에 들어가면 다른 프로세스는 임계영역으로의 진입이 금지되어야 한다</p>
+</li>
+<li><p>프로세스/스레드 동기화를 함으로써 임계구역 문제를 해결하고 프로세스 실행 순서를 제어할 수 있다</p>
+</li>
+<li><p>임계영역 문제 해결책</p>
+</li>
+<li><p>상호배제(Mutual Exclusion): 한 프로세스가 임계영역에서 작업시 다른 프로세스는 접근 불가능</p>
+</li>
+<li><p>진행(Progress): 임계영역에서 작업하는 프로세스가 없을 때 여러 프로세스가 임계영역에 진입하고자 한다면 알고리즘에 따라 프로세스 선정, 프로세스 선택을 무한정 미룰 수 없다</p>
+</li>
+<li><p>제한된 대기(Bounded Waiting): 한 프로세스가 임계영역 진입을 요청한 후 수락되기 전까지 다른 프로세스가 진입할 수 있는 횟수를 제한</p>
+</li>
+<li><p>동기화 도구: 세마포어, 모니터</p>
+</li>
 </ul>
-<p>2) 버스</p>
-<p>3) 레지스터</p>
+<ol>
+<li>세마포어(Semaphore)</li>
+</ol>
 <ul>
-<li>프로그램 카운터(PC: Program Counter): 프로그램 수행을 제어하는 명령어 실행 순서 보관(다음에 실행할 명령어 주소 저장)</li>
-<li>명령어 레지스터(IR: Instrument Register): 현재 수행하는 명령어를 저장, 명령어의 연산자 부분만 저장한다.</li>
-<li>프로그램 상태 레지스터(PSR: Program Status Register): 플래그 같은 상태 정보 저장</li>
-<li>메모리 주소 레지스터(MAR: Memory Address Register): 접근하려는 메모리의 주소 저장</li>
-<li>메모리 버퍼 레지스터(MBR: Memory Buffer Register): 메모리에서 정보를 읽거나 저장할 때 사용</li>
-</ul>
-<p>4) 메모리</p>
-<ul>
-<li>메모리의 지역성: 실행 중인 프로세서가 실행기간 동안 메모리 정보를 균일하게 접근하지 않고 일부만 집중적을 참조</li>
-<li>메모리 속도: 메모리 사이클 시간 &amp; 메모리 접근 시간</li>
-<li>가상 메모리(Virtual Memory): 보조기억장치에 저장했다가 주기억장치에 필요할 때 실행</li>
-<li>메모리의 논리적 주소 -&gt; 물리적 주소 : Memory Mapping (메모리 관리 장치 MMU: Memory Management Unit이 해줌)</li>
-<li>캐시(Cache): 처리 속도가 빠른 프로세서와 상대적으로 느린 주기억장치 사이에서 데이터를 저장하여 속도 차이를 줄여줌. 주기억장치<br>에서 일정 블록의 데이터를 가져와 워드(Word) 단위로 프로세서에 전달</li>
-<li>프로세서는 주기억장치 접근이 필요하면 먼저 캐시를 조사</li>
-<li>캐시 태그와 원하는 메모리 주소 태그가 일치하면 캐시 적중(Cache Hit)라 한다 &lt;-&gt; 캐시 실패(Cache Miss)</li>
-</ul>
-<p>5) 주변장치</p>
-<ul>
-<li>키보드, 마우스 등</li>
+<li>다익스트라가 제안</li>
+<li>구조: 정수형 변수 + 두 개의 동작(P, V)</li>
+<li>세마포어란 음이 아닌 정수값을 가지는 플래그 변수</li>
+<li>임계영역에 들어가기전에 P: acquire() 하고 </li>
+<li>임계영역으로부터 나올 때 V: release() 한다</li>
+<li>P와 V를 다음과 같이 정의한다<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- P(S): while S &lt;&#x3D; 0 do no-op; &#x2F;&#x2F; 세마포어 변수 S가 0이면 임계구역 진입 불가</span><br><span class="line">	    S &#x3D; S - 1; &#x2F;&#x2F; 세마포어 변수 S가 1이면 진입하여 0으로 만든 후 다른 프로세스 진입 못 하게 블락</span><br><span class="line">- V(S): S &#x3D; S + 1; &#x2F;&#x2F; 작업을 완료하고 나올 때 1을 더해줘 다른 프로세스가 진입 가능하게 만듬</span><br></pre></td></tr></table></figure>
+
+
+</li>
 </ul>
 <ol start="2">
-<li>컴퓨터 시스템의 동작</li>
-</ol>
-<p>1) 명령어 구성</p>
-<ul>
-<li>실행할 연산을 나타내는 연산 코드(Operation Code) &amp; 처리할 데이터가 저장된 주소를 나타내는 오퍼랜드(Operand)로 이루어짐</li>
-<li>직접 주소와 간접 주소</li>
-</ul>
-<p>2) 인터럽트</p>
-<ul>
-<li>인터럽트를 받은 프로그램은 실행을 멈추고 다른 프로그램을 실행한다</li>
-<li>입출력장치가 새로운 입출력 연산을 수행하려고 하면 프로세서는 폴링(Polling)을 통해 각 장치의 상태 비트 검사 (폴링 방식)</li>
-<li>인터럽트가 발생했을 때 프로세서에게 알려줌. 버스 중 인터럽트 요청 회선(IRQ: Interrupt Request Line)이 이런 용도로 쓰임(인터럽트 방식)</li>
-</ul>
-<p>2장. 운영체제 소개</p>
-<ol>
-<li>운영체제의 기능</li>
+<li>모니터(Monitor)</li>
 </ol>
 <ul>
-<li>버퍼링과 스풀링 모두 입출력장치의 느린 속도를 보완하기 위해 이용하고 프로세서와 입출력장치를 항상 분주하게, 유휴 시간이 없게 만듬</li>
-<li>버퍼링(Buffering): 주기억장치(보통 캐시메모리)를 버퍼로 사용</li>
-<li>스풀링(Spooling): 보조기억장치(하드디스크)를 버퍼로 사용</li>
+<li>세마포어보다 고수준의 개념</li>
+<li>구조: 공유자원 + 공유자원 접근 함수</li>
+<li>2개의 queues: 배타동기 + 조건동기</li>
+</ul>
+<ol start="3">
+<li>교착상태(Deadlock)</li>
+</ol>
+<ul>
+<li>교착상태의 필요조건: 상호배타(Mutual Exclusion), 보유 및 대기(Hold and Wait), 비선점(No Preemption), 환형대기(Circular Wait)</li>
+<li>교착상태의 처리: 방지, 회피, 검출 및 복구, 무시</li>
+<li>실제 상황에서 교착상태는 잘 일어나지 않는다</li>
 </ul>
 
                     
@@ -385,7 +380,7 @@
                     
                         <p>
                             <a
-                                href="/2018/12/29/operating-system-chapter-1and2/#post-footer"
+                                href="/2019/01/01/operating-system-chapter-4and5/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -425,7 +420,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 10 of 15</li>
+        <li class="pagination-number">page 10 of 17</li>
     </ul>
 </div>
 
@@ -530,7 +525,7 @@
                 data-message-zero="포스트가 없습니다."
                 data-message-one="1 개의 포스트가 있습니다."
                 data-message-other="{n} 개의 포스트가 있습니다.">
-                15 개의 포스트가 있습니다.
+                17 개의 포스트가 있습니다.
             </p>
         </div>
     </div>

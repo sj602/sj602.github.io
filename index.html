@@ -294,10 +294,158 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/"
-                            aria-label=": [알고리즘] 크레인 인형뽑기 게임"
+                            href="/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/"
+                            aria-label=": [알고리즘] 프로그래머스 튜플 파이썬 풀이"
                         >
-                            [알고리즘] 크레인 인형뽑기 게임
+                            [알고리즘] 프로그래머스 튜플 파이썬 풀이
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-04-04T00:13:46+09:00">
+	
+		    2020/04/04
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><ul>
+<li><a href="https://programmers.co.kr/learn/courses/30/lessons/64065" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64065</a></li>
+</ul>
+<h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>문자열 파싱을 할 줄 안다면 쉬운 문제이다.</p>
+<p>먼저 문제에 주어진 입출력 예시를 보면,</p>
+<p>각 <code>{}</code>로 나뉘어진 집합별로 나눈 다음에 집합 안의 숫자들을</p>
+<p>배열에 순서를 지켜가면서 넣어주면 된다.</p>
+<p>이 때, 각 집합을 길이 오름차순으로 나열한 다음 중복을 체크해주어야 한다.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(s)</span>:</span></span><br><span class="line">    answer = []</span><br><span class="line">    string = s[<span class="number">1</span>:len(s)<span class="number">-1</span>].replace(<span class="string">'&#125;,'</span>, <span class="string">'&#125;-'</span>).split(<span class="string">"-"</span>)</span><br><span class="line">    string = sorted([item[<span class="number">1</span>:len(item)<span class="number">-1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> string], key=<span class="keyword">lambda</span> item: len(item))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> string:</span><br><span class="line">        <span class="keyword">for</span> digit <span class="keyword">in</span> item.split(<span class="string">","</span>):</span><br><span class="line">            <span class="keyword">if</span> int(digit) <span class="keyword">not</span> <span class="keyword">in</span> answer:</span><br><span class="line">                answer.append(int(digit))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/04/03/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-3%EC%A3%BC%EC%B0%A8/"
+                            aria-label=": [운영체제] 3주차"
+                        >
+                            [운영체제] 3주차
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-04-03T21:48:49+09:00">
+	
+		    2020/04/03
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Modern-Computer-Systems"><a href="#Modern-Computer-Systems" class="headerlink" title="Modern Computer Systems"></a>Modern Computer Systems</h1><ul>
+<li>Consists of CPUs, Main Memory, other devices</li>
+<li>Connected by a bus to access Main Memory</li>
+<li>CPU and devices(controllers) execute simultaneosly and compete for shared memory</li>
+<li>Memory controller unit(MMU) ensures these orders</li>
+</ul>
+<h1 id="Basic-Understanding"><a href="#Basic-Understanding" class="headerlink" title="Basic Understanding"></a>Basic Understanding</h1><ul>
+<li>OS(image) is stored in HDD(SSD)</li>
+<li>When power is off, MM is empty(volatile) =&gt; so, when power is on, CPU can do nothing</li>
+<li>Thus, to start computer, OS image must be loaded into MM</li>
+</ul>
+<h1 id="Bootstrap-program"><a href="#Bootstrap-program" class="headerlink" title="Bootstrap program"></a>Bootstrap program</h1><ul>
+<li>하드웨어 제조사에서 개발</li>
+<li>First program to run when power is on</li>
+<li>Stored in Boot-ROM</li>
+<li>Initializes computer system hardware (OS가 초기화 하지 않는 이유? 하드웨어는 제조사별로 다양하기 때문에 OS가 일괄적으로 초기화 불가능)</li>
+<li>Loads OS from HDD(SSD) to first location of MM (addr = 0 or predefined)</li>
+</ul>
+<h1 id="What-does-CPU-do"><a href="#What-does-CPU-do" class="headerlink" title="What does CPU do?"></a>What does CPU do?</h1><ul>
+<li>Fetch Instr.=&gt; Decode =&gt; Fetch Data =&gt; Execute =&gt; Store</li>
+</ul>
+<h4 id="Fetch-Instrunction"><a href="#Fetch-Instrunction" class="headerlink" title="Fetch Instrunction"></a>Fetch Instrunction</h4><h6 id="AR-lt-PC-amp-IR-lt-M-AR-amp-PC"><a href="#AR-lt-PC-amp-IR-lt-M-AR-amp-PC" class="headerlink" title="AR &lt;- PC &amp; IR &lt;- M[AR] &amp; PC++"></a>AR &lt;- PC &amp; IR &lt;- M[AR] &amp; PC++</h6><h1 id="OS-Booting"><a href="#OS-Booting" class="headerlink" title="OS Booting"></a>OS Booting</h1><ul>
+<li>CPU simply fetch, decode, execute, store each line of OS image</li>
+<li>Activates scheduler(=swapper)(pid=0), first process init()(pid=1)</li>
+<li>Waits for interrupts to occur</li>
+<li>Hardware interrupts: signals CPU by bus</li>
+<li>Software interrupts: signals by sys calls(traps)</li>
+<li>Modern OSs are interrupt-driven</li>
+<li><strong>Why interrupts necessary? : OS가 효율적으로 작동하기 위해</strong></li>
+<li><strong>When interrupts necessary? : CPU가 요청한 operation을 I/O controller가 다 끝냈을 때</strong></li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/04/03/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-3%EC%A3%BC%EC%B0%A8/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/"
+                            aria-label=": [알고리즘] 프로그래머스 크레인 인형뽑기 게임 파이썬 풀이"
+                        >
+                            [알고리즘] 프로그래머스 크레인 인형뽑기 게임 파이썬 풀이
                         </a>
                     
                 </h1>
@@ -1102,206 +1250,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2018/12/31/operating-system-chapter-3/"
-                            aria-label=": [운영체제] 3장 프로세스, 스레드 요약"
-                        >
-                            [운영체제] 3장 프로세스, 스레드 요약
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-31T13:31:56+09:00">
-	
-		    2018/12/31
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">운영체제</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <p>3장. 프로세스, 스레드</p>
-<ol>
-<li>프로세스</li>
-</ol>
-<ul>
-<li>프로세스: 메모리에 적재되서 현재 실행 중인 프로그램</li>
-<li>각 프로세스마다 코드, 데이터, BSS, 힙, 스택 등의 메모리 구조를 가짐</li>
-<li>프로세스는 운영체제 내에서 프로세스 제어 블록(PCB: Process Control Block)으로 표현됨</li>
-<li>PCB에는 프로세스 식별자, 프로세스 상태, 프로그램 카운터, 레지스터 등이 저장된다</li>
-<li>문맥교환(Context Switching): 프로세스끼리 제어 상태 변화가 일어났을 때 발생 -&gt; 오버헤드(Overhead) 발생</li>
-<li>OS의 스케쥴링에 의해 프로세스 실행 순서 결정</li>
-<li>각각의 프로세스는 독립적이므로 한 프로세스가 비정상적으로 종료되도 다른 프로세스에 영향이 없다</li>
-</ul>
-<ol start="2">
-<li>스레드</li>
-</ol>
-<ul>
-<li>스레드: 하나의 프로세스 내에서 실행되는 여러 흐름의 단위</li>
-<li>각 스레드는 스택만 할당받고 코드, 데이터, 힙 등은 프로세스 내에서 공유한다</li>
-<li>OS의 스케쥴러는 스레드를 최소 단위로 작업</li>
-<li>각각의 스레드는 프로세스와 달리 비정상적으로 종료되면 다른 스레드들도 종료된</li>
-</ul>
-<ol start="3">
-<li>기타</li>
-</ol>
-<ul>
-<li>일반적으로 새로운 프로세스가 생성되면 프로세스를 위한 스레드도 함께 생성된다</li>
-<li>프로세스의 생성/종료보다 스레드의 생성/종료의 오버헤드가 훨씬 적다</li>
-<li>트랩(Trap): 부적절한 파일접근이나 오류, 예외 상황때문에 발생 -&gt; 소프트웨어적인 흐름의 변화 (인터럽트: 하드웨어적인 흐름의 변)</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2018/12/31/operating-system-chapter-3/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2018/12/29/operating-system-chapter-1and2/"
-                            aria-label=": [운영체제] 1장 2장 요약"
-                        >
-                            [운영체제] 1장 2장 요약
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-29T20:29:20+09:00">
-	
-		    2018/12/29
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">운영체제</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <p>학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고<br>훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며<br>도서관에서 빌린 &lt;운영체제 : 그림으로 배우는 원리와 구조&gt;라는 책을 읽고 모자란 설명을 채울 생각이다.</p>
-<p>1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다.</p>
-<p>1장. 컴퓨터 시스템 소개</p>
-<ol>
-<li>컴퓨터 시스템 구성요소</li>
-</ol>
-<p>1) 프로세서</p>
-<ul>
-<li>중앙처리장치(CPU) : 레지스터, 산술논리연산장치(ALU), 제어장치</li>
-</ul>
-<p>2) 버스</p>
-<p>3) 레지스터</p>
-<ul>
-<li>프로그램 카운터(PC: Program Counter): 프로그램 수행을 제어하는 명령어 실행 순서 보관(다음에 실행할 명령어 주소 저장)</li>
-<li>명령어 레지스터(IR: Instrument Register): 현재 수행하는 명령어를 저장, 명령어의 연산자 부분만 저장한다.</li>
-<li>프로그램 상태 레지스터(PSR: Program Status Register): 플래그 같은 상태 정보 저장</li>
-<li>메모리 주소 레지스터(MAR: Memory Address Register): 접근하려는 메모리의 주소 저장</li>
-<li>메모리 버퍼 레지스터(MBR: Memory Buffer Register): 메모리에서 정보를 읽거나 저장할 때 사용</li>
-</ul>
-<p>4) 메모리</p>
-<ul>
-<li>메모리의 지역성: 실행 중인 프로세서가 실행기간 동안 메모리 정보를 균일하게 접근하지 않고 일부만 집중적을 참조</li>
-<li>메모리 속도: 메모리 사이클 시간 &amp; 메모리 접근 시간</li>
-<li>가상 메모리(Virtual Memory): 보조기억장치에 저장했다가 주기억장치에 필요할 때 실행</li>
-<li>메모리의 논리적 주소 -&gt; 물리적 주소 : Memory Mapping (메모리 관리 장치 MMU: Memory Management Unit이 해줌)</li>
-<li>캐시(Cache): 처리 속도가 빠른 프로세서와 상대적으로 느린 주기억장치 사이에서 데이터를 저장하여 속도 차이를 줄여줌. 주기억장치<br>에서 일정 블록의 데이터를 가져와 워드(Word) 단위로 프로세서에 전달</li>
-<li>프로세서는 주기억장치 접근이 필요하면 먼저 캐시를 조사</li>
-<li>캐시 태그와 원하는 메모리 주소 태그가 일치하면 캐시 적중(Cache Hit)라 한다 &lt;-&gt; 캐시 실패(Cache Miss)</li>
-</ul>
-<p>5) 주변장치</p>
-<ul>
-<li>키보드, 마우스 등</li>
-</ul>
-<ol start="2">
-<li>컴퓨터 시스템의 동작</li>
-</ol>
-<p>1) 명령어 구성</p>
-<ul>
-<li>실행할 연산을 나타내는 연산 코드(Operation Code) &amp; 처리할 데이터가 저장된 주소를 나타내는 오퍼랜드(Operand)로 이루어짐</li>
-<li>직접 주소와 간접 주소</li>
-</ul>
-<p>2) 인터럽트</p>
-<ul>
-<li>인터럽트를 받은 프로그램은 실행을 멈추고 다른 프로그램을 실행한다</li>
-<li>입출력장치가 새로운 입출력 연산을 수행하려고 하면 프로세서는 폴링(Polling)을 통해 각 장치의 상태 비트 검사 (폴링 방식)</li>
-<li>인터럽트가 발생했을 때 프로세서에게 알려줌. 버스 중 인터럽트 요청 회선(IRQ: Interrupt Request Line)이 이런 용도로 쓰임(인터럽트 방식)</li>
-</ul>
-<p>2장. 운영체제 소개</p>
-<ol>
-<li>운영체제의 기능</li>
-</ol>
-<ul>
-<li>버퍼링과 스풀링 모두 입출력장치의 느린 속도를 보완하기 위해 이용하고 프로세서와 입출력장치를 항상 분주하게, 유휴 시간이 없게 만듬</li>
-<li>버퍼링(Buffering): 주기억장치(보통 캐시메모리)를 버퍼로 사용</li>
-<li>스풀링(Spooling): 보조기억장치(하드디스크)를 버퍼로 사용</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2018/12/29/operating-system-chapter-1and2/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -1421,7 +1369,7 @@
                 data-message-zero="포스트가 없습니다."
                 data-message-one="1 개의 포스트가 있습니다."
                 data-message-other="{n} 개의 포스트가 있습니다.">
-                15 개의 포스트가 있습니다.
+                17 개의 포스트가 있습니다.
             </p>
         </div>
     </div>

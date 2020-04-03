@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sj602.github.io/"/>
-  <updated>2020-04-03T08:45:31.135Z</updated>
+  <updated>2020-04-03T15:14:29.527Z</updated>
   <id>https://sj602.github.io/</id>
   
   <author>
@@ -17,11 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[알고리즘] 크레인 인형뽑기 게임</title>
+    <title>[알고리즘] 프로그래머스 튜플 파이썬 풀이</title>
+    <link href="https://sj602.github.io/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/"/>
+    <id>https://sj602.github.io/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/</id>
+    <published>2020-04-03T15:13:46.000Z</published>
+    <updated>2020-04-03T15:14:29.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><ul><li><a href="https://programmers.co.kr/learn/courses/30/lessons/64065" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64065</a></li></ul><h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>문자열 파싱을 할 줄 안다면 쉬운 문제이다.</p><p>먼저 문제에 주어진 입출력 예시를 보면,</p><p>각 <code>{}</code>로 나뉘어진 집합별로 나눈 다음에 집합 안의 숫자들을</p><p>배열에 순서를 지켜가면서 넣어주면 된다.</p><p>이 때, 각 집합을 길이 오름차순으로 나열한 다음 중복을 체크해주어야 한다.</p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(s)</span>:</span></span><br><span class="line">    answer = []</span><br><span class="line">    string = s[<span class="number">1</span>:len(s)<span class="number">-1</span>].replace(<span class="string">'&#125;,'</span>, <span class="string">'&#125;-'</span>).split(<span class="string">"-"</span>)</span><br><span class="line">    string = sorted([item[<span class="number">1</span>:len(item)<span class="number">-1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> string], key=<span class="keyword">lambda</span> item: len(item))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> string:</span><br><span class="line">        <span class="keyword">for</span> digit <span class="keyword">in</span> item.split(<span class="string">","</span>):</span><br><span class="line">            <span class="keyword">if</span> int(digit) <span class="keyword">not</span> <span class="keyword">in</span> answer:</span><br><span class="line">                answer.append(int(digit))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;문제-링크&quot;&gt;&lt;a href=&quot;#문제-링크&quot; class=&quot;headerlink&quot; title=&quot;문제 링크&quot;&gt;&lt;/a&gt;문제 링크&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/
+      
+    
+    </summary>
+    
+    
+      <category term="알고리즘" scheme="https://sj602.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"/>
+    
+    
+      <category term="알고리즘" scheme="https://sj602.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"/>
+    
+      <category term="2019 카카오 개발자 겨울 인턴십" scheme="https://sj602.github.io/tags/2019-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B2%A8%EC%9A%B8-%EC%9D%B8%ED%84%B4%EC%8B%AD/"/>
+    
+      <category term="프로그래머스" scheme="https://sj602.github.io/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/"/>
+    
+      <category term="파이썬" scheme="https://sj602.github.io/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"/>
+    
+      <category term="python" scheme="https://sj602.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[운영체제] 3주차</title>
+    <link href="https://sj602.github.io/2020/04/03/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-3%EC%A3%BC%EC%B0%A8/"/>
+    <id>https://sj602.github.io/2020/04/03/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-3%EC%A3%BC%EC%B0%A8/</id>
+    <published>2020-04-03T12:48:49.000Z</published>
+    <updated>2020-04-03T12:48:49.715Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Modern-Computer-Systems"><a href="#Modern-Computer-Systems" class="headerlink" title="Modern Computer Systems"></a>Modern Computer Systems</h1><ul><li>Consists of CPUs, Main Memory, other devices</li><li>Connected by a bus to access Main Memory</li><li>CPU and devices(controllers) execute simultaneosly and compete for shared memory</li><li>Memory controller unit(MMU) ensures these orders</li></ul><h1 id="Basic-Understanding"><a href="#Basic-Understanding" class="headerlink" title="Basic Understanding"></a>Basic Understanding</h1><ul><li>OS(image) is stored in HDD(SSD)</li><li>When power is off, MM is empty(volatile) =&gt; so, when power is on, CPU can do nothing</li><li>Thus, to start computer, OS image must be loaded into MM</li></ul><h1 id="Bootstrap-program"><a href="#Bootstrap-program" class="headerlink" title="Bootstrap program"></a>Bootstrap program</h1><ul><li>하드웨어 제조사에서 개발</li><li>First program to run when power is on</li><li>Stored in Boot-ROM</li><li>Initializes computer system hardware (OS가 초기화 하지 않는 이유? 하드웨어는 제조사별로 다양하기 때문에 OS가 일괄적으로 초기화 불가능)</li><li>Loads OS from HDD(SSD) to first location of MM (addr = 0 or predefined)</li></ul><h1 id="What-does-CPU-do"><a href="#What-does-CPU-do" class="headerlink" title="What does CPU do?"></a>What does CPU do?</h1><ul><li>Fetch Instr.=&gt; Decode =&gt; Fetch Data =&gt; Execute =&gt; Store</li></ul><h4 id="Fetch-Instrunction"><a href="#Fetch-Instrunction" class="headerlink" title="Fetch Instrunction"></a>Fetch Instrunction</h4><h6 id="AR-lt-PC-amp-IR-lt-M-AR-amp-PC"><a href="#AR-lt-PC-amp-IR-lt-M-AR-amp-PC" class="headerlink" title="AR &lt;- PC &amp; IR &lt;- M[AR] &amp; PC++"></a>AR &lt;- PC &amp; IR &lt;- M[AR] &amp; PC++</h6><h1 id="OS-Booting"><a href="#OS-Booting" class="headerlink" title="OS Booting"></a>OS Booting</h1><ul><li>CPU simply fetch, decode, execute, store each line of OS image</li><li>Activates scheduler(=swapper)(pid=0), first process init()(pid=1)</li><li>Waits for interrupts to occur</li><li>Hardware interrupts: signals CPU by bus</li><li>Software interrupts: signals by sys calls(traps)</li><li>Modern OSs are interrupt-driven</li><li><strong>Why interrupts necessary? : OS가 효율적으로 작동하기 위해</strong></li><li><strong>When interrupts necessary? : CPU가 요청한 operation을 I/O controller가 다 끝냈을 때</strong></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Modern-Computer-Systems&quot;&gt;&lt;a href=&quot;#Modern-Computer-Systems&quot; class=&quot;headerlink&quot; title=&quot;Modern Computer Systems&quot;&gt;&lt;/a&gt;Modern Computer S
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[알고리즘] 프로그래머스 크레인 인형뽑기 게임 파이썬 풀이</title>
     <link href="https://sj602.github.io/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/"/>
     <id>https://sj602.github.io/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/</id>
     <published>2020-04-03T07:26:47.000Z</published>
-    <updated>2020-04-03T08:45:31.135Z</updated>
+    <updated>2020-04-03T14:35:57.084Z</updated>
     
     <content type="html"><![CDATA[<h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><ul><li><a href="https://programmers.co.kr/learn/courses/30/lessons/64061" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64061</a></li></ul><h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>스택을 이용한 전형적인 문제이다. moves 배열에서 인형뽑기를 할 각 열을 꺼내주고,</p><p>board의 해당 칸이 0보다 크면(=인형이 있으면) 그 인형을 뽑는다.</p><p>스택에 넣어주기 전, 스택의 top을 검사하여 뽑은 인형과 top이 같으면 인형 수를 2 증가시킨다.</p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(board, moves)</span>:</span></span><br><span class="line">    answer = <span class="number">0</span></span><br><span class="line">    moves = deque([move<span class="number">-1</span> <span class="keyword">for</span> move <span class="keyword">in</span> moves])</span><br><span class="line">    stack = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> moves:</span><br><span class="line">        found = <span class="literal">False</span></span><br><span class="line">        j = moves.popleft()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(board)):</span><br><span class="line">            <span class="keyword">if</span> board[i][j] &gt; <span class="number">0</span>:</span><br><span class="line">                found=<span class="literal">True</span></span><br><span class="line">                curr = board[i][j]</span><br><span class="line">                board[i][j] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> stack <span class="keyword">and</span> found:</span><br><span class="line">            top = stack.pop()</span><br><span class="line">            <span class="keyword">if</span> curr == top:</span><br><span class="line">                answer+=<span class="number">2</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(top)</span><br><span class="line">                stack.append(curr)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            stack.append(curr)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure><h1 id="배운-점"><a href="#배운-점" class="headerlink" title="배운 점"></a>배운 점</h1><p>파이썬의 <strong>변수 스코프</strong>에 대해서 헷갈려서 자꾸 에러가 났었다.</p><p><strong>curr</strong> 변수가 루프를 돌면서 계속 살아있어서 만약 해당 칸에 인형이 없다고해도(=0) 전에 선택한 인형의 값이 남아있었다.</p><p>파이썬의 경우, <strong>블록 스코프</strong>를 가지고 있는 다른 언어(C, Javascript…)와 다르게 <strong>함수 스코프</strong>이고,</p><p>오직 <strong>글로벌 변수</strong>와 <strong>로컬 변수</strong>밖에 존재하지 않는다.</p><p>이 기회를 통해서 다시 한번 파이썬의 변수 스코프에 대해 알게 되었다.</p><h1 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h1><p>파이썬 변수 스코프에 관해서 - <a href="https://soooprmx.com/archives/5854" target="_blank" rel="noopener">https://soooprmx.com/archives/5854</a></p>]]></content>
     
@@ -44,6 +101,10 @@
       <category term="2019 카카오 개발자 겨울 인턴십" scheme="https://sj602.github.io/tags/2019-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B2%A8%EC%9A%B8-%EC%9D%B8%ED%84%B4%EC%8B%AD/"/>
     
       <category term="프로그래머스" scheme="https://sj602.github.io/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/"/>
+    
+      <category term="파이썬" scheme="https://sj602.github.io/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"/>
+    
+      <category term="python" scheme="https://sj602.github.io/tags/python/"/>
     
   </entry>
   
@@ -433,9 +494,9 @@
     <link href="https://sj602.github.io/2018/06/30/static-and-not-static/"/>
     <id>https://sj602.github.io/2018/06/30/static-and-not-static/</id>
     <published>2018-06-30T13:55:50.000Z</published>
-    <updated>2020-03-15T23:27:55.754Z</updated>
+    <updated>2020-04-03T12:51:18.070Z</updated>
     
-    <content type="html"><![CDATA[<p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p><p>예를 들어,</p><pre><code>class Foo {    bar() {...}    static baz() {...}}</code></pre><p>라는 코드가 있을때 bar()는 </p><pre><code>const f = new Foo()f.bar() </code></pre><p>위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만</p><p>baz()는</p><pre><code>Foo.baz()</code></pre><p>위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.<br>Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다. </p><p>용어의 반대 관계는 아래와 같다.</p><p>** static method != instance method **</p>]]></content>
+    <content type="html"><![CDATA[<p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p><p>예를 들어,</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    bar() &#123;...&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> baz() &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>라는 코드가 있을때 bar()는</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="keyword">new</span> Foo();</span><br><span class="line">f.bar();</span><br></pre></td></tr></table></figure><p>위 예시처럼 f라는 Foo의 인스턴스를 선언을 하고 그 인스턴스에서 호출을 해야하지만</p><p>baz()는</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Foo.baz();</span><br></pre></td></tr></table></figure><p>위 예시처럼 클래스 Foo에서 바로 호출이 가능하다.<br>Foo의 인스턴스를 선언하지 않고도 메소드를 호출이 가능하다는 것이다.</p><p>용어의 반대 관계는 아래와 같다.</p><p>** static method != instance method **</p>]]></content>
     
     <summary type="html">
     
@@ -443,10 +504,7 @@
       
         &lt;p&gt;클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.&lt;/p&gt;
 &lt;p&gt;예를 들어,&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Foo {
-    bar() {...}
-
-    stat
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
       
     
     </summary>
