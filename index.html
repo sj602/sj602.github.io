@@ -9,6 +9,71 @@
                     
                         <a
                             class="link-unstyled"
+                            href="/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/"
+                            aria-label=": [알고리즘] 크레인 인형뽑기 게임"
+                        >
+                            [알고리즘] 크레인 인형뽑기 게임
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-04-03T16:26:47+09:00">
+	
+		    Apr 03, 2020
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><ul>
+<li><a href="https://programmers.co.kr/learn/courses/30/lessons/64061" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64061</a></li>
+</ul>
+<h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>스택을 이용한 전형적인 문제이다. moves 배열에서 인형뽑기를 할 각 열을 꺼내주고,</p>
+<p>board의 해당 칸이 0보다 크면(=인형이 있으면) 그 인형을 뽑는다.</p>
+<p>스택에 넣어주기 전, 스택의 top을 검사하여 뽑은 인형과 top이 같으면 인형 수를 2 증가시킨다.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">from collections import deque</span><br><span class="line"></span><br><span class="line">def solution(board, moves):</span><br><span class="line">    answer &#x3D; 0</span><br><span class="line">    moves &#x3D; deque([move-1 for move in moves])</span><br><span class="line">    stack &#x3D; []</span><br><span class="line"></span><br><span class="line">    while moves:</span><br><span class="line">        found &#x3D; False</span><br><span class="line">        j &#x3D; moves.popleft()</span><br><span class="line"></span><br><span class="line">        for i in range(len(board)):</span><br><span class="line">            if board[i][j] &gt; 0:</span><br><span class="line">                found&#x3D;True</span><br><span class="line">                curr &#x3D; board[i][j]</span><br><span class="line">                board[i][j] &#x3D; 0</span><br><span class="line">                break</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        if stack and found:</span><br><span class="line">            top &#x3D; stack.pop()</span><br><span class="line">            if curr &#x3D;&#x3D; top:</span><br><span class="line">                answer+&#x3D;2</span><br><span class="line">            else:</span><br><span class="line">                stack.append(top)</span><br><span class="line">                stack.append(curr)</span><br><span class="line">        else:</span><br><span class="line">            stack.append(curr)</span><br><span class="line"></span><br><span class="line">    return answer</span><br></pre></td></tr></table></figure>
+
+<h1 id="배운-점"><a href="#배운-점" class="headerlink" title="배운 점"></a>배운 점</h1><p>파이썬의 <strong>변수 스코프</strong>에 대해서 헷갈려서 자꾸 에러가 났었다.</p>
+<p><strong>curr</strong> 변수가 루프를 돌면서 계속 살아있어서 만약 해당 칸에 인형이 없다고해도(=0) 전에 선택한 인형의 값이 남아있었다.</p>
+<p>파이썬의 경우, <strong>블록 스코프</strong>를 가지고 있는 다른 언어(C, Javascript…)와 다르게 <strong>함수 스코프</strong>이고,</p>
+<p>오직 <strong>글로벌 변수</strong>와 <strong>로컬 변수</strong>밖에 존재하지 않는다.</p>
+<p>이 기회를 통해서 다시 한번 파이썬의 변수 스코프에 대해 알게 되었다.</p>
+<h1 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h1><p><a href="https://soooprmx.com/archives/5854" target="_blank" rel="noopener">https://soooprmx.com/archives/5854</a></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
                             href="/2020/03/30/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-2%EC%A3%BC%EC%B0%A8/"
                             aria-label=": [운영체제] 2주차"
                         >
@@ -935,85 +1000,6 @@
                         <p>
                             <a
                                 href="/2018/12/29/operating-system-chapter-1and2/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2018/07/14/what-is-CSRF/"
-                            aria-label=": [보안] CSRF(Cross Site Request Forgery)란 무엇인가?"
-                        >
-                            [보안] CSRF(Cross Site Request Forgery)란 무엇인가?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-07-14T17:34:18+09:00">
-	
-		    Jul 14, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/%EB%B3%B4%EC%95%88/">보안</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="CSRF란-무엇인가"><a href="#CSRF란-무엇인가" class="headerlink" title="CSRF란 무엇인가?"></a>CSRF란 무엇인가?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CSRF(Cross Stie Request Forgery) : 사이트간 요청 위조</span><br><span class="line">웹 애플리케이션 취약점 중 하나로 사용자가 자신의 의지와 무관하게 공격자가 의도한 행동을 하여 특정 웹페이지를 보안에 취약하게 한다거나 수정, 삭제 등의 작업을 하게 만드는 공격방법을 의미한다 - 나무위키</span><br></pre></td></tr></table></figure>
-
-<p>정의만 보면 앞서 알아봤던 <code>XSS</code>와 <code>SQL injection</code>과 비슷하다.<br><code>XSS</code>가 사용자가 특정 사이트를 신뢰한다는 점을 공격하는거라면, <code>CSRF</code>는 특정 사이트가 사용자의 브라우저를 신뢰한다는 점을 공격하는 것이 다르다.</p>
-<p>간단하게 정리하자면, 악성코드가<br>XSS: 클라이언트에서 발생 / CSRF: 서버에서 발생<br>이라고 할 수 있다.</p>
-<p>2008년도에 있었던 옥션 해킹 사고도 CSRF로 공격을 했다고 한다. (해커가 옥션 운영자에게 CSRF 코드가 포함된 이메일을 보내서 관리자 권한을 얻어냈다)</p>
-<h1 id="공격-과정"><a href="#공격-과정" class="headerlink" title="공격 과정"></a>공격 과정</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;img src&#x3D;&quot;http:&#x2F;&#x2F;auction.com&#x2F;changeUserAcoount?id&#x3D;admin&amp;password&#x3D;admin&quot; width&#x3D;&quot;0&quot; height&#x3D;&quot;0&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>위 옥션 사건을 예로 들어보자.</p>
-<ol start="0">
-<li>옥션 관리자 중 한명이 관리 권한을 가지고 회사내에서 작업을 하던 중 메일을 조회한다. (로그인이 이미 되어있다고 가정하면 관리자로서의 유효한 쿠키를 갖고있음)</li>
-<li>해커는 위와 같이 태그가 들어간 코드가 담긴 이메일을 보낸다. 관리자는 이미지 크기가 0이므로 전혀 알지 못한다.</li>
-<li>피해자가 이메일을 열어볼 때, 이미지 파일을 받아오기 위해 URL이 열린다.</li>
-<li>해커가 원하는 대로 관리자의 계정이 id와 pw 모두 admin인 계정으로 변경된다.</li>
-</ol>
-<h1 id="방어-방법"><a href="#방어-방법" class="headerlink" title="방어 방법"></a>방어 방법</h1><h4 id="1-Referrer-검증"><a href="#1-Referrer-검증" class="headerlink" title="1. Referrer 검증"></a>1. Referrer 검증</h4><p>request header에 있는 요청을 한 페이지의 정보가 담긴 referrer 속성을 검증하여 차단.<br>일반적으로 이 방법만으로도 대부분 방어가 가능할 수 있다.<br>옥션이 아닌 개인 이메일에서 요청이 들어오는 것처럼,<br>같은 도메인 상에서 요청이 들어오지 않는다면 차단하도록 하는 것이다.</p>
-<h4 id="2-CSRF-Token-사용"><a href="#2-CSRF-Token-사용" class="headerlink" title="2. CSRF Token 사용"></a>2. CSRF Token 사용</h4><p>랜덤한 수를 사용자의 세션에 저장하여 사용자의 모든 요청(Request)에 대하여 서버단에서 검증하는 방법.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 로그인시, 또는 작업화면 요청시 CSRF 토큰을 생성하여 세션에 저장한다. </span><br><span class="line">session.setAttribute(&quot;CSRF_TOKEN&quot;,UUID.randomUUID().toString()); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 요청 페이지에 CSRF 토큰을 셋팅하여 전송한다 </span><br><span class="line">&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;_csrf&quot; value&#x3D;&quot;$&#123;CSRF_TOKEN&#125;&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-CAPTCHA-사용"><a href="#3-CAPTCHA-사용" class="headerlink" title="3. CAPTCHA 사용"></a>3. CAPTCHA 사용</h4><p>요즘은 거의 모든 웹사이트에서 캡차를 이용하는 것 같은데 캡차이미지상의 숫자/문자가 아니라면 해당 요청을 거부하는 것이다.</p>
-<p>이 외에도 form 태그를 입력할 시 GET방식을 지양하고 POST방식을 쓰도록 하는 것은 기본이라고 할 수 있다.</p>
-<hr>
-<p>출처 : <a href="https://namu.wiki/w/CSRF" target="_blank" rel="noopener">나무위키</a>, <a href="https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%ED%8A%B8_%EA%B0%84_%EC%9A%94%EC%B2%AD_%EC%9C%84%EC%A1%B0" target="_blank" rel="noopener">위키피디아</a>,<br><a href="http://blog.ilkyu.kr/entry/CSRF-Crosssite-Request-Forgery-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%84-%EC%9A%94%EC%B2%AD-%EC%9C%84%EC%A1%B0" target="_blank" rel="noopener">http://blog.ilkyu.kr/entry/CSRF-Crosssite-Request-Forgery-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%84-%EC%9A%94%EC%B2%AD-%EC%9C%84%EC%A1%B0</a>,<br><a href="http://itstory.tk/entry/CSRF-공격이란-그리고-CSRF-방어-방법" target="_blank" rel="noopener">http://itstory.tk/entry/CSRF-공격이란-그리고-CSRF-방어-방법</a></p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2018/07/14/what-is-CSRF/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
