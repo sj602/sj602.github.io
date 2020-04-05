@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://sj602.github.io/tags/2019-%25EC%25B9%25B4%25EC%25B9%25B4%25EC%2598%25A4-%25EA%25B0%259C%25EB%25B0%259C%25EC%259E%2590-%25EA%25B2%25A8%25EC%259A%25B8-%25EC%259D%25B8%25ED%2584%25B4%25EC%258B%25AD/</loc>
+        <lastmod>2020-04-03T15:14:29.527Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://sj602.github.io/tags/python/</loc>
         <lastmod>2020-04-03T15:14:29.527Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,13 +25,6 @@
 
     <url>
         <loc>https://sj602.github.io/tags/%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%2598%25EB%25A8%25B8%25EC%258A%25A4/</loc>
-        <lastmod>2020-04-03T15:14:29.527Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/tags/2019-%25EC%25B9%25B4%25EC%25B9%25B4%25EC%2598%25A4-%25EA%25B0%259C%25EB%25B0%259C%25EC%259E%2590-%25EA%25B2%25A8%25EC%259A%25B8-%25EC%259D%25B8%25ED%2584%25B4%25EC%258B%25AD/</loc>
         <lastmod>2020-04-03T15:14:29.527Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
