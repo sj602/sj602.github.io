@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Jinko the Snokl">
+    <meta name="naver-site-verification" content="aa346df064b4800c5063df8846339b60db09b5b5" />
+    <title>[컴퓨터구성] 3주차 - Jinko the Snokl</title>
+    <meta name="author" content="Jin Seon">
+    
+    
+        <link rel="icon" href="https://sj602.github.io/assets/images/profile.png">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png"},"articleBody":"조합논리회로 (Combinational Circuits)\n입력에 의해 출력이 결정\n\nHalf Adder\n2개의 비트를 산술연산S = x xor y = x’y + xy’C = xy\n진리표\n\nFull Adder\n3개의 비트를 산술연산S = x xor y xor z = x’y’z + x’yz’ + xy’z’ + xyzC = xy + xz + yz\n\n진리표\n\n\n순서논리회로 (Sequential Circuits)\n피드백(Feedback)을 가진 조합회로로 구성\n입력 값과 현재 기억 상태에 따라 출력이 결정\n\nFlip-Flop\n1비트를 기억하는 소자\nclock pulse generator에 의해 synchronization이 일어남\n래치라고도 함\n\nSR Flip-Flop\nR(Reset)과 S(Set) 두 입력을 받아서 Q(현재 상태)와 Q’(다음 상태)의 2가지 출력을 가진다\n진리표\n특성표\n\nD Flip-Flop\n특성표\n\nJK Flip-Flop\nRS 플립플롭보다 많이 쓰이는 플립플롭(RS플립플롭의 문제점 보완)\n진리표\n특성표\n\nLevel-triggering vs Edge-triggering\n클락이 올라갈 때 positie\n클락이 내려갈 때 negative\n\nExcitation table\n플립플롭에서 현 상태와 다음 상태를 알 때 플립플롭에 어떤 입력을 넣어야 하는가를 나타냄\nRS 플립플롭의 excitation table\nJK 플립플롭의 excitation table\nD 플립플롭의 excitation table\n\n","dateCreated":"2020-04-07T21:09:15+09:00","dateModified":"2020-04-07T21:09:15+09:00","datePublished":"2020-04-07T21:09:15+09:00","description":"","headline":"[컴퓨터구성] 3주차","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://sj602.github.io/2020/04/07/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-3%EC%A3%BC%EC%B0%A8/"},"publisher":{"@type":"Organization","name":"Jin Seon","sameAs":["https://github.com/sj602","https://www.facebook.com/profile.php?id=100003671903401","https://www.linkedin.com/in/jinseon602/"],"image":"profile.png","logo":{"@type":"ImageObject","url":"profile.png"}},"url":"https://sj602.github.io/2020/04/07/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-3%EC%A3%BC%EC%B0%A8/"}</script>
+    <meta name="description" content="조합논리회로 (Combinational Circuits) 입력에 의해 출력이 결정  Half Adder 2개의 비트를 산술연산S &#x3D; x xor y &#x3D; x’y + xy’C &#x3D; xy 진리표  Full Adder 3개의 비트를 산술연산S &#x3D; x xor y xor z &#x3D; x’y’z + x’yz’ + xy’z’ + xyzC &#x3D; xy + xz + yz  진리표   순">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[컴퓨터구성] 3주차">
+<meta property="og:url" content="https://sj602.github.io/2020/04/07/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-3%EC%A3%BC%EC%B0%A8/index.html">
+<meta property="og:site_name" content="Jinko the Snokl">
+<meta property="og:description" content="조합논리회로 (Combinational Circuits) 입력에 의해 출력이 결정  Half Adder 2개의 비트를 산술연산S &#x3D; x xor y &#x3D; x’y + xy’C &#x3D; xy 진리표  Full Adder 3개의 비트를 산술연산S &#x3D; x xor y xor z &#x3D; x’y’z + x’yz’ + xy’z’ + xyzC &#x3D; xy + xz + yz  진리표   순">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://sj602.github.io/image/half-adder-truth-table.png">
+<meta property="og:image" content="https://sj602.github.io/image/full-adder-truth-table.png">
+<meta property="og:image" content="https://sj602.github.io/image/rs-flip-flop.png">
+<meta property="og:image" content="https://sj602.github.io/image/rs-flip-flop2.png">
+<meta property="og:image" content="https://sj602.github.io/image/d-flip-flop.png">
+<meta property="og:image" content="https://sj602.github.io/image/jk-flip-flop.png">
+<meta property="og:image" content="https://sj602.github.io/image/jk-flip-flop2.png">
+<meta property="og:image" content="https://sj602.github.io/image/rs-flip-flop-excitation-table.png">
+<meta property="og:image" content="https://sj602.github.io/image/jk-flip-flop-excitation-table.png">
+<meta property="og:image" content="https://sj602.github.io/image/d-flip-flop-excitation-table.png">
+<meta property="article:published_time" content="2020-04-07T12:09:15.000Z">
+<meta property="article:modified_time" content="2020-04-07T12:09:15.171Z">
+<meta property="article:author" content="Jin Seon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sj602.github.io/image/half-adder-truth-table.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://sj602.github.io/assets/images/profile.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91560310-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-91560310-2');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            Jinko the Snokl
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="링크 열기: /#about"
+            >
+        
+        
+            <img class="header-picture" src="/assets/images/profile.png" alt="저자 이미지"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="저자에 대해 더 알아보기"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/profile.png" alt="저자 이미지"/>
+                </a>
+                <h4 class="sidebar-profile-name">Jin Seon</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>Aspiring developer dreaming about freedom</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="홈"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">홈</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="카테고리"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">카테고리</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="태그"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">태그</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="아카이브"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">아카이브</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="검색"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">검색</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="소개"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">소개</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/sj602"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="깃헙"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">깃헙</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://www.facebook.com/profile.php?id=100003671903401"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="페이스북"
+                        >
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">페이스북</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://www.linkedin.com/in/jinseon602/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="링크드인"
+                        >
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">링크드인</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                <script
+  data-ad-client="ca-pub-5141238373396882"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [컴퓨터구성] 3주차
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-04-07T21:09:15+09:00">
+	
+		    2020/04/07
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h1 id="조합논리회로-Combinational-Circuits"><a href="#조합논리회로-Combinational-Circuits" class="headerlink" title="조합논리회로 (Combinational Circuits)"></a>조합논리회로 (Combinational Circuits)</h1><ul>
+<li>입력에 의해 출력이 결정</li>
+</ul>
+<h2 id="Half-Adder"><a href="#Half-Adder" class="headerlink" title="Half Adder"></a>Half Adder</h2><ul>
+<li>2개의 비트를 산술연산<br>S = x xor y = x’y + xy’<br>C = xy</li>
+<li>진리표<br><img src="/image/half-adder-truth-table.png" alt=""></li>
+</ul>
+<h2 id="Full-Adder"><a href="#Full-Adder" class="headerlink" title="Full Adder"></a>Full Adder</h2><ul>
+<li><p>3개의 비트를 산술연산<br>S = x xor y xor z = x’y’z + x’yz’ + xy’z’ + xyz<br>C = xy + xz + yz</p>
+</li>
+<li><p>진리표<br><img src="/image/full-adder-truth-table.png" alt=""></p>
+</li>
+</ul>
+<h1 id="순서논리회로-Sequential-Circuits"><a href="#순서논리회로-Sequential-Circuits" class="headerlink" title="순서논리회로 (Sequential Circuits)"></a>순서논리회로 (Sequential Circuits)</h1><ul>
+<li>피드백(Feedback)을 가진 조합회로로 구성</li>
+<li>입력 값과 현재 기억 상태에 따라 출력이 결정</li>
+</ul>
+<h2 id="Flip-Flop"><a href="#Flip-Flop" class="headerlink" title="Flip-Flop"></a>Flip-Flop</h2><ul>
+<li>1비트를 기억하는 소자</li>
+<li>clock pulse generator에 의해 synchronization이 일어남</li>
+<li>래치라고도 함</li>
+</ul>
+<h3 id="SR-Flip-Flop"><a href="#SR-Flip-Flop" class="headerlink" title="SR Flip-Flop"></a>SR Flip-Flop</h3><ul>
+<li>R(Reset)과 S(Set) 두 입력을 받아서 Q(현재 상태)와 Q’(다음 상태)의 2가지 출력을 가진다</li>
+<li>진리표<br><img src="/image/rs-flip-flop.png" alt=""></li>
+<li>특성표<br><img src="/image/rs-flip-flop2.png" alt=""></li>
+</ul>
+<h3 id="D-Flip-Flop"><a href="#D-Flip-Flop" class="headerlink" title="D Flip-Flop"></a>D Flip-Flop</h3><ul>
+<li>특성표<br><img src="/image/d-flip-flop.png" alt=""></li>
+</ul>
+<h3 id="JK-Flip-Flop"><a href="#JK-Flip-Flop" class="headerlink" title="JK Flip-Flop"></a>JK Flip-Flop</h3><ul>
+<li>RS 플립플롭보다 많이 쓰이는 플립플롭(RS플립플롭의 문제점 보완)</li>
+<li>진리표<br><img src="/image/jk-flip-flop.png" alt=""></li>
+<li>특성표<br><img src="/image/jk-flip-flop2.png" alt=""></li>
+</ul>
+<h4 id="Level-triggering-vs-Edge-triggering"><a href="#Level-triggering-vs-Edge-triggering" class="headerlink" title="Level-triggering vs Edge-triggering"></a>Level-triggering vs Edge-triggering</h4><ul>
+<li>클락이 올라갈 때 positie</li>
+<li>클락이 내려갈 때 negative</li>
+</ul>
+<h2 id="Excitation-table"><a href="#Excitation-table" class="headerlink" title="Excitation table"></a>Excitation table</h2><ul>
+<li>플립플롭에서 현 상태와 다음 상태를 알 때 플립플롭에 어떤 입력을 넣어야 하는가를 나타냄</li>
+<li>RS 플립플롭의 excitation table<br><img src="/image/rs-flip-flop-excitation-table.png" alt=""></li>
+<li>JK 플립플롭의 excitation table<br><img src="/image/jk-flip-flop-excitation-table.png" alt=""></li>
+<li>D 플립플롭의 excitation table<br><img src="/image/d-flip-flop-excitation-table.png" alt=""></li>
+</ul>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        <!-- 커스터마이징 해본 관련 글 영역-->
+        
+        
+        <!-- 끝 -->
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/04/05/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B6%88%EB%9F%89-%EC%82%AC%EC%9A%A9%EC%9E%90/"
+                    data-tooltip="[알고리즘] 프로그래머스 불량 사용자 파이썬 풀이"
+                    aria-label="다음: [알고리즘] 프로그래머스 불량 사용자 파이썬 풀이"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="이 포스트 공유하기"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2020/04/07/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-3%EC%A3%BC%EC%B0%A8/"
+                    title="Facebook에 공유하기"
+                    aria-label="Facebook에 공유하기"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="댓글을 남겨주세요"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Jin Seon. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/04/05/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B6%88%EB%9F%89-%EC%82%AC%EC%9A%A9%EC%9E%90/"
+                    data-tooltip="[알고리즘] 프로그래머스 불량 사용자 파이썬 풀이"
+                    aria-label="다음: [알고리즘] 프로그래머스 불량 사용자 파이썬 풀이"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="이 포스트 공유하기"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2020/04/07/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-3%EC%A3%BC%EC%B0%A8/"
+                    title="Facebook에 공유하기"
+                    aria-label="Facebook에 공유하기"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="댓글을 남겨주세요"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://sj602.github.io/2020/04/07/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-3%EC%A3%BC%EC%B0%A8/"
+                        aria-label="Facebook에 공유하기"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/profile.png" alt="저자 이미지"/>
+        
+            <h4 id="about-card-name">Jin Seon</h4>
+        
+            <div id="about-card-bio"><p>Aspiring developer dreaming about freedom</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Software Enginner</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Seoul
+            </div>
+        
+    </div>
+</div>
+
+        
+            <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-times"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="/assets/images/logo-algolia-nebula-blue-full.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    />
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">포스트가 없습니다.</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a
+                            class="link-unstyled"
+                            href="https://sj602.github.io/2018/06/27/start-blog/"
+                            aria-label=": 블로그를 시작하다"
+                        >
+                            <h3 class="media-heading">블로그를 시작하다</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2018년 6월 27일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="포스트가 없습니다."
+                data-message-one="1 개의 포스트가 있습니다."
+                data-message-other="{n} 개의 포스트가 있습니다.">
+                19 개의 포스트가 있습니다.
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'https://sj602.github.io/2020/04/07/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1-3%EC%A3%BC%EC%B0%A8/';
+              
+            this.page.identifier = '2020/04/07/컴퓨터구성-3주차/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'sj602-github-io';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+    
+<script src="/assets/js/moment-with-locales.js"></script>
+
+    
+<script src="/assets/js/algoliasearch.js"></script>
+
+    <script>
+      var algoliaClient = algoliasearch('IOQVMW6XCO', 'b09e1a33f8215fb46ff04911231176ab');
+      var algoliaIndex = algoliaClient.initIndex('blog');
+    </script>
+
+
+    </body>
+</html>
