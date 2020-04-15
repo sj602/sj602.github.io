@@ -84,6 +84,7 @@
         
     
 
+<script async src = "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <header id="header" data-behavior="5">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
@@ -321,6 +322,15 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
+            <div style="color: #9eabb3;">
+                <!-- 리딩타임 -->
+                <span>
+                    [1 mins.
+                </span>
+                <!-- 카운터 -->
+                <span id="busuanzi_container_site_{{ theme.busuanzi.method }}"><span id="busuanzi_value_site_{{ theme.busuanzi.method }}"></span> Views]</span>
+                <!-- 끝 -->
+            </div>
             <h1 id="CSRF란-무엇인가"><a href="#CSRF란-무엇인가" class="headerlink" title="CSRF란 무엇인가?"></a>CSRF란 무엇인가?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CSRF(Cross Stie Request Forgery) : 사이트간 요청 위조</span><br><span class="line">웹 애플리케이션 취약점 중 하나로 사용자가 자신의 의지와 무관하게 공격자가 의도한 행동을 하여 특정 웹페이지를 보안에 취약하게 한다거나 수정, 삭제 등의 작업을 하게 만드는 공격방법을 의미한다 - 나무위키</span><br></pre></td></tr></table></figure>
 
 <p>정의만 보면 앞서 알아봤던 <code>XSS</code>와 <code>SQL injection</code>과 비슷하다.<br><code>XSS</code>가 사용자가 특정 사이트를 신뢰한다는 점을 공격하는거라면, <code>CSRF</code>는 특정 사이트가 사용자의 브라우저를 신뢰한다는 점을 공격하는 것이 다르다.</p>
@@ -358,11 +368,6 @@
                 <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/07/13/what-is-SQL-injection/" title="[보안] SQL injection 이란?" rel="bookmark">[보안] SQL injection 이란?</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/07/10/what-is-xss/" title="[보안] XSS(Cross Site Scription)란 무엇인가?" rel="bookmark">[보안] XSS(Cross Site Scription)란 무엇인가?</a></h3></div></li></ul>
             </div>
         
-        <!-- 끝 -->
-        
-        <!-- 카운터 -->
-        <script async src = "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        <span id="busuanzi_container_site_{{ theme.busuanzi.method }}"><span id="busuanzi_value_site_{{ theme.busuanzi.method }}"></span> Views </span>
         <!-- 끝 -->
 
         
