@@ -310,10 +310,17 @@
     
         <span>카테고리 </span>
         
-    <a class="category-link" href="/categories/%EB%B3%B4%EC%95%88/">보안</a>
+    : <a class="category-link" href="/categories/%EB%B3%B4%EC%95%88/">보안</a>
 
 
     
+    <!-- 리딩타임 -->
+    <span>
+        리딩타임 : 1 분
+    </span>
+    <!-- 카운터 -->
+    <span id="pageviews">페이지뷰 : <font class="count">--<font></span>
+    <!-- 끝 -->
 </div>
 
     
@@ -322,15 +329,6 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <div style="color: #9eabb3;">
-                <!-- 리딩타임 -->
-                <span>
-                    [1 mins.
-                </span>
-                <!-- 카운터 -->
-                <span id="busuanzi_container_site_{{ theme.busuanzi.method }}"><span id="busuanzi_value_site_{{ theme.busuanzi.method }}"></span> Views]</span>
-                <!-- 끝 -->
-            </div>
             <p>웹 개발자로서 기본적으로 알아야할 지식에 대해서 포스팅을 하려고 한다.<br>그 중 기초적인 보안 기술 중 XSS에 대해서 알아보자.</p>
 <h1 id="XSS-Cross-Site-Scripting-이란"><a href="#XSS-Cross-Site-Scripting-이란" class="headerlink" title="XSS(Cross Site Scripting)이란?"></a>XSS(Cross Site Scripting)이란?</h1><blockquote>
 <p>SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로,<br>악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.<br>공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 되며,<br>보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다. - 나무위키</p>
@@ -706,6 +704,11 @@
 
 
 <script src="/assets/js/tranquilpeak.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script src="/_js/custom.js"></script>
 
 <!--SCRIPTS END-->
 

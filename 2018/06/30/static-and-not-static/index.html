@@ -310,10 +310,17 @@
     
         <span>카테고리 </span>
         
-    <a class="category-link" href="/categories/Javascript/">Javascript</a>
+    : <a class="category-link" href="/categories/Javascript/">Javascript</a>
 
 
     
+    <!-- 리딩타임 -->
+    <span>
+        리딩타임 : 1 분
+    </span>
+    <!-- 카운터 -->
+    <span id="pageviews">페이지뷰 : <font class="count">--<font></span>
+    <!-- 끝 -->
 </div>
 
     
@@ -322,15 +329,6 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <div style="color: #9eabb3;">
-                <!-- 리딩타임 -->
-                <span>
-                    [1 mins.
-                </span>
-                <!-- 카운터 -->
-                <span id="busuanzi_container_site_{{ theme.busuanzi.method }}"><span id="busuanzi_value_site_{{ theme.busuanzi.method }}"></span> Views]</span>
-                <!-- 끝 -->
-            </div>
             <p>클래스의 static method는 정적 메소드라고 불리는데 이는 클래스의 인스턴스가 필요없이 호출이 가능한 메소드를 말한다.</p>
 <p>예를 들어,</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    bar() &#123;...&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> baz() &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -684,6 +682,11 @@
 
 
 <script src="/assets/js/tranquilpeak.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script src="/_js/custom.js"></script>
 
 <!--SCRIPTS END-->
 

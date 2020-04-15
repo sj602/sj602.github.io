@@ -306,6 +306,13 @@
     	
     </time>
     
+    <!-- 리딩타임 -->
+    <span>
+        리딩타임 : 3 분
+    </span>
+    <!-- 카운터 -->
+    <span id="pageviews">페이지뷰 : <font class="count">--<font></span>
+    <!-- 끝 -->
 </div>
 
     
@@ -314,15 +321,6 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <div style="color: #9eabb3;">
-                <!-- 리딩타임 -->
-                <span>
-                    [3 mins.
-                </span>
-                <!-- 카운터 -->
-                <span id="busuanzi_container_site_{{ theme.busuanzi.method }}"><span id="busuanzi_value_site_{{ theme.busuanzi.method }}"></span> Views]</span>
-                <!-- 끝 -->
-            </div>
             <h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><p><a href="https://programmers.co.kr/learn/courses/30/lessons/64064" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64064</a></p>
 <h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>먼저 banned_id를 기준으로 user_id를 하나씩 돌면서</p>
 <ul>
@@ -711,6 +709,11 @@
 
 
 <script src="/assets/js/tranquilpeak.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script src="/_js/custom.js"></script>
 
 <!--SCRIPTS END-->
 
