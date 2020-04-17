@@ -296,17 +296,17 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/"
-                            aria-label=": [알고리즘] 프로그래머스 튜플 파이썬 풀이"
+                            href="/2020/04/17/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Leetcode-best-time-to-buy-and-sell-stock-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%92%80%EC%9D%B4/"
+                            aria-label=": [알고리즘] Leetcode best time to buy and sell stock 파이썬 풀이"
                         >
-                            [알고리즘] 프로그래머스 튜플 파이썬 풀이
+                            [알고리즘] Leetcode best time to buy and sell stock 파이썬 풀이
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-04-04T00:13:46+09:00">
+    <time datetime="2020-04-17T11:33:40+09:00">
 	
-		    2020/04/04
+		    2020/04/17
     	
     </time>
     
@@ -328,15 +328,15 @@
             </div>
             
                 <div class="postShorten-content">
-                    <h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><ul>
-<li><a href="https://programmers.co.kr/learn/courses/30/lessons/64065" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64065</a></li>
-</ul>
-<h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>문자열 파싱을 할 줄 안다면 쉬운 문제이다.</p>
-<p>먼저 문제에 주어진 입출력 예시를 보면,</p>
-<p>각 <code>{}</code>로 나뉘어진 집합별로 나눈 다음에 집합 안의 숫자들을</p>
-<p>배열에 순서를 지켜가면서 넣어주면 된다.</p>
-<p>이 때, 각 집합을 길이 오름차순으로 나열한 다음 중복을 체크해주어야 한다.</p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(s)</span>:</span></span><br><span class="line">    answer = []</span><br><span class="line">    string = s[<span class="number">1</span>:len(s)<span class="number">-1</span>].replace(<span class="string">'&#125;,'</span>, <span class="string">'&#125;-'</span>).split(<span class="string">"-"</span>)</span><br><span class="line">    string = sorted([item[<span class="number">1</span>:len(item)<span class="number">-1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> string], key=<span class="keyword">lambda</span> item: len(item))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> string:</span><br><span class="line">        <span class="keyword">for</span> digit <span class="keyword">in</span> item.split(<span class="string">","</span>):</span><br><span class="line">            <span class="keyword">if</span> int(digit) <span class="keyword">not</span> <span class="keyword">in</span> answer:</span><br><span class="line">                answer.append(int(digit))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+                    <h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock</a></p>
+<h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>가장 싼 가격(<code>min_price</code>)와 답이 되는 가장 비싼 이익(<code>max_profit</code>)을 선언해놓고</p>
+<p><code>prices</code> 배열을 돌면서 모든 <code>price</code>를 조사할건데,</p>
+<p><code>min_price</code>는 계속 가장 싼 가격으로 업데이트 되고</p>
+<p><code>max_profit</code>은 현재 <code>price</code>에서 <code>min_price</code>를 파는 값과 기존 <code>max_profit</code> 중 최대값을 업데이트 한다.</p>
+<p>모든 가격을 조사한뒤 <code>max_profit</code>을 리턴.</p>
+<p>루프가 첫 원소부터 돌고 가장 싼 가격이 업데이트 되고 그 가장 싼 가격에서 현재 가격에 팔면 얼마나 이득인지 계산하므로</p>
+<p>팔고 사는게 아닌, 사고 파는 순서가 보장된다.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    :type prices: List[int]</span></span><br><span class="line"><span class="string">    :rtype: int</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    max_profit = <span class="number">0</span></span><br><span class="line">    min_price = float(<span class="string">'inf'</span>)</span><br><span class="line">    <span class="keyword">for</span> price <span class="keyword">in</span> prices:</span><br><span class="line">      min_price = min(price, min_price)</span><br><span class="line">      profit = price - min_price</span><br><span class="line">      max_profit = max(profit, max_profit)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max_profit</span><br></pre></td></tr></table></figure>
 
                     
                         
@@ -346,7 +346,7 @@
                     
                         <p>
                             <a
-                                href="/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/#post-footer"
+                                href="/2020/04/17/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Leetcode-best-time-to-buy-and-sell-stock-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%92%80%EC%9D%B4/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -375,7 +375,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 1 of 2</li>
+        <li class="pagination-number">page 1 of 3</li>
     </ul>
 </div>
 
@@ -479,7 +479,7 @@
                 data-message-zero="포스트가 없습니다."
                 data-message-one="1 개의 포스트가 있습니다."
                 data-message-other="{n} 개의 포스트가 있습니다.">
-                21 개의 포스트가 있습니다.
+                22 개의 포스트가 있습니다.
             </p>
         </div>
     </div>
