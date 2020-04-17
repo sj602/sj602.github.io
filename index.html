@@ -295,6 +295,70 @@
                     
                         <a
                             class="link-unstyled"
+                            href="/2020/04/17/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-4%EC%A3%BC%EC%B0%A8/"
+                            aria-label=": [운영체제] 4주차 IO Structure and Interrupts (2)"
+                        >
+                            [운영체제] 4주차 IO Structure and Interrupts (2)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-04-17T12:15:45+09:00">
+	
+		    2020/04/17
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    : <a class="category-link" href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">운영체제</a>
+
+
+    
+    <!-- 리딩타임 -->
+    <span>
+        리딩타임 : 1 분
+    </span>
+    <!-- 카운터 -->
+    <span id="pageviews">페이지뷰 : <font class="count">--<font></span>
+    <!-- 끝 -->
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/04/17/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-4%EC%A3%BC%EC%B0%A8/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
                             href="/2020/04/17/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Leetcode-Maximum-subarray-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%92%80%EC%9D%B4/"
                             aria-label=": [알고리즘] Leetcode Maximum subarray 파이썬 풀이"
                         >
@@ -938,9 +1002,9 @@
                         <a
                             class="link-unstyled"
                             href="/2020/04/03/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-3%EC%A3%BC%EC%B0%A8/"
-                            aria-label=": [운영체제] 3주차"
+                            aria-label=": [운영체제] 3주차 IO Structure and Interrupts (1)"
                         >
-                            [운영체제] 3주차
+                            [운영체제] 3주차 IO Structure and Interrupts (1)
                         </a>
                     
                 </h1>
@@ -951,9 +1015,15 @@
     	
     </time>
     
+        <span>카테고리 </span>
+        
+    : <a class="category-link" href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">운영체제</a>
+
+
+    
     <!-- 리딩타임 -->
     <span>
-        리딩타임 : 1 분
+        리딩타임 : 3 분
     </span>
     <!-- 카운터 -->
     <span id="pageviews">페이지뷰 : <font class="count">--<font></span>
@@ -991,9 +1061,94 @@
 <li>Hardware interrupts: signals CPU by bus</li>
 <li>Software interrupts: signals by sys calls(traps)</li>
 <li>Modern OSs are interrupt-driven</li>
-<li><strong>Why interrupts necessary? : OS가 효율적으로 작동하기 위해</strong></li>
-<li><strong>When interrupts necessary? : CPU가 요청한 operation을 I/O controller가 다 끝냈을 때</strong></li>
+<li><strong><em>Why interrupts necessary? : OS가 효율적으로 작동하기 위해</em></strong></li>
+<li><strong><em>When interrupts necessary? : CPU가 요청한 operation을 I/O controller가 다 끝냈을 때</em></strong></li>
 </ul>
+<h1 id="Memory-Mapped-I-O"><a href="#Memory-Mapped-I-O" class="headerlink" title="Memory Mapped I/O"></a>Memory Mapped I/O</h1><h2 id="Case1-CPU가-Memory-Mapped-I-O를-직접-수행"><a href="#Case1-CPU가-Memory-Mapped-I-O를-직접-수행" class="headerlink" title="Case1: CPU가 Memory Mapped I/O를 직접 수행"></a>Case1: CPU가 Memory Mapped I/O를 직접 수행</h2><ul>
+<li><p>키보드를 예시로 들면,</p>
+</li>
+<li><p>키보드 컨트롤 레지스터로 보내기 위해 AC에 1을 저장</p>
+</li>
+<li><p>AC로부터 키보드 컨트롤 레지스터에게 1을 보냄 (CPU가 키보드에게 유저로부터 character를 받기 시작한다고 말해주는 것)</p>
+</li>
+<li><p>CPU가 키보드 컨트롤 레지스터로부터 내용을 읽어들임</p>
+</li>
+</ul>
+<h6 id="MSB-1이면-유저가-입력한-character가-데이터-레지스터로-입력되고-데이터-레지스터로부터-데이터를-읽어들임"><a href="#MSB-1이면-유저가-입력한-character가-데이터-레지스터로-입력되고-데이터-레지스터로부터-데이터를-읽어들임" class="headerlink" title="MSB=1이면, 유저가 입력한 character가 데이터 레지스터로 입력되고 데이터 레지스터로부터 데이터를 읽어들임"></a>MSB=1이면, 유저가 입력한 character가 데이터 레지스터로 입력되고 데이터 레지스터로부터 데이터를 읽어들임</h6><h6 id="MSB-0이면-유저로부터-입력받은-character가-없음"><a href="#MSB-0이면-유저로부터-입력받은-character가-없음" class="headerlink" title="MSB=0이면, 유저로부터 입력받은 character가 없음"></a>MSB=0이면, 유저로부터 입력받은 character가 없음</h6><h1 id="Device-contorllers"><a href="#Device-contorllers" class="headerlink" title="Device contorllers"></a>Device contorllers</h1><ul>
+<li>CPU로부터 명령을 받아 IO를 수행하고 상태를 유지</li>
+<li>IO logic, Buffer(data register), status register로 구성</li>
+<li>device controller의 operation이 끝나면 status register를 1로 세팅해 IO의 완료를 알림(<em>interrupt</em>)</li>
+</ul>
+<h1 id="I-O의-종류"><a href="#I-O의-종류" class="headerlink" title="I/O의 종류"></a>I/O의 종류</h1><h3 id="Synchronous-I-O"><a href="#Synchronous-I-O" class="headerlink" title="Synchronous I/O"></a>Synchronous I/O</h3><ul>
+<li>Control is returned to user process only at completion of I/O</li>
+<li>한 번에 한 개의 인터럽트밖에 수행하지 못 함</li>
+</ul>
+<h3 id="Asynchronous-I-O"><a href="#Asynchronous-I-O" class="headerlink" title="Asynchronous I/O"></a>Asynchronous I/O</h3><ul>
+<li>현대 OS에 쓰임</li>
+<li>Control is returned to another user process without waiting completion of I/O that it requested.</li>
+<li>Multiple I/O may exist by multiple process(multiple interrupts may take place)</li>
+</ul>
+<h1 id="Interrupt-servicing-procedure"><a href="#Interrupt-servicing-procedure" class="headerlink" title="Interrupt servicing procedure"></a>Interrupt servicing procedure</h1><p><img src="/image/irq_adressing.png" alt="IRQ adressing"></p>
+<ol>
+<li><p>인터럽트 signal이 CPU에 도착</p>
+</li>
+<li><p>OS가 리턴 어드레스를 저장 (push(stk_ptr, PC))</p>
+</li>
+<li><p>CPU가 도착한 인터럽트 타입을 조사</p>
+</li>
+</ol>
+<p>3-1) Polling</p>
+<ul>
+<li>모든 device는 서로 같은 signal을 보냄</li>
+<li>CPU가 모든 device를 조사</li>
+</ul>
+<p>3-2) Vectored Interrupt</p>
+<ul>
+<li><p>모든 인터럽트는 unique id가 부여(IRQ n)</p>
+</li>
+<li><p>device마다 서로 다른 signal을 보냄</p>
+</li>
+<li><p>signal이 도착하면 CPU는 인터럽트 벡터를 확인해 interrupt service routine(ISR)의 시작 주소를 얻음.</p>
+</li>
+</ul>
+<ol start="4">
+<li><p>ISR 실행 (<em>PC = some_address</em>)</p>
+</li>
+<li><p>인터럽트 서비스가 끝나면 CPU는 다시 바로 전의 프로세스로 돌아감 (<em>PC = pop(stk_ptr)</em>)</p>
+</li>
+</ol>
+<h1 id="Multiple-IO-Management"><a href="#Multiple-IO-Management" class="headerlink" title="Multiple IO Management"></a>Multiple IO Management</h1><ul>
+<li>OS는 DST(Device-Status Table)라는 것을 유지</li>
+<li>이 테이블 안에는 여러 device의 상태정보를 저장</li>
+<li>DST pointer 사용</li>
+</ul>
+<h1 id="DMA-structure"><a href="#DMA-structure" class="headerlink" title="DMA structure"></a>DMA structure</h1><ul>
+<li><p>CPU는 MM&lt;-&gt; Buffer in device controller간 데이터를 이동시키기엔 너무 아까움</p>
+</li>
+<li><p>MM은 CPU가 주로 쓴다</p>
+</li>
+<li><p>MM은 1 word씩 전송하므로 다른 장치들이 MM을 사용할 경우, CPU의 동작에 큰 영향</p>
+</li>
+<li><p>DMA controller는 CPU를 쓰지 않고 직접 MM과 Buffer에 접근해 데이터를 전송</p>
+</li>
+<li><p>CPU가 메모리를 쓰지 않을때 Cycle Stealing해 메모리에 접근하고 접근이 완료됐을 때 interrupt를 일으켜 작업완료를 알림</p>
+</li>
+</ul>
+<h1 id="Disk-Read-operation-summary"><a href="#Disk-Read-operation-summary" class="headerlink" title="Disk Read operation summary"></a>Disk Read operation summary</h1><p><strong>1-유저</strong> CPU가 유저 프로세스 <strong>a</strong>를 실행하는 도중 IO instruction을 보면 IO가 일어남</p>
+<h6 id="컨텍스트-스위치가-일어남"><a href="#컨텍스트-스위치가-일어남" class="headerlink" title="컨텍스트 스위치가 일어남"></a>컨텍스트 스위치가 일어남</h6><p><strong>2-커널</strong> CPU가 device controller에 있는 레지스터를 로드하기 위해 OS 프로세스 <strong>A</strong>를 실행시킴</p>
+<p><strong>3-커널</strong> CPU가 DST(device-status table)을 조정하기 위해 OS 프로세스 <strong>B</strong>를 실행시킴</p>
+<h6 id="컨텍스트-스위치가-일어남-1"><a href="#컨텍스트-스위치가-일어남-1" class="headerlink" title="컨텍스트 스위치가 일어남"></a>컨텍스트 스위치가 일어남</h6><p><strong>4-유저</strong> CPU가 새로운 유저 프로세스 <strong>b</strong>를 실행시켰다고 하면</p>
+<p><strong>5-디바이스</strong> device controller가 레지스터를 decode하고 어떤 명령이 필요한지 인식</p>
+<p><strong>6-디바이스</strong> device controller가 512 바이트를 디스크에서 local buffer로 이동</p>
+<p><strong>7-디바이스</strong> device controller가 CPU에게 인터럽트 시그널을 보냄</p>
+<p><strong>8-유저</strong> CPU는 유저 프로세스 <strong>b</strong>가 인터럽트된 것을 인식</p>
+<h6 id="컨텍스트-스위치가-일어남-2"><a href="#컨텍스트-스위치가-일어남-2" class="headerlink" title="컨텍스트 스위치가 일어남"></a>컨텍스트 스위치가 일어남</h6><p><strong>9-커널</strong> CPU가 어떤 인터럽트인지 조사하기 위해 OS 프로세스 <strong>C</strong>를 실행시킴</p>
+<p><strong>10-커널</strong> CPU가 ISR(interrupt service routine)를 실행하기 위해 OS 프로세스 <strong>D</strong>를 실행시킴</p>
+<h6 id="ISR이-끝나면-DMA가-실행됌"><a href="#ISR이-끝나면-DMA가-실행됌" class="headerlink" title="ISR이 끝나면 DMA가 실행됌"></a>ISR이 끝나면 DMA가 실행됌</h6><h6 id="컨텍스트-스위치가-일어남-3"><a href="#컨텍스트-스위치가-일어남-3" class="headerlink" title="컨텍스트 스위치가 일어남"></a>컨텍스트 스위치가 일어남</h6><p><strong>11-유저</strong> CPU는 8번에서 인터럽트된 유저 프로세스 <strong>b</strong>를 다시 실행시킴</p>
+<h6 id="DMA는-CPU와-무관하게-실행되고-있다가-512-바이트가-controller-buffer에서-MM으로-옮겨지면-CPU에게-인터럽트-시그널을-보냄"><a href="#DMA는-CPU와-무관하게-실행되고-있다가-512-바이트가-controller-buffer에서-MM으로-옮겨지면-CPU에게-인터럽트-시그널을-보냄" class="headerlink" title="DMA는 CPU와 무관하게 실행되고 있다가 512 바이트가 controller buffer에서 MM으로 옮겨지면 CPU에게 인터럽트 시그널을 보냄"></a>DMA는 CPU와 무관하게 실행되고 있다가 512 바이트가 controller buffer에서 MM으로 옮겨지면 CPU에게 인터럽트 시그널을 보냄</h6><p><strong>12-유저</strong> CPU는 유저 프로세스 <strong>b</strong>가 인터럽트된 것을 인식</p>
+<h6 id="컨텍스트-스위치가-일어남-4"><a href="#컨텍스트-스위치가-일어남-4" class="headerlink" title="컨텍스트 스위치가 일어남"></a>컨텍스트 스위치가 일어남</h6><p><strong>13-커널</strong> CPU가 DST를 조사하기위해 OS 프로세스 <strong>E</strong>를 실행시킴</p>
+<p><strong>14-커널</strong> CPU는 8번에서 인터럽트된 유저 프로세스 <strong>b</strong>를 다시 실행하기 위해 OS 프로세스 <strong>F</strong>를 실행함</p>
+<h6 id="컨텍스트-스위치가-일어남-5"><a href="#컨텍스트-스위치가-일어남-5" class="headerlink" title="컨텍스트 스위치가 일어남"></a>컨텍스트 스위치가 일어남</h6><p><strong>15-유저</strong> CPU가 유저 프로세스 <strong>b</strong>를 다시 실행시킴</p>
 
                     
                         
@@ -1082,128 +1237,6 @@
                         <p>
                             <a
                                 href="/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2020/03/30/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-2%EC%A3%BC%EC%B0%A8/"
-                            aria-label=": [운영체제] 2주차"
-                        >
-                            [운영체제] 2주차
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-30T18:54:05+09:00">
-	
-		    2020/03/30
-    	
-    </time>
-    
-    <!-- 리딩타임 -->
-    <span>
-        리딩타임 : 1 분
-    </span>
-    <!-- 카운터 -->
-    <span id="pageviews">페이지뷰 : <font class="count">--<font></span>
-    <!-- 끝 -->
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="Special-Purpose-Registers"><a href="#Special-Purpose-Registers" class="headerlink" title="Special Purpose Registers"></a>Special Purpose Registers</h1><ul>
-<li>AR(Address Register): 메모리 주소 저장, size 12</li>
-<li>PC(Program Counter): 다음에 실행될 명령어의 주소 저장, size 12</li>
-<li>IR(Instruction Register): 지금 실행될 명령어 저장, size 16</li>
-<li>DR(Data Register): 데이터를 저장, size 16</li>
-<li>TR(Temporary Register): 임시 데이터 저장, size 16</li>
-<li>AC(Accumulator): 산술연산, AC &lt;- AC + DR, size 16</li>
-</ul>
-<h1 id="Data-units-in-CPU"><a href="#Data-units-in-CPU" class="headerlink" title="Data units in CPU"></a>Data units in CPU</h1><p><img src="/image/dataunitsincpu.png" alt=""></p>
-<ul>
-<li>이 그림을 그릴줄 알아야 함</li>
-<li>7개의 레지스터가 버스를 통해서 서로 연결</li>
-<li>데이터가 동시에 들어오면 안되기 때문에 MUX(multiplexer)를 통해 데이터를 보낼 레지스터 결정</li>
-<li>ex: S2 = 1 S1 = 1 S0 = 1이라면, Memory Unit으로 데이터가 흘러감</li>
-<li>ex: PC에 있는 값을 AR로 보내고 싶다면? S2, S1, S2를 각각 010으로 세팅하고 AR의 LD를 1로 세팅</li>
-<li>LD(load): 이 단자의 값이 1이면 버스를 통해 해당 레지스터로 데이터가 들어옴</li>
-<li>INR(increment): 이 단자의 값이 1이면 레지스터가 1 증가</li>
-<li>CLR(clear): 이 단자의 값이 1이면 레지스터 값이 0이 됌</li>
-<li>IR에는 레지스터 값이 변하면 안되므로 LD단자 밖에 없다</li>
-<li>Memory Unit의 주소를 Address 단자를 통해 AR이 결정한다</li>
-<li>E(overflow bit)</li>
-</ul>
-<h1 id="CPu-Instruction-Cycle"><a href="#CPu-Instruction-Cycle" class="headerlink" title="CPu Instruction Cycle"></a>CPu Instruction Cycle</h1><ol>
-<li>Instruction Fetch</li>
-</ol>
-<ul>
-<li>메모리에서 IR로 명령어를 가져옴</li>
-</ul>
-<ol start="2">
-<li>Decode</li>
-</ol>
-<ul>
-<li>IR의 명령어 opcode를 알아냄</li>
-</ul>
-<ol start="3">
-<li>Decide effective address, if MRI instruction</li>
-</ol>
-<ul>
-<li>메모리로부터 effective address를 읽어들임 (if I bit = 1)</li>
-</ul>
-<ol start="4">
-<li>Data Fetch, if necessary, if MRI instruction</li>
-<li>Execute</li>
-</ol>
-<ul>
-<li>decoded instruction을 실행</li>
-</ul>
-<ol start="6">
-<li>Store result data, if necessary</li>
-</ol>
-<ul>
-<li>result data를 AC로부터 타겟 메모리 주소에 씀</li>
-</ul>
-<h1 id="예시로-보는-프로그램의-CPU단-실행-순서"><a href="#예시로-보는-프로그램의-CPU단-실행-순서" class="headerlink" title="예시로 보는 프로그램의 CPU단 실행 순서"></a>예시로 보는 프로그램의 CPU단 실행 순서</h1><ol>
-<li>프로그램의 아이콘을 클릭</li>
-<li>OS가 HDD(SSD)에서 해당 파일을 찾는다</li>
-<li>OS가 메인메모리에서 빈 공간을 찾는다</li>
-<li>OS가 프로그램의 첫 번째 명령어의 주소를 불러온다</li>
-<li>CPU가 PC값을 AR로 보낸다 (AR &lt;- PC)</li>
-<li>CPU가 M[AR]의 값을 IR로 보내고 PC값을 증가 시킴 (IR &lt;- M[AR], PC++)</li>
-<li>CPU가 IR에 저장된 명령어를 decode한다 (AR &lt;- IR(0-11))</li>
-<li>CPU가 메인메모리에서 DR로 데이터를 이동시킨다 (DR &lt;- M[AR])</li>
-<li>CPU가 adder와 AC를 이용해 ADD op를 실행시킨다 (AC &lt;- AC+DR)</li>
-</ol>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2020/03/30/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-2%EC%A3%BC%EC%B0%A8/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -1336,7 +1369,7 @@
                 data-message-zero="포스트가 없습니다."
                 data-message-one="1 개의 포스트가 있습니다."
                 data-message-other="{n} 개의 포스트가 있습니다.">
-                23 개의 포스트가 있습니다.
+                24 개의 포스트가 있습니다.
             </p>
         </div>
     </div>

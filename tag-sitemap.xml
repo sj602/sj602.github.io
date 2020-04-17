@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://sj602.github.io/tags/Operating-Systems/</loc>
+        <lastmod>2020-04-17T08:32:24.757Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sj602.github.io/tags/%25EC%259A%25B4%25EC%2598%2581%25EC%25B2%25B4%25EC%25A0%259C/</loc>
+        <lastmod>2020-04-17T08:32:24.757Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://sj602.github.io/tags/leetcode/</loc>
         <lastmod>2020-04-17T03:10:52.821Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -88,13 +102,6 @@
 
     <url>
         <loc>https://sj602.github.io/tags/Operating-System/</loc>
-        <lastmod>2020-04-03T08:59:39.948Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sj602.github.io/tags/%25EC%259A%25B4%25EC%2598%2581%25EC%25B2%25B4%25EC%25A0%259C/</loc>
         <lastmod>2020-04-03T08:59:39.948Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

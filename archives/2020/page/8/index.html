@@ -296,19 +296,25 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/04/03/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-3%EC%A3%BC%EC%B0%A8/"
-                            aria-label=": [운영체제] 3주차"
+                            href="/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/"
+                            aria-label=": [알고리즘] 프로그래머스 튜플 파이썬 풀이"
                         >
-                            [운영체제] 3주차
+                            [알고리즘] 프로그래머스 튜플 파이썬 풀이
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-04-03T21:48:49+09:00">
+    <time datetime="2020-04-04T00:13:46+09:00">
 	
-		    2020/04/03
+		    2020/04/04
     	
     </time>
+    
+        <span>카테고리 </span>
+        
+    : <a class="category-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+
+
     
     <!-- 리딩타임 -->
     <span>
@@ -322,37 +328,15 @@
             </div>
             
                 <div class="postShorten-content">
-                    <h1 id="Modern-Computer-Systems"><a href="#Modern-Computer-Systems" class="headerlink" title="Modern Computer Systems"></a>Modern Computer Systems</h1><ul>
-<li>Consists of CPUs, Main Memory, other devices</li>
-<li>Connected by a bus to access Main Memory</li>
-<li>CPU and devices(controllers) execute simultaneosly and compete for shared memory</li>
-<li>Memory controller unit(MMU) ensures these orders</li>
+                    <h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><ul>
+<li><a href="https://programmers.co.kr/learn/courses/30/lessons/64065" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64065</a></li>
 </ul>
-<h1 id="Basic-Understanding"><a href="#Basic-Understanding" class="headerlink" title="Basic Understanding"></a>Basic Understanding</h1><ul>
-<li>OS(image) is stored in HDD(SSD)</li>
-<li>When power is off, MM is empty(volatile) =&gt; so, when power is on, CPU can do nothing</li>
-<li>Thus, to start computer, OS image must be loaded into MM</li>
-</ul>
-<h1 id="Bootstrap-program"><a href="#Bootstrap-program" class="headerlink" title="Bootstrap program"></a>Bootstrap program</h1><ul>
-<li>하드웨어 제조사에서 개발</li>
-<li>First program to run when power is on</li>
-<li>Stored in Boot-ROM</li>
-<li>Initializes computer system hardware (OS가 초기화 하지 않는 이유? 하드웨어는 제조사별로 다양하기 때문에 OS가 일괄적으로 초기화 불가능)</li>
-<li>Loads OS from HDD(SSD) to first location of MM (addr = 0 or predefined)</li>
-</ul>
-<h1 id="What-does-CPU-do"><a href="#What-does-CPU-do" class="headerlink" title="What does CPU do?"></a>What does CPU do?</h1><ul>
-<li>Fetch Instr.=&gt; Decode =&gt; Fetch Data =&gt; Execute =&gt; Store</li>
-</ul>
-<h4 id="Fetch-Instrunction"><a href="#Fetch-Instrunction" class="headerlink" title="Fetch Instrunction"></a>Fetch Instrunction</h4><h6 id="AR-lt-PC-amp-IR-lt-M-AR-amp-PC"><a href="#AR-lt-PC-amp-IR-lt-M-AR-amp-PC" class="headerlink" title="AR &lt;- PC &amp; IR &lt;- M[AR] &amp; PC++"></a>AR &lt;- PC &amp; IR &lt;- M[AR] &amp; PC++</h6><h1 id="OS-Booting"><a href="#OS-Booting" class="headerlink" title="OS Booting"></a>OS Booting</h1><ul>
-<li>CPU simply fetch, decode, execute, store each line of OS image</li>
-<li>Activates scheduler(=swapper)(pid=0), first process init()(pid=1)</li>
-<li>Waits for interrupts to occur</li>
-<li>Hardware interrupts: signals CPU by bus</li>
-<li>Software interrupts: signals by sys calls(traps)</li>
-<li>Modern OSs are interrupt-driven</li>
-<li><strong>Why interrupts necessary? : OS가 효율적으로 작동하기 위해</strong></li>
-<li><strong>When interrupts necessary? : CPU가 요청한 operation을 I/O controller가 다 끝냈을 때</strong></li>
-</ul>
+<h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>문자열 파싱을 할 줄 안다면 쉬운 문제이다.</p>
+<p>먼저 문제에 주어진 입출력 예시를 보면,</p>
+<p>각 <code>{}</code>로 나뉘어진 집합별로 나눈 다음에 집합 안의 숫자들을</p>
+<p>배열에 순서를 지켜가면서 넣어주면 된다.</p>
+<p>이 때, 각 집합을 길이 오름차순으로 나열한 다음 중복을 체크해주어야 한다.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(s)</span>:</span></span><br><span class="line">    answer = []</span><br><span class="line">    string = s[<span class="number">1</span>:len(s)<span class="number">-1</span>].replace(<span class="string">'&#125;,'</span>, <span class="string">'&#125;-'</span>).split(<span class="string">"-"</span>)</span><br><span class="line">    string = sorted([item[<span class="number">1</span>:len(item)<span class="number">-1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> string], key=<span class="keyword">lambda</span> item: len(item))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> string:</span><br><span class="line">        <span class="keyword">for</span> digit <span class="keyword">in</span> item.split(<span class="string">","</span>):</span><br><span class="line">            <span class="keyword">if</span> int(digit) <span class="keyword">not</span> <span class="keyword">in</span> answer:</span><br><span class="line">                answer.append(int(digit))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
 
                     
                         
@@ -362,7 +346,7 @@
                     
                         <p>
                             <a
-                                href="/2020/04/03/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-3%EC%A3%BC%EC%B0%A8/#post-footer"
+                                href="/2020/04/04/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%9C%ED%94%8C/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -402,7 +386,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 8 of 14</li>
+        <li class="pagination-number">page 8 of 15</li>
     </ul>
 </div>
 
@@ -507,7 +491,7 @@
                 data-message-zero="포스트가 없습니다."
                 data-message-one="1 개의 포스트가 있습니다."
                 data-message-other="{n} 개의 포스트가 있습니다.">
-                23 개의 포스트가 있습니다.
+                24 개의 포스트가 있습니다.
             </p>
         </div>
     </div>

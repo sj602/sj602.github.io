@@ -296,17 +296,17 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2018/12/29/operating-system-chapter-1and2/"
-                            aria-label=": [운영체제] 1장 2장 요약"
+                            href="/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/"
+                            aria-label=": [운영체제] 1주차"
                         >
-                            [운영체제] 1장 2장 요약
+                            [운영체제] 1주차
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2018-12-29T20:29:20+09:00">
+    <time datetime="2020-03-29T15:30:31+09:00">
 	
-		    2018/12/29
+		    2020/03/29
     	
     </time>
     
@@ -328,61 +328,18 @@
             </div>
             
                 <div class="postShorten-content">
-                    <p>학교에 가기전 전공과목에 대해서 공부하고 있다. 중요한 과목들은 다 파악이 됬고<br>훑어보는 목적으로 각 과목에 대해서 알아보고자 한다. 강의는 경성대 양희재 교수님의 강의로 주로 공부를 하며<br>도서관에서 빌린 &lt;운영체제 : 그림으로 배우는 원리와 구조&gt;라는 책을 읽고 모자란 설명을 채울 생각이다.</p>
-<p>1장과 2장은 서론같은 느낌이라서 한 포스트에 요약하겠다.</p>
-<p>1장. 컴퓨터 시스템 소개</p>
-<ol>
-<li>컴퓨터 시스템 구성요소</li>
-</ol>
-<p>1) 프로세서</p>
-<ul>
-<li>중앙처리장치(CPU) : 레지스터, 산술논리연산장치(ALU), 제어장치</li>
+                    <h1 id="운영체제의-목표"><a href="#운영체제의-목표" class="headerlink" title="운영체제의 목표"></a>운영체제의 목표</h1><ul>
+<li>User convenience</li>
+<li>Efficient Resource Management</li>
 </ul>
-<p>2) 버스</p>
-<p>3) 레지스터</p>
-<ul>
-<li>프로그램 카운터(PC: Program Counter): 프로그램 수행을 제어하는 명령어 실행 순서 보관(다음에 실행할 명령어 주소 저장)</li>
-<li>명령어 레지스터(IR: Instrument Register): 현재 수행하는 명령어를 저장, 명령어의 연산자 부분만 저장한다.</li>
-<li>프로그램 상태 레지스터(PSR: Program Status Register): 플래그 같은 상태 정보 저장</li>
-<li>메모리 주소 레지스터(MAR: Memory Address Register): 접근하려는 메모리의 주소 저장</li>
-<li>메모리 버퍼 레지스터(MBR: Memory Buffer Register): 메모리에서 정보를 읽거나 저장할 때 사용</li>
+<h1 id="운영체제-수업에서-12가지-룰"><a href="#운영체제-수업에서-12가지-룰" class="headerlink" title="운영체제 수업에서 12가지 룰"></a>운영체제 수업에서 12가지 룰</h1><h5 id="1-컴퓨터-시스템은-CPU-Memories-HDD-amp-IO-device-Bus로-구성되어있다"><a href="#1-컴퓨터-시스템은-CPU-Memories-HDD-amp-IO-device-Bus로-구성되어있다" class="headerlink" title="1) 컴퓨터 시스템은 CPU, Memories, HDD&amp;IO device + Bus로 구성되어있다"></a>1) 컴퓨터 시스템은 CPU, Memories, HDD&amp;IO device + Bus로 구성되어있다</h5><h5 id="2-CPU와-Main-Memory-만이-internal하고-다른-모든-것들은-external-디바이스"><a href="#2-CPU와-Main-Memory-만이-internal하고-다른-모든-것들은-external-디바이스" class="headerlink" title="2) CPU와 Main Memory 만이 internal하고 다른 모든 것들은 external 디바이스"></a>2) CPU와 Main Memory 만이 internal하고 다른 모든 것들은 external 디바이스</h5><h5 id="3-Storages는-2가지-종류로-구분"><a href="#3-Storages는-2가지-종류로-구분" class="headerlink" title="3) Storages는 2가지 종류로 구분"></a>3) Storages는 2가지 종류로 구분</h5><h6 id="Internal-register-cache-main-memory-gt-volatile"><a href="#Internal-register-cache-main-memory-gt-volatile" class="headerlink" title="- Internal: register, cache, main memory =&gt; volatile"></a>- Internal: register, cache, main memory =&gt; volatile</h6><h6 id="External-HDD-SSD-gt-permant"><a href="#External-HDD-SSD-gt-permant" class="headerlink" title="- External: HDD, SSD =&gt; permant"></a>- External: HDD, SSD =&gt; permant</h6><h5 id="4-모든-파일은-HDD에-저장된다고-가정"><a href="#4-모든-파일은-HDD에-저장된다고-가정" class="headerlink" title="4) 모든 파일은 HDD에 저장된다고 가정"></a>4) 모든 파일은 HDD에 저장된다고 가정</h5><h5 id="5-모든-프로그램은-CPU에-의해-HDD에서-Main-Memory로-적재된다"><a href="#5-모든-프로그램은-CPU에-의해-HDD에서-Main-Memory로-적재된다" class="headerlink" title="5) 모든 프로그램은 CPU에 의해 HDD에서 Main Memory로 적재된다"></a>5) 모든 프로그램은 CPU에 의해 HDD에서 Main Memory로 적재된다</h5><h5 id="6-Main-Memory는-일리노이-아키텍쳐-폰노이만-구조-Illinois-Architecture-로-가정"><a href="#6-Main-Memory는-일리노이-아키텍쳐-폰노이만-구조-Illinois-Architecture-로-가정" class="headerlink" title="6) Main Memory는 일리노이 아키텍쳐(=폰노이만 구조, Illinois Architecture)로 가정"></a>6) Main Memory는 일리노이 아키텍쳐(=폰노이만 구조, Illinois Architecture)로 가정</h5><h6 id="cf-하버드-아키텍쳐-Harvard-Architecture"><a href="#cf-하버드-아키텍쳐-Harvard-Architecture" class="headerlink" title="cf. 하버드 아키텍쳐(Harvard Architecture)"></a>cf. 하버드 아키텍쳐(Harvard Architecture)</h6><p><img src="/image/harvard-architecture.png" alt=""></p>
+<h5 id="7-모든-internal-activities는-Main-Memory를-이용해-CPU에-의해-수행"><a href="#7-모든-internal-activities는-Main-Memory를-이용해-CPU에-의해-수행" class="headerlink" title="7) 모든 internal activities는 Main Memory를 이용해 CPU에 의해 수행"></a>7) 모든 internal activities는 Main Memory를 이용해 CPU에 의해 수행</h5><h6 id="if-there-are-activities-inside-computer-system-there-must-be-certain-programs-being-executed-by-CPU-only-using-MM"><a href="#if-there-are-activities-inside-computer-system-there-must-be-certain-programs-being-executed-by-CPU-only-using-MM" class="headerlink" title="if there are activities inside computer system, there must be certain programs being executed by CPU only using MM"></a>if there are activities inside computer system, there must be certain programs being executed by CPU only using MM</h6><h5 id="8-오직-2개의-프로그램만이-존재-User-program-amp-OS-program"><a href="#8-오직-2개의-프로그램만이-존재-User-program-amp-OS-program" class="headerlink" title="8) 오직 2개의 프로그램만이 존재: User program &amp; OS program"></a>8) 오직 2개의 프로그램만이 존재: User program &amp; OS program</h5><h5 id="9-User-program이-아닌-모든-프로그램은-OS-program"><a href="#9-User-program이-아닌-모든-프로그램은-OS-program" class="headerlink" title="9) User program이 아닌 모든 프로그램은 OS program"></a>9) User program이 아닌 모든 프로그램은 OS program</h5><h5 id="10-Osms-Process-Management-Resource-Management-Control-program을-수행"><a href="#10-Osms-Process-Management-Resource-Management-Control-program을-수행" class="headerlink" title="10) Osms Process Management, Resource Management, Control program을 수행"></a>10) Osms Process Management, Resource Management, Control program을 수행</h5><h5 id="11-multi-user-system을-가정"><a href="#11-multi-user-system을-가정" class="headerlink" title="11) multi-user system을 가정"></a>11) multi-user system을 가정</h5><h5 id="12-Computer-system-shared-by-users-must-keep-all-users-amp-programs-happy"><a href="#12-Computer-system-shared-by-users-must-keep-all-users-amp-programs-happy" class="headerlink" title="12) Computer system shared by users must keep all users &amp; programs happy"></a>12) Computer system shared by users must keep all users &amp; programs happy</h5><h5 id="happiness-from-user-convenience-fastness-and-fairness"><a href="#happiness-from-user-convenience-fastness-and-fairness" class="headerlink" title="happiness from user convenience, fastness and fairness"></a>happiness from user convenience, fastness and fairness</h5><h3 id="프로그램을-메모리에-적재에서-실행하는-이유"><a href="#프로그램을-메모리에-적재에서-실행하는-이유" class="headerlink" title="프로그램을 메모리에 적재에서 실행하는 이유?"></a>프로그램을 메모리에 적재에서 실행하는 이유?</h3><ul>
+<li>CPU의 속도에 비해서 HDD/SSD의 속도가 너무 느려 더 빠른 Main Memory에 적재하여 실행</li>
 </ul>
-<p>4) 메모리</p>
-<ul>
-<li>메모리의 지역성: 실행 중인 프로세서가 실행기간 동안 메모리 정보를 균일하게 접근하지 않고 일부만 집중적을 참조</li>
-<li>메모리 속도: 메모리 사이클 시간 &amp; 메모리 접근 시간</li>
-<li>가상 메모리(Virtual Memory): 보조기억장치에 저장했다가 주기억장치에 필요할 때 실행</li>
-<li>메모리의 논리적 주소 -&gt; 물리적 주소 : Memory Mapping (메모리 관리 장치 MMU: Memory Management Unit이 해줌)</li>
-<li>캐시(Cache): 처리 속도가 빠른 프로세서와 상대적으로 느린 주기억장치 사이에서 데이터를 저장하여 속도 차이를 줄여줌. 주기억장치<br>에서 일정 블록의 데이터를 가져와 워드(Word) 단위로 프로세서에 전달</li>
-<li>프로세서는 주기억장치 접근이 필요하면 먼저 캐시를 조사</li>
-<li>캐시 태그와 원하는 메모리 주소 태그가 일치하면 캐시 적중(Cache Hit)라 한다 &lt;-&gt; 캐시 실패(Cache Miss)</li>
-</ul>
-<p>5) 주변장치</p>
-<ul>
-<li>키보드, 마우스 등</li>
-</ul>
-<ol start="2">
-<li>컴퓨터 시스템의 동작</li>
-</ol>
-<p>1) 명령어 구성</p>
-<ul>
-<li>실행할 연산을 나타내는 연산 코드(Operation Code) &amp; 처리할 데이터가 저장된 주소를 나타내는 오퍼랜드(Operand)로 이루어짐</li>
-<li>직접 주소와 간접 주소</li>
-</ul>
-<p>2) 인터럽트</p>
-<ul>
-<li>인터럽트를 받은 프로그램은 실행을 멈추고 다른 프로그램을 실행한다</li>
-<li>입출력장치가 새로운 입출력 연산을 수행하려고 하면 프로세서는 폴링(Polling)을 통해 각 장치의 상태 비트 검사 (폴링 방식)</li>
-<li>인터럽트가 발생했을 때 프로세서에게 알려줌. 버스 중 인터럽트 요청 회선(IRQ: Interrupt Request Line)이 이런 용도로 쓰임(인터럽트 방식)</li>
-</ul>
-<p>2장. 운영체제 소개</p>
-<ol>
-<li>운영체제의 기능</li>
-</ol>
-<ul>
-<li>버퍼링과 스풀링 모두 입출력장치의 느린 속도를 보완하기 위해 이용하고 프로세서와 입출력장치를 항상 분주하게, 유휴 시간이 없게 만듬</li>
-<li>버퍼링(Buffering): 주기억장치(보통 캐시메모리)를 버퍼로 사용</li>
-<li>스풀링(Spooling): 보조기억장치(하드디스크)를 버퍼로 사용</li>
+<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
+<li>LOAD vs STORE: Memory Hierarchy에서 데이터를 위로 보내면 LOAD, 아래로 보면 STORE</li>
+<li>폰노이만 아키텍쳐 (일리노이 아키텍쳐): Data + Code가 모두 메모리 안에 저장</li>
+<li>하버드 아키텍쳐: Date/Code 메모리가 분리되어 저장</li>
 </ul>
 
                     
@@ -393,7 +350,7 @@
                     
                         <p>
                             <a
-                                href="/2018/12/29/operating-system-chapter-1and2/#post-footer"
+                                href="/2020/03/29/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-1%EC%A3%BC%EC%B0%A8/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -422,7 +379,18 @@
           </li>
         
         
-        <li class="pagination-number">page 4 of 4</li>
+          <li class="pagination-next">
+            <a
+                class="btn btn--default btn--small"
+                href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/page/5/"
+                aria-label="이전 포스트"
+            >
+              <span>이전 포스트</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+        <li class="pagination-number">page 4 of 7</li>
     </ul>
 </div>
 
@@ -527,7 +495,7 @@
                 data-message-zero="포스트가 없습니다."
                 data-message-one="1 개의 포스트가 있습니다."
                 data-message-other="{n} 개의 포스트가 있습니다.">
-                23 개의 포스트가 있습니다.
+                24 개의 포스트가 있습니다.
             </p>
         </div>
     </div>
