@@ -296,17 +296,17 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/03/16/mergesort/"
-                            aria-label=": [알고리즘] 병합정렬(머지소트/Merge Sort)"
+                            href="/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/"
+                            aria-label=": [알고리즘] 프로그래머스 크레인 인형뽑기 게임 파이썬 풀이"
                         >
-                            [알고리즘] 병합정렬(머지소트/Merge Sort)
+                            [알고리즘] 프로그래머스 크레인 인형뽑기 게임 파이썬 풀이
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-03-16T08:27:55+09:00">
+    <time datetime="2020-04-03T16:26:47+09:00">
 	
-		    2020/03/16
+		    2020/04/03
     	
     </time>
     
@@ -328,11 +328,20 @@
             </div>
             
                 <div class="postShorten-content">
-                    <p>병합정렬(Merge Sort)</p>
-<p>나누는 부분인 mergesort()와<br>나눈 부분을 정렬을 하면서 합치는 merge()로 구분할 수 있다.<br>중간 중간 정렬된 원소들이 들어갈 임시 배열 sorted를 선언해줘야 한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">int arr[10];</span><br><span class="line">int sorted[10];</span><br><span class="line"></span><br><span class="line">mergesort(int arr[], int left, int right)&#123;</span><br><span class="line">    &#x2F;&#x2F; left가 right보다 작으면 계속 반씩 나눠준다. 크다면 아무런 동작도 하지 않고 빠져 나와 재귀함수의 merge부분으로 들어간다.</span><br><span class="line">    if(left &lt; right) &#123;</span><br><span class="line">        int mid &#x3D; (left+right)&#x2F;2;</span><br><span class="line">        </span><br><span class="line">        mergesort(arr, left, mid);</span><br><span class="line">        mergesort(arr, mid+1, right);</span><br><span class="line">        merge(arr, left, mid, right); &#x2F;&#x2F; 반씩 나눈 부분을 합친다.</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(int arr[], int left, int mid, int right)&#123;</span><br><span class="line">    int i &#x3D; left, j &#x3D; mid+1, k &#x3D; left;</span><br><span class="line">    &#x2F;&#x2F; 나눈 부분을 합친다</span><br><span class="line">    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; right) &#123;</span><br><span class="line">        if(arr[i] &lt; arr[j]) &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[i];</span><br><span class="line">            i++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[j];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 왼쪽 부분이 먼저 끝날수도, 오른쪽 부분이 먼저 끝날수도 있기 때문에 남아있는 원소를 넣어준다.</span><br><span class="line">    if(i &gt; mid) &#123;</span><br><span class="line">        for(; j &lt;&#x3D; right; j++) &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[j];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for(; i &lt;&#x3D; mid; i++) &#123;</span><br><span class="line">            sorted[k] &#x3D; arr[i];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 최종적으로 sorted배열에 있는 원소를 실제 배열인 arr로 옮겨준다</span><br><span class="line">    for(int m &#x3D; left; m &lt;&#x3D; right; m++) &#123;</span><br><span class="line">        arr[m] &#x3D; sorted[m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                    <h1 id="문제-링크"><a href="#문제-링크" class="headerlink" title="문제 링크"></a>문제 링크</h1><ul>
+<li><a href="https://programmers.co.kr/learn/courses/30/lessons/64061" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/64061</a></li>
+</ul>
+<h1 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h1><p>스택을 이용한 전형적인 문제이다. moves 배열에서 인형뽑기를 할 각 열을 꺼내주고,</p>
+<p>board의 해당 칸이 0보다 크면(=인형이 있으면) 그 인형을 뽑는다.</p>
+<p>스택에 넣어주기 전, 스택의 top을 검사하여 뽑은 인형과 top이 같으면 인형 수를 2 증가시킨다.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(board, moves)</span>:</span></span><br><span class="line">    answer = <span class="number">0</span></span><br><span class="line">    moves = deque([move<span class="number">-1</span> <span class="keyword">for</span> move <span class="keyword">in</span> moves])</span><br><span class="line">    stack = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> moves:</span><br><span class="line">        found = <span class="literal">False</span></span><br><span class="line">        j = moves.popleft()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(board)):</span><br><span class="line">            <span class="keyword">if</span> board[i][j] &gt; <span class="number">0</span>:</span><br><span class="line">                found=<span class="literal">True</span></span><br><span class="line">                curr = board[i][j]</span><br><span class="line">                board[i][j] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> stack <span class="keyword">and</span> found:</span><br><span class="line">            top = stack.pop()</span><br><span class="line">            <span class="keyword">if</span> curr == top:</span><br><span class="line">                answer+=<span class="number">2</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(top)</span><br><span class="line">                stack.append(curr)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            stack.append(curr)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
 
-<p>시간복잡도는 평균적인 경우나 최악의 경우에도 O(NlogN)을 보장한다.<br>왜냐면 원소들의 순서가 어떻든, 퀵소트처럼 이미 정렬이 됬든 안됬든, 무조건 낱개가 될때까지 반씩 나눈 다음에<br>낱개가 된 원소들끼리 합치면서 정렬을 하기 때문이다.<br>이미 공부를 했던 정렬인데 영상을 참고하면서 따라했다.<br>언제나 개념은 알고있지만 실제로 코드로 옮기는 부분에 있어서 문제가 많다.<br>Keep Going</p>
+<h1 id="배운-점"><a href="#배운-점" class="headerlink" title="배운 점"></a>배운 점</h1><p>파이썬의 <strong>변수 스코프</strong>에 대해서 헷갈려서 자꾸 에러가 났었다.</p>
+<p><strong>curr</strong> 변수가 루프를 돌면서 계속 살아있어서 만약 해당 칸에 인형이 없다고해도(=0) 전에 선택한 인형의 값이 남아있었다.</p>
+<p>파이썬의 경우, <strong>블록 스코프</strong>를 가지고 있는 다른 언어(C, Javascript…)와 다르게 <strong>함수 스코프</strong>이고,</p>
+<p>오직 <strong>글로벌 변수</strong>와 <strong>로컬 변수</strong>밖에 존재하지 않는다.</p>
+<p>이 기회를 통해서 다시 한번 파이썬의 변수 스코프에 대해 알게 되었다.</p>
+<h1 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h1><p>파이썬 변수 스코프에 관해서 - <a href="https://soooprmx.com/archives/5854" target="_blank" rel="noopener">https://soooprmx.com/archives/5854</a></p>
 
                     
                         
@@ -342,7 +351,7 @@
                     
                         <p>
                             <a
-                                href="/2020/03/16/mergesort/#post-footer"
+                                href="/2020/04/03/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%81%AC%EB%A0%88%EC%9D%B8-%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0-%EA%B2%8C%EC%9E%84/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -371,7 +380,18 @@
           </li>
         
         
-        <li class="pagination-number">page 4 of 4</li>
+          <li class="pagination-next">
+            <a
+                class="btn btn--default btn--small"
+                href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/page/5/"
+                aria-label="이전 포스트"
+            >
+              <span>이전 포스트</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+        <li class="pagination-number">page 4 of 5</li>
     </ul>
 </div>
 
@@ -476,7 +496,7 @@
                 data-message-zero="포스트가 없습니다."
                 data-message-one="1 개의 포스트가 있습니다."
                 data-message-other="{n} 개의 포스트가 있습니다.">
-                22 개의 포스트가 있습니다.
+                23 개의 포스트가 있습니다.
             </p>
         </div>
     </div>
